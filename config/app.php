@@ -54,7 +54,7 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', 'https://amira-travel.herokuapp.com/'),
+    'asset_url' => env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -217,6 +217,7 @@ return [
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
+        'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
         // 'Redis' => Illuminate\Support\Facades\Redis::class,
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,

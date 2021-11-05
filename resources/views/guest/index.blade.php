@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Hehee Test')
+@section('title', 'Almira Travel - Home Page')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/index/styles.css') }}">
@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    <div class="carousel my-4">
+    <div class="carousel">
         <div class="owl-carousel owl-theme">
             <div class="item text-center"><h4>ini gambar</h4></div>
             <div class="item text-center"><h4>ini gambar</h4></div>
@@ -54,7 +54,7 @@
                 </div>
                 @endfor
             </div>
-            <a href="http://" class="btn btn-info col-12 btn-large my-3">Lihat Selengkapnya</a>
+            <a href="http://" class="btn btn-outline-info col-12 btn-large my-3">Lihat Selengkapnya</a>
         </div>
     </div>
 
