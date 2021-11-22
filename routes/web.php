@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'guest/index');
+Route::view('/',      'guest/index');
 Route::view('/about', 'guest/about');
 Route::view('/contact', 'guest/contact');
+Route::view('/foto', 'guest/galeri-foto');
+
+Route::view('/admin/dashboard', 'dashboard/index');

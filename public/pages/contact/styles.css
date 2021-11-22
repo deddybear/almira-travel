@@ -1,0 +1,16 @@
+.list-group-item {
+    border: none !important;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 100%;
+}
+
+.icons {
+    position: absolute;
+    top: 12px;
+    left: 0;
+}

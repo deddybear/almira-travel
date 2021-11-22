@@ -28,6 +28,9 @@
             background-color: #CEE5D0 !important;
             border-radius: 0 !important;
         }
+        .logo-brand {
+            
+        }
         body {
             background: #f4f6f9 !important;
         }
@@ -37,14 +40,17 @@
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.carousel.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('/plugins/adminlte/adminlte.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('/plugins/fontawesome/all.css') }}">
     @yield('css')
 
 </head>
 <body>
     <header>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white p-3">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
             <div class="container">
-                <a class="navbar-brand" href="#">Logo</a>
+                <a class="navbar-brand" href="/">
+                    <img class="logo-brand" src="/images/logo.png" width="120" height="50" alt="logo" srcset="/images/logo.png">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -56,15 +62,12 @@
                      <li class="nav-item mx-3">
                        <a class="nav-link" href="/about">Tentang Kami</a>
                      </li>
-                     <li class="nav-item mx-3">
-                         <a class="nav-link" href="#">Klien Kami</a>
-                     </li>
                      <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                           Galeri
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Foto</a>
+                            <a class="dropdown-item" href="/foto">Foto</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Video</a>
                         </div>
@@ -134,6 +137,7 @@
 <script src="{{ asset('/plugins/popper.min.js') }}"></script>
 <script src="{{ asset('/plugins/bootstrap/bootstrap.js') }}"></script>
 <script src="{{ asset('/plugins/owl-carousel/owl.carousel.js') }}"></script>
+<script src="{{ asset('/plugins/fontawesome/all.js') }}"></script>
 {{-- <script src="{{ asset('/plugins/adminlte/adminlte.js') }}"></script> --}}
 @yield('js')
 </html>

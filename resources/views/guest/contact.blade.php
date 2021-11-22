@@ -8,17 +8,8 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/animate.min.css') }}">
-<style>
-    .list-group-item {
-        border: none !important;
-    }
-    .gmap_canvas {
-        overflow: hidden;
-        background: none !important;
-        height: 500px;
-        width: 100%;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('pages/contact/styles.css') }}">
+
 @endsection
 
 @section('js')
@@ -46,9 +37,21 @@
                 <div class="card p-4">
                     <h5 class="card-title">Hubungi Kami</h5>
                     <ul class="list-group list-group-flush border-0">
-                        <li class="list-group-item">Alamat</li>
-                        <li class="list-group-item">Telepon</li>
-                        <li class="list-group-item">Email</li>
+                        <li class="list-group-item pl-5 pt-1">
+                            <i class="fas fa-home icons"></i>
+                            <h5>Alamat</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, dolores provident ad error rerum repellendus accusamus consectetur, itaque, odit architecto recusandae neque vel totam? Quo quibusdam eos reiciendis aperiam vero!</p>
+                        </li>
+                        <li class="list-group-item pl-5 pt-1">
+                            <i class="fas fa-phone-square icons"></i>
+                            <h5>Telepon</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, dolores provident ad error rerum repellendus accusamus consectetur, itaque, odit architecto recusandae neque vel totam? Quo quibusdam eos reiciendis aperiam vero!</p>
+                        </li>
+                        <li class="list-group-item pl-5 pt-1">
+                            <i class="fas fa-envelope icons"></i>
+                            <h5>Email</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ad vero delectus neque maiores inventore veritatis iusto magni ipsam explicabo maxime sint ducimus facilis temporibus aliquam, quidem quas, consequuntur cum.</p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -74,18 +77,18 @@
                             <form action="">
                                 <div class="form-row">
                                     <div class="form-group col-12 col-md-6">
-                                        <label for="exampleInputEmail1">Nama Anda</label>
-                                        <input type="email" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <label >Nama Anda</label>
+                                        <input type="email" class="form-control" name="name" aria-describedby="emailHelp">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
                                     <div class="form-group col-12 col-md-6">
-                                        <label for="exampleInputEmail1">Email Anda</label>
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <label >Email Anda</label>
+                                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
                                     <div class="form-group col-12 col-md-6">
-                                        <label for="exampleInputEmail1">Nomer WA / Bisa dihubungi</label>
-                                        <input type="email" class="form-control" name="number" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <label >Nomer WA / Bisa dihubungi</label>
+                                        <input type="email" class="form-control" name="number" aria-describedby="emailHelp">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
                                     <div class="form-group col-12">
