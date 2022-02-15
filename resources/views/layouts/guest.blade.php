@@ -11,30 +11,19 @@
     <title>@yield('title')</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        #section {
-            margin-top: 4.5rem !important;
-        }
-        .pull-left {
-            float: left !important;
-        }
-        .pull-right {
-            float: right !important;
-        }
-        .breadcrumb {
-            background-color: #CEE5D0 !important;
-            border-radius: 0 !important;
-        }
-        .logo-brand {
-            
-        }
-        body {
-            background: #f4f6f9 !important;
-        }
-    </style>
+
+    <link rel="stylesheet" href="{{ asset('/styles.css') }}">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/bootstrap.css') }}">
@@ -45,24 +34,50 @@
 
 </head>
 <body>
-    <header>
+
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
             <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img class="logo-brand" src="/images/logo.png" width="120" height="50" alt="logo" srcset="/images/logo.png">
+                <a class="navbar-brand mr-5" href="/">
+                    <img  src="/images/logo.png" width="140" height="60" alt="logo" srcset="/images/logo.png">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item mx-3">
-                       <a class="nav-link" href="/">Home</a>
+                  <ul class="navbar-nav">
+                     <li class="nav-item mx-2 ">
+                       <a class="nav-link {{ request()->is('/') ? 'posisi' : '' }}" href="/">Home</a>
                      </li>
-                     <li class="nav-item mx-3">
-                       <a class="nav-link" href="/about">Tentang Kami</a>
+                     <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                       <a class="nav-link" href="/paket-tour">Paket Tour</a>
                      </li>
-                     <li class="nav-item dropdown mx-3">
+                     <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                         <a class="nav-link" href="/travel-reguler" >Travel Reguler / Carter</a>
+                     </li>
+                     <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                         <a class="nav-link" href="/sewa-mobil">Sewa Mobil</a>
+                     </li>
+                     <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                        <a class="nav-link" href="/">Booking Tiket</a>
+                     </li>
+                     <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                        <a class="nav-link" href="/">FAQ</a>
+                     </li>
+                     {{-- <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                        <a class="nav-link {{ (request()->is('tentang-kami')) ? 'posisi' : '' }}" href="/tentang-kami">Tentang Kami</a>
+                     </li>
+                     <li class="nav-item mx-2"></li>
+                     <li class="nav-item mx-2">
+                         <a class="nav-link" href="#">Dashboard</a>
+                     </li> --}}
+
+                    {{-- <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                           Galeri
                         </a>
@@ -71,14 +86,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Video</a>
                         </div>
-                     </li>
-                     <li class="nav-item mx-3">
-                         <a class="nav-link" href="/contact">Hubungi Kami</a>
-                     </li>
-                     <li class="nav-item mx-3">
-                         <a class="nav-link" href="#">Dashboard</a>
-                     </li>
-
+                     </li> --}}
                     {{-- <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                         Dropdown
@@ -101,24 +109,24 @@
                 </div>
             </div>
         </nav>
-    </header>
+
 
     <section id="section">
         @yield('content')
     </section>
 
-    <footer class="p-5 mt-5" style="background: #FFBF86">
-        <div class="container">
+    <footer class="p-5 mt-5" style="background: #050A15">
+        <div class="container text-white-50">
             <div class="row">
                 <div class="col-md-4 mx-auto">
-                    <h4><u>Menu 1</u></h4>
+                    <img  src="/images/logo.png" width="150" height="70" alt="logo" srcset="/images/logo.png">
                     <ul class="row list-unstyled">
-                        <li class="col-6"><a href="">Beranda</a></li>
-                        <li class="col-6"><a href="">Beranda</a></li>
-                        <li class="col-6"><a href="">Beranda</a></li>
-                        <li class="col-6"><a href="">Beranda</a></li>
-                        <li class="col-6"><a href="">Beranda</a></li>
-                        <li class="col-6"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mx-auto">

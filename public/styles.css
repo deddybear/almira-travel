@@ -1,0 +1,73 @@
+#section {
+    margin-top: 6rem !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.breadcrumb {
+    background-color: #CEE5D0 !important;
+    border-radius: 0 !important;
+}
+
+.navbar-brand {
+    padding-bottom: 1.2rem !important;
+}
+
+.nav-link {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-weight: 500 !important;
+    color: black !important;
+}
+
+.nav-link:hover {
+    color: #1572A1 !important;
+    border-bottom: 1px solid #FFBD35;
+    border-bottom-width: 3.1px;
+}
+
+.posisi {
+    color: #1572A1 !important;
+    border-bottom: 1px solid #FFBD35;
+    border-bottom-width: 3.1px;
+}
+
+.mx-3 {
+    margin-left: 1.2rem !important;
+    margin-right: 1.2rem !important;
+}
+
+body {
+    background: #f4f6f9 !important;
+}
+
+.card-outline-btn-gray {
+    border-bottom: 3px solid #343a40 !important;
+}
+
+.card-outline-btn-gray:hover {
+    border-bottom: 3px solid #28a745 !important;
+}
+
+.card-outline-gray {
+    border-top: 3px solid #343a40 !important;
+}
+
+.card-outline-gray:hover {
+    border-top: 3px solid #28a745 !important;
+}
+
+.btn-no-radius {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
