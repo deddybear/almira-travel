@@ -11,20 +11,10 @@
 @endsection
 
 @section('content')
-    <nav class="breadcrumb mb-4">
-        <div class="container">
-            <div class="pull-left">
-                <h3 class="mt-2">Tentang Kami</h3>
-            </div>
-            <div class="pull-right">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">TENTANG KAMI</li>
-                </ol>
-            </div>
-        </div>
-    </nav>
-
+    <div class="title text-center">
+      <div class="subtitle text-decoration-none mb-3">Paket Tour</div>
+      <h3 class="primary">Favorit</h3>
+    </div>
     <div class="container">
         <div class="about-us mb-3">
             <div class="row">

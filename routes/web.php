@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/',      'guest/index');
-Route::view('/tentang-kami', 'guest/tentang-kami');
 Route::view('/paket-tour', 'guest/paket-tour');
 Route::view('/travel-reguler', 'guest/travel-reguler');
 Route::view('/sewa-mobil', 'guest/sewa-mobil');
-// Route::view('/contact', 'guest/contact');
+Route::view('/desc', 'guest/description');
+Route::view('/contact', 'guest/contact');
 // Route::view('/foto', 'guest/galeri-foto');
 
 Route::view('/admin/dashboard', 'dashboard/index');

@@ -35,7 +35,7 @@
                       <h5 class="card-title">lorem ipsum dolor si amet</h5>
                       <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <div class="go-to">
-                        <a class="btn btn-primary col-6 mt-3 mx-auto" href="#">Selengkapnya <i class="fas fa-sign-in-alt"></i> </a>
+                        <a class="btn btn-primary col-6 mt-3 mx-auto" href="/desc">Selengkapnya <i class="fas fa-sign-in-alt"></i> </a>
                       </div>
                     </div>
                 </div>
