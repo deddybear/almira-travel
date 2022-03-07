@@ -21,4 +21,10 @@ Route::view('/desc', 'guest/description');
 Route::view('/contact', 'guest/contact');
 // Route::view('/foto', 'guest/galeri-foto');
 
-Route::view('/admin/dashboard', 'dashboard/index');
+Route::prefix('dashboard')->group(function () {
+    Route::view('/', 'dashboard/index');
+    Route::view('/tour', 'dashboard/paket-tour');
+    Route::view('/travel', 'dashboard/travel-reguler');
+    Route::view('/car', 'dashboard/sewa-mobil');
+    Route::view('/contact', 'dashboard/kontak');
+});

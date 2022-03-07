@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.carousel.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('/plugins/adminlte/adminlte.css') }}"> --}}
-    <link rel="stylesheet" href="{{ asset('/plugins/fontawesome/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('/fontawesome/all.css') }}">
     @yield('css')
 
 </head>
@@ -67,7 +67,7 @@
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/">Booking Tiket</a>
+                        <a class="nav-link" href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202.">Booking Tiket</a>
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
@@ -75,7 +75,7 @@
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
                     {{-- <li class="nav-item mx-2"></li>
                      <li class="nav-item mx-2">
@@ -159,7 +159,7 @@
 <script src="{{ asset('/plugins/popper.min.js') }}"></script>
 <script src="{{ asset('/plugins/bootstrap/bootstrap.js') }}"></script>
 <script src="{{ asset('/plugins/owl-carousel/owl.carousel.js') }}"></script>
-<script src="{{ asset('/plugins/fontawesome/all.js') }}"></script>
+<script src="{{ asset('/fontawesome/all.js') }}"></script>
 {{-- <script src="{{ asset('/plugins/adminlte/adminlte.js') }}"></script> --}}
 @yield('js')
 
