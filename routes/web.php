@@ -27,4 +27,5 @@ Route::prefix('dashboard')->group(function () {
     Route::view('/travel', 'dashboard/travel-reguler');
     Route::view('/car', 'dashboard/sewa-mobil');
     Route::view('/contact', 'dashboard/kontak');
+    Route::view('/carousel', 'dashboard/carousel-images');
 });

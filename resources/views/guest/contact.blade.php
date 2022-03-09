@@ -48,7 +48,7 @@
                                 class="col-12 my-3"
                                 height="400" 
                                 id="gmap_canvas" 
-                                src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23711.675802960755!2d112.77694639269892!3d-7.419660715074033!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e684ffffffff%3A0x93663aaf5a5944e1!2sDelta%20Fishing!5e0!3m2!1sen!2sid!4v1646800851272!5m2!1sen!2sid" 
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                             </iframe>                       
                         <div class="pesan">

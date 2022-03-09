@@ -90,6 +90,12 @@
                                         <p>Sewa Mobil</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="/dashboard/carousel" class="nav-link">
+                                        <i class="fa-solid fa-panorama nav-icon"></i>
+                                        <p>Carousel Images</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
