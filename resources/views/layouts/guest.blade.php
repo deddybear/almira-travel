@@ -59,7 +59,7 @@
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/travel-reguler">Travel Reguler / Carter</a>
+                        <a class="nav-link" href="/travel-reguler">Travel Reguler (Door to Door)</a>
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
