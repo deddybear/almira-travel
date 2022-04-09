@@ -1,3 +1,4 @@
+
 #section {
     margin-top: 6rem !important;
 }
@@ -44,7 +45,8 @@
 }
 
 body {
-    background: #f4f6f9 !important;
+    background-image: url('/images/background.jpg') !important;
+    height: 100% !important;
 }
 
 .card-outline-btn-gray {
@@ -75,4 +77,9 @@ body {
 .bg-blue-gradient {
     background: rgb(255,165,0);
     background: linear-gradient(90deg, rgba(255,165,0,1) 31%, rgba(254,245,1,1) 100%);
+}
+
+.bg-orange-gradient-rev {
+    background: rgb(254,245,1);
+    background: linear-gradient(90deg, rgba(254,245,1,1) 0%, rgba(255,165,0,1) 44%);
 }

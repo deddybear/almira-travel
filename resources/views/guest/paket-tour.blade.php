@@ -11,9 +11,9 @@
 @endsection
 
 @section('content')
-    <div class="title text-center">
-        <div class="subtitle text-decoration-none mb-3">Paket Tour</div>
-        <h3 class="primary">Favorit</h3>
+    <div class="text-center my-4">
+        <div class="subtitle text-decoration-none mb-3 text-white">Paket Tour</div>
+        <h3 class="primary text-white">Favorit</h3>
     </div>
     <div class="row p-4">
         @for ($i = 0; $i < 15; $i++)

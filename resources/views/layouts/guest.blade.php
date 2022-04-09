@@ -67,10 +67,6 @@
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202.">Booking Tiket</a>
-                    </li>
-                    <li class="nav-item mx-2"></li>
-                    <li class="nav-item mx-2">
                         <a class="nav-link" href="/contact">Kontak</a>
                     </li>
                     <li class="nav-item mx-2"></li>
@@ -128,18 +124,18 @@
         </a>
     </section>
 
-    <footer class="p-5 mt-5" style="background: #050A15">
-        <div class="container text-white-50">
+    <footer class="p-5 mt-5 bg-orange-gradient-rev">
+        <div class="container ">
             <div class="row">
                 <div class="col-md-4 mx-auto">
                     <img src="/images/logo.png" width="150" height="70" alt="logo" srcset="/images/logo.png">
                     <ul class="row list-unstyled">
-                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-white-50"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mx-auto">

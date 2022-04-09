@@ -28,8 +28,8 @@
         <div class="motto my-4">
             <div class="col-12">
                 <h4 class="text-center title-motto m-0">CV. Almira Travel</h4>
-                <h4 class="text-center title-desc">Sewa Mobil & Tur Professional</h4>
-                <p class="text-center text-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sunt non consequuntur, error minima eos 
+                <h4 class="text-center title-desc text-white">Sewa Mobil & Tur Professional</h4>
+                <p class="text-center text-motto text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sunt non consequuntur, error minima eos 
                     debitis assumenda omnis rerum in quam soluta accusantium temporibus recusandae deleniti porro necessitatibus expedita est?</p>
             </div>
         </div>
@@ -83,7 +83,7 @@
                 </div>
                 @endfor
             </div>
-            <a href="http://" class="btn btn-outline-warning col-12 btn-large my-3">Lihat Selengkapnya</a>
+            <a href="http://" class="btn btn-warning col-12 btn-large my-3">Lihat Selengkapnya</a>
         </div>
     </div>
 
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-7">
-                    <h3 class="text-center">Kelebihan Layanan Kami</h3>
+                    <h3 class="text-center text-white">Kelebihan Layanan Kami</h3>
                     <div class="row">
                         <div class="col-12 col-lg-6 mb-4">
                             <div class="card">                        
