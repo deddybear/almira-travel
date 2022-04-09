@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-blue-gradient">
         <div class="container">
             <a class="navbar-brand mr-5" href="/">
                 <img src="/images/logo.png" width="140" height="60" alt="logo" srcset="/images/logo.png">
@@ -49,7 +49,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav text-warning">
                     <li class="nav-item mx-2 ">
                         <a class="nav-link {{ request()->is('/') ? 'posisi' : '' }}" href="/">Home</a>
                     </li>
