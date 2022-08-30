@@ -73,25 +73,25 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/dashboard/tour" class="nav-link">
+                                    <a href="/admin/dashboard/tour" class="nav-link">
                                         <i class="fa-solid fa-route nav-icon"></i>
                                         <p>Paket Tour</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/travel" class="nav-link">
+                                    <a href="/admin/dashboard/travel" class="nav-link">
                                         <i class="fa-solid fa-plane-departure nav-icon"></i>
                                         <p>Travel Reguler</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/car" class="nav-link">
+                                    <a href="/admin/dashboard/car" class="nav-link">
                                         <i class="fa-solid fa-car-side nav-icon"></i>
                                         <p>Sewa Mobil</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/carousel" class="nav-link">
+                                    <a href="/admin/dashboard/carousel" class="nav-link">
                                         <i class="fa-solid fa-panorama nav-icon"></i>
                                         <p>Carousel Images</p>
                                     </a>
@@ -99,7 +99,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard/contact" class="nav-link">
+                            <a href="/admin/dashboard/contact" class="nav-link">
                                 <i class="fa-solid fa-address-book nav-icon"></i>
                                 <p>Update Kontak</p>
                             </a>
@@ -163,8 +163,10 @@
                                 ?>
                                 @for ($i = 1; $i <= count(Request::segments()); $i++)
                                     @if ($i < count(Request::segments()) & $i > 0)
-                                        <?php $link .= "/" . Request::segment($i); ?>
-                                        <li class="breadcrumb-item"><a href="{{ $link }}">{{ ucwords(str_replace('-', '', Request::segment($i))) }}</a></li>
+                                        @php
+                                            $link .= "/" . Request::segment($i);    
+                                        @endphp
+                                        <li class="breadcrumb-item">{{ ucwords(str_replace('-', '', Request::segment($i))) }}</li>
                                     @else
                                         <li class="breadcrumb-item active">{{ ucwords(str_replace('-', '', Request::segment($i))) }}</li>
                                     @endif

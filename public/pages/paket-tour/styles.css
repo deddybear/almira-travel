@@ -5,6 +5,10 @@
     padding-bottom: 20px;
 }
 
+.svg-inline--fa {
+    height: 1em !important;
+}
+
 .title::after {
     text-decoration: underline;
     content: ' ';

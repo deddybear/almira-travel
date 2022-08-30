@@ -28,8 +28,8 @@
         <div class="motto my-4">
             <div class="col-12">
                 <h4 class="text-center title-motto m-0">CV. Almira Travel</h4>
-                <h4 class="text-center title-desc text-white">Sewa Mobil & Tur Professional</h4>
-                <p class="text-center text-motto text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sunt non consequuntur, error minima eos 
+                <h4 class="text-center title-desc">Sewa Mobil & Tur Professional</h4>
+                <p class="text-center text-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sunt non consequuntur, error minima eos 
                     debitis assumenda omnis rerum in quam soluta accusantium temporibus recusandae deleniti porro necessitatibus expedita est?</p>
             </div>
         </div>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-7">
-                    <h3 class="text-center text-white">Kelebihan Layanan Kami</h3>
+                    <h3 class="text-center">Kelebihan Layanan Kami</h3>
                     <div class="row">
                         <div class="col-12 col-lg-6 mb-4">
                             <div class="card">                        
@@ -206,9 +206,9 @@
                 </div>
             </div>
         </div>
-        <div class="container list-jasa">
+        <div class="container list-jasa my-4">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 px-1">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray">
                         <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
                         <div class="card-body">
@@ -217,7 +217,7 @@
                           </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 px-1">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray" >
                         <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
                         <div class="card-body">
@@ -226,7 +226,7 @@
                           </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 px-1">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray">
                         <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
                         <div class="card-body">
@@ -235,7 +235,7 @@
                           </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 px-1">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray">
                         <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
                         <div class="card-body">
@@ -252,12 +252,12 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-lg-6 p-0">
-                    <img src="https://via.placeholder.com/585?text=CaraBooking" alt="">
+                    <img class="img-booking" src="https://via.placeholder.com/585?text=CaraBooking" alt="">
                 </div>
                 <div class="col-12 col-lg-6 p-0">
                     <div class="card card-how-to p-2">
                         <div class="card-body">
-                            <div class="row mb-5">
+                            <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
                                         <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
@@ -269,7 +269,7 @@
                                     <p class="text-secondary text-how-desc text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
                                 </div>
                             </div>
-                            <div class="row mb-5">
+                            <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
                                         <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
@@ -281,7 +281,7 @@
                                     <p class="text-secondary text-how-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
                                 </div>
                             </div>
-                            <div class="row mb-5">
+                            <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
                                         <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
@@ -293,12 +293,12 @@
                                     <p class="text-secondary text-how-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
                                 </div>
                             </div>  
-                            <div class="row">
+                            <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
                                         <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
                                     </span>
-                                    <div class="number"> 3. </div>                                    
+                                    <div class="number"> 4. </div>                                    
                                 </div>                               
                                 <div class="col text-how-to">
                                     <h5 class="text-how-title">Lorem ipsum</h5>

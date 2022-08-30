@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tour;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // User::factory(1)->create();
+        Tour::factory(1)->create();
         // \App\Models\User::factory(10)->create();
     }
 }

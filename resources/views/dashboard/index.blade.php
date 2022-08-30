@@ -11,5 +11,6 @@
 @endsection
 
 @section('content')
-    <h1>a</h1>
+
+<img src="{{ asset('storage/images/2022-07-03_114022.jpg') }}" alt="" srcset="">
 @endsection

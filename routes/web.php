@@ -1,6 +1,15 @@
 <?php
 
+use App\Http\Controllers\CarouselListController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaketTourController;
+use App\Http\Controllers\SewaMobilController;
+use App\Http\Controllers\TravelRegulerController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +30,43 @@ Route::view('/desc', 'guest/description');
 Route::view('/contact', 'guest/contact');
 // Route::view('/foto', 'guest/galeri-foto');
 
-Route::prefix('dashboard')->group(function () {
-    Route::view('/', 'dashboard/index');
-    Route::view('/tour', 'dashboard/paket-tour');
-    Route::view('/travel', 'dashboard/travel-reguler');
-    Route::view('/car', 'dashboard/sewa-mobil');
-    Route::view('/contact', 'dashboard/kontak');
-    Route::view('/carousel', 'dashboard/carousel-images');
+Route::prefix('admin')->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'pageView']);
+        Route::get('/tour', [PaketTourController::class, 'pageView']);
+
+
+        Route::prefix('travel')->group(function () {
+            Route::get('/', [TravelRegulerController::class, 'pageView']);
+        });
+
+        Route::prefix('car')->group(function () {
+            Route::get('/', [SewaMobilController::class, 'pageView']);
+        });
+        
+        Route::prefix('contact')->group(function () {
+            Route::get('/', [ContactController::class, 'pageView']);
+        });
+     
+        Route::prefix('carousel')->group(function () {
+            Route::get('/', [CarouselListController::class, 'pageView']);
+        });
+
+      
+    });
 });
+
+Route::prefix('tour')->group(function () {
+    Route::get('/list', [PaketTourController::class, 'listData']);
+    Route::get('/search', [PaketTourController::class, 'search']);
+    Route::post('/create', [PaketTourController::class, 'create']);
+    Route::patch('/update/{id}', [PaketTourController::class, 'update']);
+    Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
+});
+
+Route::get('/test/storage/delete/{id}', [PaketTourController::class, 'deleteFiles']);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
