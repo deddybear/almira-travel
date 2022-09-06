@@ -81,6 +81,14 @@ Route::prefix('mobil')->group(function () {
     Route::delete('/delete/{id}', [SewaMobilController::class, 'delete']);
 });
 
+Route::prefix('caraousel')->group(function () {
+    Route::get('/list', [CarouselListController::class, 'listData']);
+    Route::get('/search', [CarouselListController::class, 'search']);
+    Route::post('/create', [CarouselListController::class, 'create']);
+    Route::patch('/update/{id}', [CarouselListController::class, 'update']);
+    Route::delete('/delete/{id}', [CarouselListController::class, 'delete']);
+});
+
 // Route::get('/test/storage/delete/{id}', [PaketTourController::class, 'deleteFiles']);
 
 

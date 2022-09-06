@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
 @section('title', 'Panel Admin')
-@section('title-header', 'Data Mobil')
+@section('title-header', 'Data Gambar Caraousel')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/plugins/dataTables/datatables.css') }}">
@@ -13,7 +13,7 @@
 <script src="{{ asset('/plugins/moment-with-locales.js') }}"></script>  
 <script src="{{ asset('/plugins/sweetalert2/sweetalert2.js') }}"></script>
 <script src="{{ asset('/plugins/dataTables/datatables.js') }}"></script>
-<script src="{{ asset('/pages/dashboard/car/script.js') }}"></script>
+<script src="{{ asset('/pages/dashboard/caraousel/script.js') }}"></script>
 @endsection
 
 @section('content')
@@ -34,11 +34,12 @@
                                 <th>No. </th>
                                 <th>Preview</th>
                                 <th>Tanggal Dibuat</th>
+                                <th>Tanggal Diubah</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {{-- <tr>
                                 <td>1</td>
                                 <td><img src="{{ asset('/images/mobil-1.png') }}" width="500" height="350"></td>
                                 <td>2021-05-20</td>
@@ -50,17 +51,50 @@
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                         <tfoot>
                             <th></th>
                             <th></th>
+                            <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th></th>
                         </tfoot>
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal_form" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form" enctype="multipart/form-data">
+                    <div class="col-sm-12">
+                        <div class="form-group row uploadFields">
+                            <label for="photo_1" class="col-12">File input</label>                
+                                <div class="input-group col-10">
+                                    <div class="custom-file">
+                                        <input required type="file" class="custom-file-input form-control" id="photo_1" name="photo" onchange="changeNameFile(1)">
+                                        <label class="custom-file-label" id="labelFile_1" for="photo_1">Choose file</label>
+                                    </div>
+                                 </div>
+                        </div>
+                    </div>          
+            </div>
+            <div class="modal-footer">
+                <button id="btn-cancel" type="button" class="btn btn-secondary" data-dismiss="modal"></button>
+                <button id="btn-confrim" type="submit" class="btn btn-primary"></button>
+            </div>
+            </form>
         </div>
     </div>
 </div>
