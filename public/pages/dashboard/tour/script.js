@@ -89,7 +89,7 @@ $(document).ready(function() {
                 if (nameTour > 0 && priceTour > 0 && textEditor.length > 0) {
                     allValid = true;
                 } else {
-                    console.log('sini');
+                
                     allValid = false;
                 }
             } else {
@@ -245,7 +245,7 @@ $(document).ready(function() {
             scroll: true,
             source: function (request, response) {
                 $.ajax({
-                    url: `${window.location.href}/search`,
+                    url: `/tour/search`,
                     dataType: "JSON",
                     data: {
                         keyword: request.term,
@@ -276,7 +276,7 @@ $(document).ready(function() {
         });
     });
 
-    //DOM add data func
+    //DOM Modal add data func
     $('#add').click(function() {
         mutedAllTabs();
         CKupdate();
@@ -287,6 +287,7 @@ $(document).ready(function() {
         method = "POST";
     });
 
+    //DOM Modal edit data func
     $('tbody').on('click', '.edit', function() {
         method = "PATCH";
         mutedAllTabs();
@@ -295,7 +296,7 @@ $(document).ready(function() {
         indexTab = 0;
         $("#form")[0].reset();
         id = $(this).attr('data');
-        console.log(id);
+
         domModal('Edit Post Paket Tour', 'Simpan & Edit Post', 'Batalkan');
         $('#modal_form').modal('show')
     });
@@ -305,7 +306,7 @@ $(document).ready(function() {
         e.preventDefault();
         let dataForm = new FormData($('#form')[0]);
         
-        console.log(`submit ${method}`);
+
         $('#modal_form').modal('show')
         if (method == "POST") {
             url = `/tour/create`;

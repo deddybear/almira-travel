@@ -41,29 +41,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Inova</td>
-                                <td>Rp.200.000</td>
-                                <td>2021-05-20</td>
-                                <td>2021-05-20</td>
-                                <td>
-                                    <a href="/desc" class="btn btn-sm btn-info">
-                                        <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-danger">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </a>
-                                </td>
-                            </tr>
                         </tbody>
                         <tfoot>
                             <th></th>
                             <th class="search"></th>
-                            <th class="search"></th>
+                            <th></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th></th>
@@ -85,22 +67,32 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
-                    <a href="javascript:;" id="adding_photo" class="btn btn-success col-2 mb-3">Tambah Foto <i class="ml-1 fa-solid fa-photo-film"></i></a>
-                    <div class="row">
-                        <div class="col-4">
+                <form id="form" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <label>Nama Mobil</label>
+                            <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket">
+                        </div>
+                        <div class="form-group">
+                            <label>Harga Sewa Mobil</label>
+                            <input type="number" min="1" class="form-control price-tour" name="price" placeholder="Harga">
+                        </div>
+                        <a href="javascript:;" id="adding_photo" class="btn btn-success col-12 mb-3">Tambah Foto <i class="ml-1 fa-solid fa-photo-film"></i></a>
+                        <div class="col-12">
                             <div id="field_photo"></div>
                         </div>
-                        <div class="col-8">
-                            <textarea id="ckeditor" name="content ck-editor ck-editor__editable_inline" cols="30" rows="30" required></textarea>
-                        </div>
                     </div>
-                </form>
+                    <div class="col-8">
+                        <textarea id="ckeditor" name="content" cols="30" rows="30"></textarea>
+                    </div>  
+                </div>                     
             </div>
             <div class="modal-footer">
                 <button id="btn-cancel" type="button" class="btn btn-secondary" data-dismiss="modal"></button>
                 <button id="btn-confrim" type="submit" class="btn btn-primary"></button>
             </div>
+            </form>
         </div>
     </div>
 </div>

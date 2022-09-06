@@ -64,7 +64,24 @@ Route::prefix('tour')->group(function () {
     Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
 });
 
-Route::get('/test/storage/delete/{id}', [PaketTourController::class, 'deleteFiles']);
+Route::prefix('travel')->group(function () {
+    Route::get('/list', [TravelRegulerController::class, 'listData']);
+    Route::get('/search', [TravelRegulerController::class, 'search']);
+    Route::post('/create', [TravelRegulerController::class, 'create']);
+    Route::patch('/update/{id}', [TravelRegulerController::class, 'update']);
+    Route::delete('/delete/{id}', [TravelRegulerController::class, 'delete']);
+});
+
+
+Route::prefix('mobil')->group(function () {
+    Route::get('/list', [SewaMobilController::class, 'listData']);
+    Route::get('/search', [SewaMobilController::class, 'search']);
+    Route::post('/create', [SewaMobilController::class, 'create']);
+    Route::patch('/update/{id}', [SewaMobilController::class, 'update']);
+    Route::delete('/delete/{id}', [SewaMobilController::class, 'delete']);
+});
+
+// Route::get('/test/storage/delete/{id}', [PaketTourController::class, 'deleteFiles']);
 
 
 Auth::routes();

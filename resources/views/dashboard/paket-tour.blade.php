@@ -115,23 +115,29 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
-                                        <label>Isi Detail Paket Tour</label>
+                                        <label>Isi Konten Detail pada Paket Tour</label>
                                         <textarea class="form-control ckeditor" name="detail" id="detail" cols="30" rows="10"></textarea>
                                     </div>                                   
                                 </div>
-                                <button class="btn btn-ok mt-3 next btn-primary" type="button">Next</button>                                
+                                <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>                                
                             </div>
                             <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
+                                <label>Konten Rencana Perjalanan pada Paket Tour</label>
+                                <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="plan" id="plan" cols="30" rows="10"></textarea>
-                                <button class="btn btn-ok mt-3 next btn-danger" type="button">Next</button>
+                                <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="offer" role="tabpanel" aria-labelledby="offer-tab">
+                                <label>Konten Best Offer pada Paket Tour</label>
+                                <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="offer" id="offer" cols="30" rows="10"></textarea>
-                                <button class="btn btn-ok mt-3 next btn-warning" type="button">Next</button>
+                                <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="prepare" role="tabpanel" aria-labelledby="prepare-tab">
+                                <label>Konten Persiapan pada Paket Tour</label>
+                                <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="prepare" id="prepare" cols="30" rows="10"></textarea>
-                                <button class="btn btn-ok mt-3 next btn-dark" type="button">Next</button>
+                                <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
                                 <a href="javascript:;" id="adding_photo" class="btn btn-success col-2 mb-3">Tambah Foto <i class="ml-1 fa-solid fa-photo-film"></i></a>

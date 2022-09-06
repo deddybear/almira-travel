@@ -17,6 +17,7 @@ class CreateSewaMobil extends Migration
             $table->uuid('id')->primary();
             $table->uuid('collection_photos_id')->index();
             $table->string('name', 50);
+            $table->unsignedInteger('price');
             $table->longText('detail');
             $table->string('slug');
             $table->timestamps();

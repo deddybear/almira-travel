@@ -17,6 +17,7 @@ class CreateTravelReguler extends Migration
             $table->uuid('id')->primary();
             $table->uuid('collection_photos_id')->index();
             $table->string('name', 50);
+            $table->unsignedInteger('price');
             $table->longText('trip');
             $table->longText('transport');
             $table->longText('door');

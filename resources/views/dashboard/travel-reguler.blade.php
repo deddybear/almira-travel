@@ -40,29 +40,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Travel A</td>
-                                <td>Rp.200.000</td>
-                                <td>2021-05-20</td>
-                                <td>2021-05-20</td>
-                                <td>
-                                    <a href="/desc" class="btn btn-sm btn-info">
-                                        <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-danger">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </a>
-                                </td>
-                            </tr>
                         </tbody>
                         <tfoot>
                             <th></th>
                             <th class="search"></th>
-                            <th class="search"></th>
+                            <th></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th></th>
@@ -90,7 +72,7 @@
                             <div class="card-header p-0 border-bottom-0">
                                 <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="trip-tab" data-toggle="pill"
+                                        <a class="nav-link" id="trip-tab" data-toggle="pill"
                                             href="#trip" role="tab"
                                             aria-controls="trip" aria-selected="true">Perjalanan</a>
                                     </li>
@@ -116,23 +98,39 @@
                             </div>
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-four-tabContent">
-                                    <div class="tab-pane fade show active" id="trip"
-                                        role="tabpanel" aria-labelledby="trip-tab">
-                                        <textarea class="form-control ckeditor" name="trip" id="trip" cols="30" rows="10"></textarea>
+                                    <div class="tab-pane fade" id="trip" role="tabpanel" aria-labelledby="trip-tab">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Nama Travel</label>
+                                                    <input type="text" class="form-control name-travel" name="name" placeholder="Masukkan Nama Paket">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Harga Travel</label>
+                                                    <input type="number" min="1" class="form-control price-travel" name="price" placeholder="Harga">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label>Konten Trip pada Travel Reguler</label>
+                                                <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
+                                                <textarea class="form-control ckeditor" name="trip" id="trip" cols="30" rows="10"></textarea>
+                                            </div>
+                                        </div>                                        
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>
                                     </div>
-                                    <div class="tab-pane fade" id="trans" role="tabpanel"
-                                        aria-labelledby="trans-tab">
+                                    <div class="tab-pane fade" id="trans" role="tabpanel" aria-labelledby="trans-tab">
+                                        <label>Konten Transportasi pada Travel Reguler</label>
+                                        <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                         <textarea class="form-control ckeditor" name="trans" id="trans" cols="30" rows="10"></textarea>
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>
                                     </div>
-                                    <div class="tab-pane fade" id="door" role="tabpanel"
-                                        aria-labelledby="door-tab">
+                                    <div class="tab-pane fade" id="door" role="tabpanel" aria-labelledby="door-tab">
+                                        <label>Konten Door to Door pada Travel Reguler</label>
+                                        <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                         <textarea class="form-control ckeditor" name="door" id="door" cols="30" rows="10"></textarea>
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>
                                     </div>
-                                    <div class="tab-pane fade" id="photo" role="tabpanel"
-                                        aria-labelledby="photo-tab">
+                                    <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
                                         <a href="javascript:;" id="adding_photo" class="btn btn-success col-2 mb-3">Tambah Foto <i class="ml-1 fa-solid fa-photo-film"></i></a>
                                         <div id="field_photo"></div>
                                         <button id="btn-confrim" type="submit" class="btn btn-primary"></button>

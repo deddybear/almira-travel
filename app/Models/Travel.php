@@ -9,11 +9,13 @@ class Travel extends Model
 {
     use HasFactory;
 
+    
+    public $incrementing = false;
     protected $table = 'travel_reguler';
     protected $guarded = [];
-    protected $hidden = [
-        'collection_photos_id',
-    ];
+    // protected $hidden = [
+    //     'collection_photos_id',
+    // ];
 
     public function photos() { 
         return $this->hasMany(Photos::class, 'id', 'collection_photos_id');

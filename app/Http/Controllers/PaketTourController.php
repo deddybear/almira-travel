@@ -34,7 +34,7 @@ class PaketTourController extends Controller
                         })
                         ->addColumn('Actions', function ($data) {
                             return '
-                            <a href="'.url("/desc/$data->slug").'" class="btn btn-sm btn-info"><i class="fa-solid fa-circle-info"></i></a>
+                            <a href="'.url("/desc/$data->slug").'" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
                             <a href="javascript:;" class="btn btn-sm btn-warning edit" data="'.$data->id.'"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="javascript:;" class="btn btn-sm btn-danger delete" data="'.$data->id.'"><i class="fa-solid fa-trash-can"></i></a>
                             ';
@@ -138,9 +138,14 @@ class PaketTourController extends Controller
 
     public function uploadFiles(Request $req) {
         $id = Generate::uuid4();
-        $photos = $req->file('photo');
         
         try {
+
+            if (!$req->exists('photo') && !$req->file('photo')) {
+                return 'null';
+            }
+
+            $photos = $req->file('photo');
 
             for ($i = 0; $i < count($photos); $i++) { 
                 $nameFile =  $photos[$i]->hashName();
@@ -154,13 +159,17 @@ class PaketTourController extends Controller
             
            return $id;
         } catch (\Throwable $th) {
-            return false;
+           return false;
         }
     }
 
     public function deleteFiles($idPhotos) {
 
         try {
+
+            if ($idPhotos == 'null') {
+                return true;
+            }
 
             $filenames = Photos::select('path')->where('id', $idPhotos)->get();
  
