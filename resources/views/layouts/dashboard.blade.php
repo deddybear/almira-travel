@@ -38,8 +38,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <p class="nav-link m-0" > Selamat datang, User </p>
-                    {{-- <p class="nav-link m-0" > Selamat datang, {{ Auth::user()->name }} </p> --}}
+                    <p class="nav-link m-0" > Selamat datang, {{ Auth::user()->name }} </p>
                 </li>
             </ul>
         </nav>
@@ -114,20 +113,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/dashboard/account" class="nav-link">
                                         <i class="fas fa-user-edit nav-icon"></i>
                                         <p>Edit Akun</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('password.request') }}" class="nav-link"> --}}
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('password.request') }}" class="nav-link">
                                         <i class="fas fa-wrench nav-icon"></i>
                                         <p>Reset Password</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    {{-- <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt nav-icon"></i>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -135,12 +133,8 @@
                                             @csrf
                                         </form>
                                         <p>Logout</p>
-                                    </a> --}}
-
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-sign-out-alt nav-icon"></i>
-                                        <p>Logout</p>
                                     </a>
+
                                 </li>
                             </ul>
                         </li>

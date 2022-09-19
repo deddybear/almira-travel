@@ -17,6 +17,7 @@
 @section('js')
 <script src="{{ asset('/plugins/dataTables/datatables.js') }}"></script>
 <script src="{{ asset('/plugins/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js') }}"></script>
+<script src="{{ asset('/pages/dashboard/contact/script.js') }}"></script>
 @endsection
 
 @section('content')
@@ -27,30 +28,18 @@
             <div class="card-body">
                 <p>Pembaruan Kontak Whatsapp Almira Travel <b>(Bila Perlu)</b>.</p>
                 
-                @if (count($errors) > 0)
-                    <div class="my-3">
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div> 
-                @endif
-                
                 <div class="mt-5">
-                    <form action="#" method="POST" target="_blank">
-                        @csrf
+                    <form id="c-wa">
                         <div class="form-row">
                             <div class="form-group col-12 col-lg-4">
                                 <label for="bulan">Kontak Whatsapp</label>
                                 <div class="input-group date">
-                                    <input name="wa" type="number" class="form-control"/>
+                                    <input name="wa" type="number" min="1" class="form-control" value="{{ $data->wa }}" required/>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fab fa-whatsapp"></i></div>
-                                    </div>
+                                    </div>                                    
                                 </div>
+                                <small class="text-danger">Tanpa tanda + diawal</small>
                             </div>
                             <div class="form-group col-12 col-lg-4">
                                 <button type="submit" class="margin-button btn btn-success"><i class="fas fa-edit"></i> Update Nomer</button>
@@ -67,26 +56,13 @@
             <div class="card-body">
                 <p>Pembaruan Kontak Email Almira Travel <b>(Bila Perlu)</b>.</p>
                 
-                @if (count($errors) > 0)
-                    <div class="my-3">
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div> 
-                @endif
-                
                 <div class="mt-5">
-                    <form action="#" method="POST" target="_blank">
-                        @csrf
+                    <form id="c-email">
                         <div class="form-row">
                             <div class="form-group col-12 col-lg-4">
                                 <label for="bulan">Kontak Email</label>
                                 <div class="input-group date">
-                                    <input name="email" type="email " class="form-control"/>
+                                    <input name="email" type="email " class="form-control" value="{{ $data->email }}" required/>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                                     </div>
@@ -107,26 +83,13 @@
             <div class="card-body">
                 <p>Pembaruan Alamat Almira Travel <b>(Bila Perlu)</b>.</p>
                 
-                @if (count($errors) > 0)
-                    <div class="my-3">
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div> 
-                @endif
-                
                 <div class="mt-5">
-                    <form action="#" method="POST" target="_blank">
-                        @csrf
+                    <form id="c-address">
                         <div class="form-row">
                             <div class="form-group col-12 col-lg-4">
                                 <label for="bulan">Kontak Alamat</label>
                                 <div class="input-group date">
-                                    <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                    <textarea class="form-control" name="address" cols="30" rows="10" required>{{ $data->address }}</textarea>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fa-solid fa-address-book"></i></div>
                                     </div>
@@ -147,26 +110,13 @@
             <div class="card-body">
                 <p>Pembaruan Point GPS Almira Travel <b>(Bila Perlu)</b>.</p>
                 
-                @if (count($errors) > 0)
-                    <div class="my-3">
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div> 
-                @endif
-                
                 <div class="mt-5">
-                    <form action="#" method="POST" target="_blank">
-                        @csrf
+                    <form id="c-gps">
                         <div class="form-row">
                             <div class="form-group col-12 col-lg-4">
                                 <label for="bulan">Point GPS</label>
                                 <div class="input-group date">
-                                    <input class="form-control" name="gps" type="text"/>
+                                    <input id="gps-value" class="form-control" name="gps" type="text" value="{{ $data->gps }}" required/>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></div>
                                     </div>
@@ -234,27 +184,27 @@
                             <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
                                 <img class="shadow" src="{{ asset('/images/how/1.png') }}" width="900">
                                 <p></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae doloremque dicta necessitatibus voluptatem beatae debitis adipisci aliquid, exercitationem ut! Est ex itaque unde temporibus mollitia, quis quibusdam recusandae enim.</p>
+                                <p>Pertama carilah dan pilih tempat dengan menekan pin yang ada di maps</p>
                             </div>
                             <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
                                 <img class="shadow" src="{{ asset('/images/how/2.png') }}" width="400">
                                 <p></p>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, fugit nemo? Recusandae facere porro odio magni quidem, quisquam id iste commodi et qui aut dicta labore doloribus, tenetur corrupti amet.</p>
+                                <p>Kedua pilih tombol share bisa dilihat pada gambar</p>
                             </div>
                             <div class="tab-pane fade" id="offer" role="tabpanel" aria-labelledby="offer-tab">
                                 <img class="shadow" src="{{ asset('/images/how/3.png') }}" width="1000">
                                 <p></p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quasi voluptatum, repellendus veritatis adipisci alias accusamus facere exercitationem? Iure sint incidunt nostrum optio quae, ullam nam dolores molestias quos debitis.
+                                <p>Ketiga, pilih embed a map bisa dilihat pada gambar</p>
                             </div>
                             <div class="tab-pane fade" id="prepare" role="tabpanel" aria-labelledby="prepare-tab">
                                 <img class="shadow" src="{{ asset('/images/how/4.png') }}" width="700">
                                 <p></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, praesentium! Ea eligendi temporibus cumque harum nisi eaque. Eligendi, non. Omnis, nostrum labore velit ipsam commodi porro nam delectus exercitationem non.</p>
+                                <p>ke-empat, klik tombol copy html</p>
                             </div>
                             <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab">
                                 <img class="shadow" src="{{ asset('/images/how/5.png') }}" width="1000">
                                 <p></p>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo enim quod voluptatem iste ad vitae ex culpa, eius mollitia assumenda ea reiciendis ullam. Fuga ducimus assumenda commodi odio praesentium asperiores!</p>
+                                <p>kelimat, pastekan pada field isian jika benar tekan tombol update point GPS</p>
                             </div>
                         </form>
                     </div>                    

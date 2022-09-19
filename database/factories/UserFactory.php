@@ -19,7 +19,7 @@ class UserFactory extends Factory
         return [
             'id'    => Generate::uuid4(),
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'email' => 'test@test.com',
             'email_verified_at' => now(),
             'password' => Hash::make('qwerty123'), // password
             'remember_token' => Str::random(10),

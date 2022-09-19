@@ -70,16 +70,18 @@
                         <a class="nav-link" href="/contact">Kontak</a>
                     </li>
                     <li class="nav-item mx-2"></li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="/admin/dashboard">Dashboard</a>
-                    </li>
+                    @if (Auth::check())
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
     </nav>
 
-
     <section id="section">
+
         @yield('content')
         <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float-wa" target="_blank">
           <i class="fab fa-whatsapp"></i>
