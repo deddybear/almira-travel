@@ -12,6 +12,7 @@ use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
 {
+
     public function __construct() {
         $this->middleware(function ($request, $next){
             $this->id = Auth::user()->id;
@@ -19,6 +20,11 @@ class AccountController extends Controller
             return $next($request);
         });
     }
+
+
+    /** 
+        * TODO : Admin Function
+    */
     
     public function pageView() {
         $dataAkun = Auth::user();

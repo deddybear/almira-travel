@@ -13,6 +13,31 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SewaMobilController extends Controller {
 
+    /** 
+        * TODO : Guest Function
+    */
+
+    public function index() {
+        $data = Mobil::select('detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
+
+
+        return view('guest/sewa-mobil', compact('data'));
+    }
+
+    public function desc($slug) {
+        $data =  Mobil::select('detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
+        
+        $post = (object) array(
+            'type' => 'mobil'
+        );
+
+        // return $data;
+        return view('guest/description', compact('data', 'post'));
+    }
+
+    /** 
+        * TODO : Dashboard Admin Function
+    */
 
     public function pageView() {
         return view('dashboard.sewa-mobil');

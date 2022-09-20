@@ -12,9 +12,6 @@ class Mobil extends Model
     public $incrementing = false;
     protected $table = 'sewa_mobil';
     protected $guarded = [];
-    // protected $hidden = [
-    //     'collection_photos_id',
-    // ];
 
     public function photos() { 
         return $this->hasMany(Photos::class, 'id', 'collection_photos_id');

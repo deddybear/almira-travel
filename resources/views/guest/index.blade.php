@@ -16,11 +16,19 @@
 @section('content')
     <div class="carousel">
         <div class="owl-carousel owl-theme">
-            @for ($i = 0; $i < 5; $i++)
-                <div class="item text-center">
-                    <img src="https://via.placeholder.com/500?text=Picture" height="500">
+            @if (count($caraousel) > 0)
+                @foreach ($caraousel as $item)
+                <div class="item text-center px-5 py-3">
+                    <img src={{ asset('/storage/images/'. $item->path) }} height="500">
                 </div>
-            @endfor          
+                @endforeach
+            @else
+                @for ($i = 0; $i < 5; $i++)
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/500?text=Segera....." height="500">
+                </div>
+                @endfor
+            @endif
         </div>
     </div>
 
@@ -38,52 +46,103 @@
     <div class="list-packages my-4">
         <div class="container">
             <div class="row">
-                @for ($i = 0; $i <= 7; $i++)
-                <div class="col-12 col-md-6 col-lg-3 my-2">
-                    <div class="card card-outline-gray">
-                        <img src="/images/mobil-1.png" alt="">
-                        <div class="card-body text-center" style="background-color: #D6E5FA">                
-                                <h5 class="card-title type-car">Mobil Mewah</h5>
-                                <p class="card-text name-car">Alpard</p>            
-                                <div class="text-center p-0 position-relative" style="height: 0">
-                                    <a href="#" class="btn btn-dark btn-no-radius">Mulai Rp 1jt/Hari</a>
-                                </div>                                
-                        </div>
-                        <div class="card-body my-3">
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <a href="#" class="text-dark text-decoration-none">
-                                        <i class="fas fa-users"></i>
-                                        <span>7 Kursi</span>
-                                    </a>
+                @if (count($mobil) > 0)
+                    @foreach ($mobil as $item)
+                        <div class="col-12 col-md-6 col-lg-3 my-2">
+                            <div class="card card-outline-gray">
+                                @if (count($item->photos) > 0)
+                                    <img class="card-img-top" src="{{ asset('/storage/images/' . $item->photos[0]->path) }}">
+                                @else
+                                    <img class="card-img-top" src="https://via.placeholder.com/500?text=Segera....">
+                                @endif
+                                <div class="card-body text-center" style="background-color: #D6E5FA">                
+                                        <h5 class="card-title type-car">Segera</h5>
+                                        <p class="card-text name-car">{{ $item->name }}</p>            
+                                        <div class="text-center p-0 position-relative" style="height: 0">
+                                            <a href="#" class="btn btn-dark btn-no-radius">Mulai Rp {{ number_format($item->price, 0 ,',', '.') }}/Hari</a>
+                                        </div>                                
                                 </div>
-                                <div class="col-6">
-                                    <a href="#" class="text-dark text-decoration-none">
-                                        <i class="fas fa-cogs"></i>
-                                        <span>3500 CC</span>
-                                    </a>
+                                <div class="card-body my-3">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <a href="#" class="text-dark text-decoration-none">
+                                                <i class="fas fa-users"></i>
+                                                <span>- Kursi</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="#" class="text-dark text-decoration-none">
+                                                <i class="fas fa-cogs"></i>
+                                                <span>- CC</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body p-0 mb-2">
+                                    <div class="row text-center mx-auto">
+                                        <div class="col-6 p-0">
+                                            <a href="#" class="btn btn-dark btn-keunggulan" style="width: 100%">
+                                                <span>Keunggulan</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 p-0">
+                                            <a href="#" class="btn btn-warning btn-sewa" style="width: 100%">
+                                               <span>Sewa</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-0 mb-2">
-                            <div class="row text-center mx-auto">
-                                <div class="col-6 p-0">
-                                    <a href="#" class="btn btn-dark btn-keunggulan" style="width: 100%">
-                                        <span>Keunggulan</span>
-                                    </a>
+                    @endforeach
+                @else
+                    @for ($i = 0; $i <= 7; $i++)
+                    <div class="col-12 col-md-6 col-lg-3 my-2">
+                        <div class="card card-outline-gray">
+                            <img class="card-img-top" src="https://via.placeholder.com/500?text=Segera">
+                            <div class="card-body text-center" style="background-color: #D6E5FA">                
+                                    <h5 class="card-title type-car">Segera</h5>
+                                    <p class="card-text name-car">Segera Hadir</p>            
+                                    <div class="text-center p-0 position-relative" style="height: 0">
+                                        <a href="#" class="btn btn-dark btn-no-radius">Mulai Rp -/Hari</a>
+                                    </div>                                
+                            </div>
+                            <div class="card-body my-3">
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <a href="#" class="text-dark text-decoration-none">
+                                            <i class="fas fa-users"></i>
+                                            <span>- Kursi</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="#" class="text-dark text-decoration-none">
+                                            <i class="fas fa-cogs"></i>
+                                            <span>- CC</span>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-6 p-0">
-                                    <a href="#" class="btn btn-warning btn-sewa" style="width: 100%">
-                                       <span>Sewa</span>
-                                    </a>
+                            </div>
+                            <div class="card-body p-0 mb-2">
+                                <div class="row text-center mx-auto">
+                                    <div class="col-6 p-0">
+                                        <a href="#" class="btn btn-dark btn-keunggulan" style="width: 100%">
+                                            <span>Keunggulan</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <a href="#" class="btn btn-warning btn-sewa" style="width: 100%">
+                                           <span>Sewa</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endfor
+                    @endfor
+                @endif
             </div>
-            <a href="http://" class="btn btn-warning col-12 btn-large my-3">Lihat Selengkapnya</a>
+            <a href="/sewa-mobil" class="btn btn-warning col-12 btn-large my-3">Lihat Selengkapnya</a>
         </div>
     </div>
 

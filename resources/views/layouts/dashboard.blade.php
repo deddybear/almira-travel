@@ -86,7 +86,7 @@
                                 <li class="nav-item">
                                     <a href="/admin/dashboard/car" class="nav-link">
                                         <i class="fa-solid fa-car-side nav-icon"></i>
-                                        <p>Sewa Mobil</p>
+                                        <p>Paket Sewa Mobil</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

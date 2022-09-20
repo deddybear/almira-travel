@@ -107,7 +107,7 @@ $(document).ready(function() {
     $('#dataTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: `/carousel/list`,
+        ajax: `/mobil/list`,
         columns: [
             {
                 data: "DT_RowIndex",

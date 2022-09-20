@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CarouselListController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaketTourController;
 use App\Http\Controllers\SewaMobilController;
 use App\Http\Controllers\TravelRegulerController;
@@ -25,13 +26,13 @@ use Illuminate\Support\Facades\Storage;
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::view('/',      'guest/index')->name('home');
-Route::view('/paket-tour', 'guest/paket-tour');
-Route::view('/travel-reguler', 'guest/travel-reguler');
-Route::view('/sewa-mobil', 'guest/sewa-mobil');
-Route::view('/desc', 'guest/description');
-Route::view('/contact', 'guest/contact');
-// Route::view('/foto', 'guest/galeri-foto');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/paket-tour', [PaketTourController::class, 'index']);
+Route::get('/travel-reguler', [TravelRegulerController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
+
+Route::get('/sewa-mobil', [SewaMobilController::class, 'index']);
+Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

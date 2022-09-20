@@ -11,9 +11,22 @@ use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 
-class TravelRegulerController extends Controller
-{
-    //
+class TravelRegulerController extends Controller {
+
+    /** 
+        * TODO : Guest Function
+    */
+
+    public function index() {
+        $data = Travel::select('name', 'price', 'trip', 'slug')->get();
+
+        return view('guest/travel-reguler', compact('data'));
+    }
+
+    /** 
+        * TODO : Dashboard Admin Function
+    */
+
     public function pageView() {
         return view('dashboard.travel-reguler');
     }

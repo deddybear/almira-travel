@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
 @section('title', 'Panel Admin')
-@section('title-header', 'Data Mobil')
+@section('title-header', 'Data Sewa Mobil')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/plugins/dataTables/datatables.css') }}">

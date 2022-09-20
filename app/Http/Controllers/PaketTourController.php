@@ -15,6 +15,20 @@ use Yajra\DataTables\Facades\DataTables;
 class PaketTourController extends Controller
 {
     
+    /** 
+        * TODO : Guest Function
+    */
+
+    public function index() {
+        $data = Tour::select('detail', 'name', 'price', 'slug')->get();
+
+        return view('guest/paket-tour', compact('data'));
+    }
+
+    /** 
+        * TODO : Dashboard Admin Function
+    */
+
     public function pageView() {
         return view('dashboard.paket-tour');
     }

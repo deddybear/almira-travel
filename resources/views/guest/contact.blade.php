@@ -26,17 +26,17 @@
                         <li class="list-group-item pl-5 pt-1">
                             <i class="fas fa-home icons"></i>
                             <h5>Alamat</h5>
-                            <p>Jalan Sukodono Keboan Anom, Jalan Sukodono Kebaon Anom, Gedangan Sidoarjo</p>
+                            <p>{{ $data->address }}</p>
                         </li>
                         <li class="list-group-item pl-5 pt-1">
                             <i class="fas fa-phone-square icons"></i>
                             <h5>Telepon</h5>
-                            <p>+62 868-0722-986</p>
+                            <p>+{{ $data->wa }}</p>
                         </li>
                         <li class="list-group-item pl-5 pt-1">
                             <i class="fas fa-envelope icons"></i>
                             <h5>Email</h5>
-                            <p>Gmail@gamil.com.</p>
+                            <p>{{ $data->email }}</p>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +49,7 @@
                                 class="col-12 my-3"
                                 height="400" 
                                 id="gmap_canvas" 
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23711.675802960755!2d112.77694639269892!3d-7.419660715074033!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e684ffffffff%3A0x93663aaf5a5944e1!2sDelta%20Fishing!5e0!3m2!1sen!2sid!4v1646800851272!5m2!1sen!2sid" 
+                                src="{{ $data->gps }}" 
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                             </iframe>    
                         </div>   

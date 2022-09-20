@@ -8,9 +8,23 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {  
     
-    private function id() {
-        return 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649';
+    public function __construct() {
+        $this->id = 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649';
     }
+
+    /** 
+        * TODO : Guest Function
+    */
+
+    public function index() {
+        $data = $this->data();
+
+        return view('guest/contact', compact('data'));
+    }
+
+    /** 
+        * TODO : Dashboard Admin Function
+    */
 
     public function pageView() {
         $data = $this->data();
@@ -19,7 +33,7 @@ class ContactController extends Controller
     }
 
     public function data() {
-       return Contact::select('wa', 'email', 'address', 'gps')->first();
+       return Contact::select('wa', 'email', 'address', 'gps')->where('id', $this->id)->first();
     }
 
     public function updateWhatsapp(Request $req) {
@@ -31,7 +45,7 @@ class ContactController extends Controller
                 'wa' => $req->wa,
             );
 
-            Contact::where('id', $this->id())->update($data);
+            Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Nomer Whatsapp']);    
         } catch (\Throwable $th) {
             return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
@@ -48,7 +62,7 @@ class ContactController extends Controller
                 'email' => $req->email,
             );
 
-            Contact::where('id', $this->id())->update($data);
+            Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Kontak Email']);    
         } catch (\Throwable $th) {
             return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
@@ -64,7 +78,7 @@ class ContactController extends Controller
                 'address' => $req->address,
             );
 
-            Contact::where('id', $this->id())->update($data);
+            Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Kontak Alamat']);    
         } catch (\Throwable $th) {
             return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
@@ -81,7 +95,7 @@ class ContactController extends Controller
                 'gps' => $req->gps,
             );
 
-            Contact::where('id', $this->id())->update($data);
+            Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Point Gps']);    
         } catch (\Throwable $th) {
             return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
