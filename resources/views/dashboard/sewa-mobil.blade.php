@@ -35,6 +35,9 @@
                                 <th>No. </th>
                                 <th>Nama</th>
                                 <th>Harga</th>
+                                <th>Tipe Mobil</th>
+                                <th>Kursi</th>
+                                <th>CC Mobil</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diupdate</th>
                                 <th>Aksi</th>
@@ -46,6 +49,9 @@
                             <th></th>
                             <th class="search"></th>
                             <th></th>
+                            <th class="search"></th>
+                            <th class="search"></th>
+                            <th class="search"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th></th>
@@ -77,6 +83,18 @@
                         <div class="form-group">
                             <label>Harga Sewa Mobil</label>
                             <input type="number" min="1" class="form-control price-tour" name="price" placeholder="Harga">
+                        </div>
+                        <div class="form-group">
+                            <label>Tipe Mobil</label>
+                            <input type="text" class="form-control price-tour" name="type" placeholder="Tipe Harga">
+                        </div>
+                        <div class="form-group">
+                            <label>Banyak Kursi</label>
+                            <input type="number" min="1" class="form-control" name="kursi" placeholder="Banyak Kursi">
+                        </div>
+                        <div class="form-group">
+                            <label>Besar CC</label>
+                            <input type="number" min="1" class="form-control" name="cc" placeholder="CC Mobil">
                         </div>
                         <a href="javascript:;" id="adding_photo" class="btn btn-success col-12 mb-3">Tambah Foto <i class="ml-1 fa-solid fa-photo-film"></i></a>
                         <div class="col-12">

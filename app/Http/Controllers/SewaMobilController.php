@@ -95,6 +95,9 @@ class SewaMobilController extends Controller {
                 'id' => $id,
                 'collection_photos_id' => $idPhotos,
                 'name'  => $req->name,
+                'tipe_mobil' => $req->type,
+                'kursi' => $req->kursi,
+                'cc'    => $req->cc,
                 'price' => $req->price,
                 'detail' => $req->content,
                 'slug'  => Str::slug($req->name, '-')
@@ -129,6 +132,9 @@ class SewaMobilController extends Controller {
                 'id' => $id,
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
+                'tipe_mobil' => $req->type,
+                'kursi' => $req->kursi,
+                'cc'    => $req->cc,
                 'price' => $req->price,
                 'detail' => $req->content,
                 'slug'  => Str::slug($req->name, '-')

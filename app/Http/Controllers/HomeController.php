@@ -19,7 +19,7 @@ class HomeController extends Controller {
                                 ->select('collection_photos.path')
                                 ->get();
         
-        $mobil = Mobil::select('name', 'price', 'collection_photos_id')->with('photos:id,path')->get();
+        $mobil = $data = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
         
         return view('guest.index', compact('caraousel', 'mobil'));
     }

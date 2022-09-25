@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="{{ asset('/pages/index/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.theme.default.css') }}">
+    <style>
+        .icon-selengkapnya {
+            height: 1em !important;
+        }
+    </style>
 @endsection
 
 @section('js')
@@ -56,7 +61,7 @@
                                     <img class="card-img-top" src="https://via.placeholder.com/500?text=Segera....">
                                 @endif
                                 <div class="card-body text-center" style="background-color: #D6E5FA">                
-                                        <h5 class="card-title type-car">Segera</h5>
+                                        <h5 class="card-title type-car">{{ $item->tipe_mobil }}</h5>
                                         <p class="card-text name-car">{{ $item->name }}</p>            
                                         <div class="text-center p-0 position-relative" style="height: 0">
                                             <a href="#" class="btn btn-dark btn-no-radius">Mulai Rp {{ number_format($item->price, 0 ,',', '.') }}/Hari</a>
@@ -66,14 +71,14 @@
                                     <div class="row text-center">
                                         <div class="col-6">
                                             <a href="#" class="text-dark text-decoration-none">
-                                                <i class="fas fa-users"></i>
-                                                <span>- Kursi</span>
+                                                <i class="fas fa-users icon-selengkapnya"></i>
+                                                <span>{{ $item->kursi }} Kursi</span>
                                             </a>
                                         </div>
                                         <div class="col-6">
                                             <a href="#" class="text-dark text-decoration-none">
-                                                <i class="fas fa-cogs"></i>
-                                                <span>- CC</span>
+                                                <i class="fas fa-cogs icon-selengkapnya"></i>
+                                                <span>{{ $item->cc }} CC</span>
                                             </a>
                                         </div>
                                     </div>

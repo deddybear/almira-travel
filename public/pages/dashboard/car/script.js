@@ -95,7 +95,10 @@ $(document).ready(function() {
     });
 
     const type = [
-        'name'
+        'name',
+        'tipe_mobil',
+        'kursi',
+        'cc'
     ];
 
     $(".date").datepicker({
@@ -121,6 +124,9 @@ $(document).ready(function() {
                     return idrFormatter.format(row.price)
                 }, 
                 name: "price"},
+            { data: "tipe_mobil", name: "tipe_mobil"},
+            { data: "kursi", name: "kursi"},
+            { data: "cc", name: "cc"},
             { data: "created_at", name: "created_at"},
             { data: "updated_at", name: "updated_at"},
             {
@@ -164,7 +170,7 @@ $(document).ready(function() {
         let type = $(this).data("type");
 
         $(this).autocomplete({
-            minLength: 3,
+            minLength: 1,
             max: 10,
             scroll: true,
             source: function (request, response) {
@@ -182,12 +188,12 @@ $(document).ready(function() {
                         $('#loader-wrapper').hide();
                     },
                     success: function (data) {
-
+                
                         let array = [];
                         let index = 0;
 
                         $.map(data, function (item) {
-                            array[index++] = item[type];
+                            array[index++] = item[type].toString();
                         });
 
                         response(array);
