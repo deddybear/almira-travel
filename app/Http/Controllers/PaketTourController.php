@@ -20,9 +20,17 @@ class PaketTourController extends Controller
     */
 
     public function index() {
-        $data = Tour::select('detail', 'name', 'price', 'slug')->get();
+        $data = Tour::select('detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
 
         return view('guest/paket-tour', compact('data'));
+    }
+
+    
+    public function desc($slug) {
+        $data =  Tour::select('detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
+
+        // return $data;
+        return view('guest/desc-tour', compact('data'));
     }
 
     /** 
@@ -82,7 +90,7 @@ class PaketTourController extends Controller
                 'id'    => $id,
                 'collection_photos_id' => $idPhotos,
                 'name'  => $req->name,
-                'price' => $req->price,
+                'price' => str_replace(".","", $req->price),
                 'detail' => $req->detail,
                 'trip_plan' => $req->plan,
                 'best_offer' => $req->offer,
@@ -118,7 +126,7 @@ class PaketTourController extends Controller
                 'id'    => $id,
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
-                'price' => $req->price,
+                'price' => str_replace(".","", $req->price),
                 'detail' => $req->detail,
                 'trip_plan' => $req->plan,
                 'best_offer' => $req->offer,

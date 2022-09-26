@@ -18,10 +18,18 @@ class TravelRegulerController extends Controller {
     */
 
     public function index() {
-        $data = Travel::select('name', 'price', 'trip', 'slug')->get();
+        $data = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
 
         return view('guest/travel-reguler', compact('data'));
     }
+
+    public function desc($slug) {
+        $data =  Travel::select('name', 'price', 'trip', 'transport', 'door', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
+
+        // return $data;
+        return view('guest/desc-travel', compact('data'));
+    }
+
 
     /** 
         * TODO : Dashboard Admin Function
@@ -80,7 +88,7 @@ class TravelRegulerController extends Controller {
                 'id' => $id,
                 'collection_photos_id' => $idPhotos,
                 'name'  => $req->name,
-                'price' => $req->price,
+                'price' => str_replace(".","", $req->price),
                 'trip'  => $req->trip,
                 'transport' => $req->trans,
                 'door'  => $req->door,
@@ -115,7 +123,7 @@ class TravelRegulerController extends Controller {
                 'id' => $id,
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
-                'price' => $req->price,
+                'price' => str_replace(".","", $req->price),
                 'trip'  => $req->trip,
                 'transport' => $req->trans,
                 'door'  => $req->door,

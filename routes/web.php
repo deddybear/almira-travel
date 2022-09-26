@@ -33,6 +33,8 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/sewa-mobil', [SewaMobilController::class, 'index']);
 Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc']);
+Route::get('/tour/desc/{slug}', [PaketTourController::class, 'desc']);
+Route::get('/travel/desc/{slug}', [TravelRegulerController::class, 'desc']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

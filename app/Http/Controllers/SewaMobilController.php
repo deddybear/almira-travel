@@ -26,13 +26,9 @@ class SewaMobilController extends Controller {
 
     public function desc($slug) {
         $data =  Mobil::select('detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
-        
-        $post = (object) array(
-            'type' => 'mobil'
-        );
 
         // return $data;
-        return view('guest/description', compact('data', 'post'));
+        return view('guest/desc-mobil', compact('data'));
     }
 
     /** 
@@ -96,9 +92,9 @@ class SewaMobilController extends Controller {
                 'collection_photos_id' => $idPhotos,
                 'name'  => $req->name,
                 'tipe_mobil' => $req->type,
-                'kursi' => $req->kursi,
-                'cc'    => $req->cc,
-                'price' => $req->price,
+                'kursi' => str_replace(".","", $req->kursi) ,
+                'cc'    => str_replace(".","", $req->cc),
+                'price' => str_replace(".","", $req->price),
                 'detail' => $req->content,
                 'slug'  => Str::slug($req->name, '-')
             );
@@ -133,9 +129,9 @@ class SewaMobilController extends Controller {
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
                 'tipe_mobil' => $req->type,
-                'kursi' => $req->kursi,
-                'cc'    => $req->cc,
-                'price' => $req->price,
+                'kursi' => str_replace(".","", $req->kursi),
+                'cc'    => str_replace(".","", $req->cc) ,
+                'price' => str_replace(".","", $req->price),
                 'detail' => $req->content,
                 'slug'  => Str::slug($req->name, '-')
             );

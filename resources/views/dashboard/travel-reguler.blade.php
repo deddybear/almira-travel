@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Harga Travel</label>
-                                                    <input type="number" min="1" class="form-control price-travel" name="price" placeholder="Harga">
+                                                    <input type="text" class="form-control price-travel" name="price" placeholder="Harga">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6">

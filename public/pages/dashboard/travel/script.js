@@ -41,6 +41,25 @@ $(document).ready(function () {
       }
     }
 
+    function formatNumber(number) {
+
+        let number_string = number.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+            
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return rupiah;
+
+    }
+
+
     function CKupdate() {
       listEditors.forEach(element => {
           element.setData('');
@@ -224,6 +243,11 @@ $(document).ready(function () {
           $('#loader-wrapper').hide();
       },
   });
+
+  $('input[name="price"]').on("keyup change" , function() {
+    this.value = formatNumber(this.value);
+  })
+
 
   $("#dataTable tfoot .search").each(function (i) {
     $(this).html(`<input 

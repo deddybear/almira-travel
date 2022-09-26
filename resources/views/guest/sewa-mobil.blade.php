@@ -31,7 +31,7 @@
                             <span class="item-price-badge">
                                 <bdi>
                                     <span>
-                                        Rp{{ number_format($item->price, 0 ,',', '.') }}
+                                        Rp {{ number_format($item->price, 0 ,',', '.') }}
                                     </span>
                                 </bdi>
                             </span>

@@ -20,12 +20,16 @@
             <div class="col-12 col-md-3 mb-3">
                 <div class="card">
                     <div class="card-top">
-                        <img class="card-img-top" src="https://via.placeholder.com/500?text=Picture" width="360" height="240">
+                        @if (count($item->photos) > 0)
+                            <img class="card-img-top" src="{{ asset('/storage/images/' . $item->photos[0]->path) }}" width="360" height="240">
+                        @else
+                            <img class="card-img-top" src="https://via.placeholder.com/500?text=Segera...." width="360" height="240">
+                        @endif
                         <div class="item-price">
                             <span class="item-price-badge">
                                 <bdi>
                                     <span>
-                                        Rp{{ $item->price }}
+                                        Rp {{ number_format($item->price, 0 ,',', '.') }}
                                     </span>
                                 </bdi>
                             </span>
@@ -38,7 +42,7 @@
                         ...
                       </p>
                       <div class="go-to">
-                        <a class="btn btn-primary col-5 mt-3 mx-auto" href="/travel/desc/{{ $item->slug }}">Selengkapnya <i class="fas fa-sign-in-alt"></i> </a>
+                        <a class="btn btn-primary col-5 mt-3 mx-auto" href="/travel/desc/{{ $item->slug }}">Selengkapnya <i class="fas fa-sign-in-alt icon-selengkapnya"></i> </a>
                       </div>
                     </div>
                 </div>

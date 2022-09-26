@@ -1,5 +1,4 @@
 @extends('layouts.guest')
-
 @section('title',  $data->name . " Almira - Travel" )
 
 @section('css')
@@ -14,26 +13,15 @@
 @endsection
 
 @section('content')
-    @if ($post->type == 'tour')
-        I have one record!
-    @elseif ($post->type == 'travel')
-        I have multiple records!
-    @elseif ($post->type == 'mobil')
         <div class="row p-4">
             <div class="col-12 col-md-9">
                 <ul class="nav nav-tabs nav-justified"  id="myTab" role="tablist">
                   <li class="nav-item">
                     <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="true">Detail</a>
                   </li>
-                  {{-- <li class="nav-item">
-                    <a class="nav-link" id="offer-tab" data-toggle="tab" href="#offer" role="tab" aria-controls="offer" aria-selected="false">Best Offer</a>
-                  </li> --}}
                   <li class="nav-item">
                     <a class="nav-link" id="foto-tab" data-toggle="tab" href="#foto" role="tab" aria-controls="foto" aria-selected="false">Foto</a>
                   </li>
-                  {{-- <li class="nav-item">
-                    <a class="nav-link" id="itinerary-tab" data-toggle="tab" href="#itinerary" role="tab" aria-controls="itinerary" aria-selected="false">Rencana Perjalanan</a>
-                  </li> --}}
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
@@ -41,11 +29,6 @@
                             {!! $data->detail !!}
                         </div>
                     </div>
-                    {{-- <div class="tab-pane fade" id="offer" role="tabpanel" aria-labelledby="offer-tab">
-                        <div class="card card-outline-gray p-3">
-                          Placeholder content for the tab panel. This one relates to the home tab. Takes you miles high, so high, 'cause she’s got that one international smile. There's a stranger in my bed, there's a pounding in my head. Oh, no. In another life I would make you stay. ‘Cause I, I’m capable of anything. Suiting up for my crowning battle. Used to steal your parents' liquor and climb to the roof. Tone, tan fit and ready, turn it up cause its gettin' heavy. Her love is like a drug. I guess that I forgot I had a choice.
-                        </div>
-                    </div> --}}
                     <div class="tab-pane fade" id="foto" role="tabpanel" aria-labelledby="foto-tab">
                         <div class="card card-outline-gray p-3">
                             <div class="carousel">
@@ -67,11 +50,6 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="tab-pane fade" id="itinerary" role="tabpanel" aria-labelledby="itinerary-tab">
-                        <div class="card card-outline-gray p-3">
-                          Placeholder content for the tab panel. This one relates to the home tab. Takes you miles high, so high, 'cause she’s got that one international smile. There's a stranger in my bed, there's a pounding in my head. Oh, no. In another life I would make you stay. ‘Cause I, I’m capable of anything. Suiting up for my crowning battle. Used to steal your parents' liquor and climb to the roof. Tone, tan fit and ready, turn it up cause its gettin' heavy. Her love is like a drug. I guess that I forgot I had a choice.
-                        </div>
-                    </div> --}}
                 </div>
             </div>
             <div class="col-12 col-md-3 mt-5">
@@ -85,7 +63,5 @@
                 </div>
             </div>
         </div>
-    @else   
-    @endif
 @endsection
 
