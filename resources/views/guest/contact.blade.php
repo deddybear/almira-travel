@@ -7,13 +7,15 @@
 @section('title', 'Almira Travel - Hubungi Kami')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('/plugins/sweetalert2/sweetalert2.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/animate.min.css') }}">
 <link rel="stylesheet" href="{{ asset('pages/contact/styles.css') }}">
 
 @endsection
 
 @section('js')
-    
+    <script src="{{ asset('pages/contact/script.js') }}"></script>
+    <script src="{{ asset('/plugins/sweetalert2/sweetalert2.js') }}"></script>
 @endsection
 
 @section('content')
@@ -56,26 +58,34 @@
                    
                         <div class="pesan">
                             <h4>Ada yang ingin ditanyakan ? Kirim pesan kepada kami !</h4>
-                            <form action="">
+                            <br>
+                            <h5>Data yang anda inputkan kepada kami akan kami jaga kerahasiaanya </h5>
+                            <form id="form">
                                 <div class="form-row">
                                     <div class="form-group col-12 col-md-6">
                                         <label >Nama Anda</label>
-                                        <input type="email" class="form-control" name="name" aria-describedby="emailHelp">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        <input type="text" class="form-control" name="name">
+                                        
                                     </div>
                                     <div class="form-group col-12 col-md-6">
                                         <label >Email Anda</label>
-                                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        <input type="email" class="form-control" name="email">
+                                        <small class="form-text text-muted">Contoh : almiraTravel@gmail.com</small>
                                     </div>
                                     <div class="form-group col-12 col-md-6">
                                         <label >Nomer WA / Bisa dihubungi</label>
-                                        <input type="email" class="form-control" name="number" aria-describedby="emailHelp">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        <input type="text" class="form-control" name="wa" pattern="^[0-9]*$">
+                                        <small class="form-text text-muted">Contoh : 087812345678, Awali dengan 0</small>
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="exampleFormControlTextarea1">Pesan Anda</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="msg"></textarea>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <div class="captcha">
+                                            {!! NoCaptcha::display() !!}
+                                            {!! NoCaptcha::renderJs() !!}
+                                        </div>
                                     </div>
                                 </div>
                                 <button class="btn btn-success col-12" type="submit"><b>KIRIM PESAN</b></button>

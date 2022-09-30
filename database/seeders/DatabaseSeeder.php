@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Contact;
+use App\Models\Messaging;
 use App\Models\Mobil;
 use App\Models\Tour;
 use App\Models\Travel;
@@ -18,11 +19,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
+        //User::factory(1)->create();
         // Tour::factory(1)->create();
         // Travel::factory(1)->create();
         // Mobil::factory(1)->create();
         // \App\Models\User::factory(10)->create();
         // Contact::factory(1)->create();
+        // Messaging::factory(1)->create();
+
     }
 }

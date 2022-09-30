@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {  
@@ -50,7 +52,7 @@ class ContactController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
         }
-        return response()->json(['success' => $req->wa]);
+        
     }
 
     public function updateEmail(Request $req) {

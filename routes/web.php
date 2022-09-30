@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\CarouselListController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\PaketTourController;
 use App\Http\Controllers\SewaMobilController;
 use App\Http\Controllers\TravelRegulerController;
+use App\Models\Messaging;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -35,6 +38,7 @@ Route::get('/sewa-mobil', [SewaMobilController::class, 'index']);
 Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc']);
 Route::get('/tour/desc/{slug}', [PaketTourController::class, 'desc']);
 Route::get('/travel/desc/{slug}', [TravelRegulerController::class, 'desc']);
+Route::post('/sendMsg', [MessagingController::class, 'sendMsg']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -47,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/contact', [ContactController::class, 'pageView']);
             Route::get('/carousel', [CarouselListController::class, 'pageView']);
             Route::get('/account', [AccountController::class, 'pageView']);
-    
+            Route::get('/messaging', [MessagingController::class, 'pageView']);
         });
     });
     
@@ -100,6 +104,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::patch('/email', [AccountController::class, 'changeEmail'])->name('change-email');
         });
 
+    });
+
+    Route::prefix('messaging')->group(function () {
+        
+        Route::get('/list', [MessagingController::class, 'data']);
+        Route::get('/search', [MessagingController::class, 'search']);
+        Route::get('/show/{id}', [MessagingController::class, 'show']);
+        Route::delete('/delete/{id}', [MessagingController::class, 'delete']);
     });
 }); 
 
