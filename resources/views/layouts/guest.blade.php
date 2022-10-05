@@ -59,11 +59,11 @@
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/travel-reguler">Travel Reguler (Door to Door)</a>
+                        <a class="nav-link" href="/sewa-mobil">Sewa Mobil</a>
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/sewa-mobil">Sewa Mobil</a>
+                        <a class="nav-link" href="/gallery-photos">Gallery Photo</a>
                     </li>
                     <li class="nav-item mx-2"></li>
                     <li class="nav-item mx-2">

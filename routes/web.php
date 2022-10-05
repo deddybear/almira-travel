@@ -5,15 +5,15 @@ use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\CarouselListController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GalleryPhotosController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\PaketTourController;
 use App\Http\Controllers\SewaMobilController;
 use App\Http\Controllers\TravelRegulerController;
-use App\Models\Messaging;
+use App\Models\GalleryPhotos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 
 /*
@@ -31,7 +31,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/paket-tour', [PaketTourController::class, 'index']);
-Route::get('/travel-reguler', [TravelRegulerController::class, 'index']);
+Route::get('/gallery-photos', [GalleryPhotosController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/sewa-mobil', [SewaMobilController::class, 'index']);
@@ -46,7 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'pageView']);
             Route::get('/tour', [PaketTourController::class, 'pageView']);
-            Route::get('/travel', [TravelRegulerController::class, 'pageView']);
+            Route::get('/gallery', [GalleryPhotosController::class, 'pageView']);
             Route::get('/car', [SewaMobilController::class, 'pageView']);
             Route::get('/contact', [ContactController::class, 'pageView']);
             Route::get('/carousel', [CarouselListController::class, 'pageView']);
@@ -64,12 +64,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
     });
     
-    Route::prefix('travel')->group(function () {
-        Route::get('/list', [TravelRegulerController::class, 'listData']);
-        Route::get('/search', [TravelRegulerController::class, 'search']);
-        Route::post('/create', [TravelRegulerController::class, 'create']);
-        Route::patch('/update/{id}', [TravelRegulerController::class, 'update']);
-        Route::delete('/delete/{id}', [TravelRegulerController::class, 'delete']);
+    Route::prefix('gallery')->group(function () {
+        Route::get('/list', [GalleryPhotosController::class, 'listData']);
+        Route::get('/search', [GalleryPhotosController::class, 'search']);
+        Route::post('/create', [GalleryPhotosController::class, 'create']);
+        Route::delete('/delete/{id}', [GalleryPhotosController::class, 'delete']);
     });
     
     

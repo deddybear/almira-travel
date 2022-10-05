@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UploadFileTraits;
 use App\Models\Travel;
 use App\Models\Photos;
 use Illuminate\Http\Request;

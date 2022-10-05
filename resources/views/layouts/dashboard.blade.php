@@ -78,9 +78,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/dashboard/travel" class="nav-link">
+                                    <a href="/admin/dashboard/gallery" class="nav-link">
                                         <i class="fa-solid fa-plane-departure nav-icon"></i>
-                                        <p>Travel Reguler</p>
+                                        <p>Gallery Foto</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

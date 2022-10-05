@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UploadFileTraits;
 use App\Models\Caraousel;
 use App\Models\Photos;
 use Carbon\Carbon;
@@ -11,8 +12,10 @@ use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
-class CarouselListController extends Controller
-{
+class CarouselListController extends Controller {
+
+    use UploadFileTraits;
+
     public function pageView() {
         return view('dashboard.carousel-images');
     }
@@ -128,52 +131,52 @@ class CarouselListController extends Controller
         }
     }
 
-    public function uploadFiles(Request $req) {
-        $id = Generate::uuid4();
+    // public function uploadFiles(Request $req) {
+    //     $id = Generate::uuid4();
         
-        try {
+    //     try {
 
-            if (!$req->exists('photo') && !$req->file('photo')) {
-                return 'null';
-            }
+    //         if (!$req->exists('photo') && !$req->file('photo')) {
+    //             return 'null';
+    //         }
 
-            $photos = $req->file('photo');
-            $nameFile = $photos->hashName();
-            $photos->storeAs('public/images', $nameFile);
+    //         $photos = $req->file('photo');
+    //         $nameFile = $photos->hashName();
+    //         $photos->storeAs('public/images', $nameFile);
 
-            Photos::create([
-                'id'   => $id,
-                'path' => $nameFile
-            ]);
+    //         Photos::create([
+    //             'id'   => $id,
+    //             'path' => $nameFile
+    //         ]);
             
-           return $id;
-        } catch (\Throwable $th) {
-           return false;
-        }
-    }
+    //        return $id;
+    //     } catch (\Throwable $th) {
+    //        return false;
+    //     }
+    // }
 
-    public function deleteFiles($idPhotos) {
-        try {
+    // public function deleteFiles($idPhotos) {
+    //     try {
 
-            if ($idPhotos == 'null') {
-                return true;
-            }
+    //         if ($idPhotos == 'null') {
+    //             return true;
+    //         }
 
-            $filenames = Photos::select('path')->where('id', $idPhotos)->get();
+    //         $filenames = Photos::select('path')->where('id', $idPhotos)->get();
  
-            foreach ($filenames as $value) {
+    //         foreach ($filenames as $value) {
 
-                if (Storage::disk('public')->exists('images/' . $value->path)) {
-                    Storage::disk('public')->delete('images/' . $value->path);
-                    Photos::where('path', $value->path)->delete();
-                }
+    //             if (Storage::disk('public')->exists('images/' . $value->path)) {
+    //                 Storage::disk('public')->delete('images/' . $value->path);
+    //                 Photos::where('path', $value->path)->delete();
+    //             }
                
-            }
+    //         }
 
             
-            return true;
-        } catch (\Throwable $th) {
-            return false;
-        }
-    }
+    //         return true;
+    //     } catch (\Throwable $th) {
+    //         return false;
+    //     }
+    // }
 }

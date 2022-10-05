@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UploadFileTraits;
 use App\Models\Tour;
 use App\Models\Photos;
 use Carbon\Carbon;
@@ -12,8 +13,9 @@ use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 
-class PaketTourController extends Controller
-{
+class PaketTourController extends Controller {
+
+    use UploadFileTraits;
     
     /** 
         * TODO : Guest Function
@@ -56,7 +58,7 @@ class PaketTourController extends Controller
                         })
                         ->addColumn('Actions', function ($data) {
                             return '
-                            <a href="'.url("/desc/$data->slug").'" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                            <a href="'.url("/tour/desc/$data->slug").'" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
                             <a href="javascript:;" class="btn btn-sm btn-warning edit" data="'.$data->id.'"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="javascript:;" class="btn btn-sm btn-danger delete" data="'.$data->id.'"><i class="fa-solid fa-trash-can"></i></a>
                             ';
@@ -158,56 +160,4 @@ class PaketTourController extends Controller
         }
     }
 
-    public function uploadFiles(Request $req) {
-        $id = Generate::uuid4();
-        
-        try {
-
-            if (!$req->exists('photo') && !$req->file('photo')) {
-                return 'null';
-            }
-
-            $photos = $req->file('photo');
-
-            for ($i = 0; $i < count($photos); $i++) { 
-                $nameFile =  $photos[$i]->hashName();
-                $photos[$i]->storeAs('public/images',  $nameFile);
-
-                Photos::create([
-                    'id'   => $id,
-                    'path' => $nameFile
-                ]);
-            }
-            
-           return $id;
-        } catch (\Throwable $th) {
-           return false;
-        }
-    }
-
-    public function deleteFiles($idPhotos) {
-
-        try {
-
-            if ($idPhotos == 'null') {
-                return true;
-            }
-
-            $filenames = Photos::select('path')->where('id', $idPhotos)->get();
- 
-            foreach ($filenames as $value) {
-
-                if (Storage::disk('public')->exists('images/' . $value->path)) {
-                    Storage::disk('public')->delete('images/' . $value->path);
-                    Photos::where('path', $value->path)->delete();
-                }
-               
-            }
-
-            
-            return true;
-        } catch (\Throwable $th) {
-            return false;
-        }
-    }
 }
