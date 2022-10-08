@@ -28,10 +28,14 @@ class SewaMobilController extends Controller {
     }
 
     public function desc($slug) {
-        $data =  Mobil::select('detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
+        $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
 
         // return $data;
         return view('guest/desc-mobil', compact('data'));
+    }
+
+    public function createReview(Request $req) {
+       return response()->json($req);
     }
 
     /** 
@@ -93,6 +97,7 @@ class SewaMobilController extends Controller {
             $data = array(
                 'id' => $id,
                 'collection_photos_id' => $idPhotos,
+                'review_id' => Generate::uuid4(),
                 'name'  => $req->name,
                 'tipe_mobil' => $req->type,
                 'kursi' => str_replace(".","", $req->kursi) ,

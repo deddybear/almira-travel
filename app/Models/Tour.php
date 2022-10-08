@@ -21,4 +21,7 @@ class Tour extends Model
         return $this->hasMany(Photos::class, 'id', 'collection_photos_id');
     }
 
+    public function reviews() {
+        return $this->hasMany(Review::class, 'id', 'review_id');
+    }
 }

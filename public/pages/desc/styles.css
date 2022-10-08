@@ -1,3 +1,8 @@
+p.stars {
+    content: ★ !important;
+    text-decoration: none;
+}
+
 .nav-link.active {
     border-top: 1px solid #343a40 !important;
     border-left: 1px solid #343a40 !important;
@@ -9,6 +14,29 @@
 }
 
 
+.tour-text {
+    font-family: 'Saira', sans-serif;
+    font-weight: 600;
+}
+
+.total-star {
+    color: #0a58a5;
+}
+
+.card {
+    border: none !important;
+}
+
+.card-img-top {
+    border: 6px solid #fff;
+    border-radius: 100%;
+    width: 122px !important;
+    height: 122px !important;
+}
+
+.name-reviewer {
+    font-family: 'Kaushan Script', cursive;
+}
 
 @media only screen and (max-width: 912) {
     .show-img {

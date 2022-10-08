@@ -38,7 +38,7 @@ $(document).ready(function() {
         let dataForm = new FormData($('#form')[0]);
 
         $.ajax({
-            url: '/sendMsg',
+            url: '/send/msg',
             method: 'POST',
             dataType: "JSON",
             data: dataForm,

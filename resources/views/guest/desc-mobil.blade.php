@@ -3,11 +3,14 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/desc/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/star-styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/sweetalert2/sweetalert2.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.theme.default.css') }}">
 @endsection
 
 @section('js')
+    <script src="{{ asset('/plugins/sweetalert2/sweetalert2.js') }}"></script>
     <script src="{{ asset('/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('/pages/desc/script.js') }}"></script>
 @endsection
@@ -49,6 +52,77 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="card my-5">
+                    <h3 class="text-center tour-text p-3 border-bottom">
+                        Tour Review
+                    </h3>
+                    <div class="card-body rounded-3 px-5 row border-bottom">
+                        <div class="total-star mr-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="align-middle mt-1">3.00 Based on 1 review</span>
+                    </div>
+                    <div class="tour-reviewer p-5 row border-bottom">
+                        <div class="card ml-3 col-6 col-md-2">
+                            <img src="{{ asset('/images/user.png') }}" class="card-img-top rounded-3" height="122" width="122">
+                            <div class="card-body">
+                                <span class="name-reviewer text-center align-middle align-items-center ml-2">Brandon</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-9 my-3">
+                            <div class="overflow-hidden my-3">
+                                <div class="total-star float-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <span class="float-right">Test</span>
+                            </div>
+                            <p>lorem ipsum dolor si amet</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="tour-text p-3">
+                            Leave Review
+                        </p>
+                        <form id="form">
+                            <input type="hidden" name="id" value={{ $data->review_id }}>
+                            <div class="row ml-3 mb-3">
+                                <div class="mr-3">Rating</div>
+                                <div class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <textarea class="form-control" name="msg" cols="30" rows="10" placeholder="Silahkan Masuk Review Anda "></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="name" placeholder="Nama Anda">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="email" name="email" placeholder="Email Anda">
+                            </div>
+                            <div class="form-group col-12 p-0">
+                                <div class="captcha">
+                                    {!! NoCaptcha::display() !!}
+                                    {!! NoCaptcha::renderJs() !!}
+                                </div>
+                            </div>
+                            <button class="btn btn-warning" type="submit"><b>Kirim</b></button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -11,10 +11,13 @@
 @endsection
 
 @section('content')
-<div class="my-4 py-4 text-center ">
-    <div class="subtitle text-decoration-none mb-3">Almira Travel</div>
-    <h3 class="primary">Paket Sewa Mobil</h3>
+<div class="py-4">
+    <div class="my-4 text-center ">
+        <div class="subtitle text-decoration-none mb-3">Almira Travel</div>
+        <h3 class="primary">Paket Sewa Mobil</h3>
+    </div>
 </div>
+
 <div class="row p-4">
 
     @if (count($data) > 0)

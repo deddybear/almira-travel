@@ -10,7 +10,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\PaketTourController;
 use App\Http\Controllers\SewaMobilController;
-use App\Http\Controllers\TravelRegulerController;
 use App\Models\GalleryPhotos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -37,8 +36,14 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/sewa-mobil', [SewaMobilController::class, 'index']);
 Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc']);
 Route::get('/tour/desc/{slug}', [PaketTourController::class, 'desc']);
-Route::get('/travel/desc/{slug}', [TravelRegulerController::class, 'desc']);
-Route::post('/sendMsg', [MessagingController::class, 'sendMsg']);
+
+Route::prefix('send')->group(function () {
+    Route::post('/mobil/review', [SewaMobilController::class, 'createReview']);
+    Route::post('/tour/review', [PaketTourController::class, 'createReview']);
+    Route::post('/msg', [MessagingController::class, 'sendMsg']);
+});
+
+// Route untuk admin 
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

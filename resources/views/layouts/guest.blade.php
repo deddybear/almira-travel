@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="{{ asset('/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.carousel.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('/plugins/adminlte/adminlte.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('/plugins/floating-button-ig.css') }}">  
     <link rel="stylesheet" href="{{ asset('/fontawesome/all.css') }}">
     @yield('css')
 
@@ -86,10 +86,13 @@
         <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float-wa" target="_blank">
           <i class="fab fa-whatsapp"></i>
         </a>
+        <a href="https://www.instagram.com/almiratranstourtravel.id/" class="float-ig" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
     </section>
 
-    <footer class="p-5 mt-5 bg-orange-gradient-rev">
-        <div class="container ">
+    <footer class="py-5 bg-orange-gradient-rev col-12">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4 mx-auto">
                     <img src="/images/logo.png" width="150" height="70" alt="logo" srcset="/images/logo.png">
@@ -120,7 +123,6 @@
 <script src="{{ asset('/plugins/bootstrap/bootstrap.js') }}"></script>
 <script src="{{ asset('/plugins/owl-carousel/owl.carousel.js') }}"></script>
 <script src="{{ asset('/fontawesome/all.js') }}"></script>
-{{-- <script src="{{ asset('/plugins/adminlte/adminlte.js') }}"></script> --}}
 @yield('js')
 
 </html>

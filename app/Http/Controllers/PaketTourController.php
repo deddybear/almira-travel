@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Traits\UploadFileTraits;
 use App\Models\Tour;
 use App\Models\Photos;
+use App\Models\Review;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
@@ -29,10 +31,30 @@ class PaketTourController extends Controller {
 
     
     public function desc($slug) {
-        $data =  Tour::select('detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
-
-        // return $data;
+        $data =  Tour::select('review_id','detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
         return view('guest/desc-tour', compact('data'));
+    }
+
+    public function createReview(Request $req) {
+        try {
+            date_default_timezone_set('Asia/Jakarta');
+            
+            $data = array(
+                'id' => $req->id,
+                'name' => $req->name,
+                'msg'   => $req->msg,
+                'email' => $req->email,
+                'star' => $req->rating
+            );
+
+            Review::create($data);
+
+            return response()->json(['success' =>  'Berhasil Menambahkan Review']);
+        } catch (\Throwable $th) {
+            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+        }
+
+       
     }
 
     /** 
@@ -90,6 +112,7 @@ class PaketTourController extends Controller {
 
             $data = array(
                 'id'    => $id,
+                'review_id' => Generate::uuid4(),
                 'collection_photos_id' => $idPhotos,
                 'name'  => $req->name,
                 'price' => str_replace(".","", $req->price),
