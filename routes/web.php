@@ -41,6 +41,7 @@ Route::prefix('send')->group(function () {
     Route::post('/mobil/review', [SewaMobilController::class, 'createReview']);
     Route::post('/tour/review', [PaketTourController::class, 'createReview']);
     Route::post('/msg', [MessagingController::class, 'sendMsg']);
+
 });
 
 // Route untuk admin 
@@ -116,6 +117,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/search', [MessagingController::class, 'search']);
         Route::get('/show/{id}', [MessagingController::class, 'show']);
         Route::delete('/delete/{id}', [MessagingController::class, 'delete']);
+    });
+
+    Route::prefix('review')->group(function () {
+        Route::delete('/delete/{id}', [SewaMobilController::class, 'deleteReview']);
     });
 }); 
 

@@ -16,4 +16,8 @@ class Mobil extends Model
     public function photos() { 
         return $this->hasMany(Photos::class, 'id', 'collection_photos_id');
     }
+
+    public function reviews() {
+        return $this->hasMany(Review::class, 'data_id', 'review_id');
+    }
 }

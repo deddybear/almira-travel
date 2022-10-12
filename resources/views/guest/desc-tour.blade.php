@@ -1,4 +1,9 @@
 @extends('layouts.guest')
+
+@section('rechapta')
+    {!! htmlScriptTagJsApi() !!}
+@endsection
+
 @section('title',  $data->name . " Almira - Travel" )
 
 @section('css')

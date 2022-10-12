@@ -62,8 +62,11 @@ $(document).ready(function() {
                     grecaptcha.reset();
                     $('#form')[0].reset();
                 }
+
+                window.location.reload();
             },
             error: function (res) {
+                grecaptcha.reset();
                 let text = ''; 
 
                 for (const key in res.responseJSON.errors) {
@@ -77,5 +80,55 @@ $(document).ready(function() {
                 )
             }
         })
+    })
+
+    $('.delete').click(function() {
+        const id = $(this).attr("data");
+
+        Swal.fire({
+            title: "Apakah kamu yakin ??",
+            text: "Setelah terhapus, ini tidak bisa dikembalikan lagi!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Saya Setuju!",
+            cancelButtonText: "Batalkan"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url:  `/review/delete/${id}`,
+                    method: 'DELETE',
+                    dataType: 'JSON',
+                    beforeSend : function () {
+                        $('#loader-wrapper').show();
+                    },
+                    complete: function() {
+                        $('#loader-wrapper').hide();
+                    },
+                    success: function (data) {
+                        Swal.fire("Deleted!", data.success, "success");
+                        location.reload();
+                    },
+                    error: function (res) {
+
+                        console.log(res);
+                        let text = ''; 
+
+                        for (const key in res.responseJSON.errors) {
+                            text += message(res.responseJSON.errors[key]); 
+                        }
+        
+                        Swal.fire(
+                            'Whoops ada Kesalahan',
+                            `Error : <br> ${text}`,
+                            'error'
+                        )
+                    }
+                })
+            } else {
+                
+            }
+        });
     })
 })

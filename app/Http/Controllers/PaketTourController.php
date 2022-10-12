@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidationReview;
 use App\Traits\UploadFileTraits;
 use App\Models\Tour;
 use App\Models\Photos;
 use App\Models\Review;
+use App\Traits\ReviewTraits;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -17,7 +19,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PaketTourController extends Controller {
 
-    use UploadFileTraits;
+    use UploadFileTraits, ReviewTraits;
     
     /** 
         * TODO : Guest Function
@@ -31,16 +33,17 @@ class PaketTourController extends Controller {
 
     
     public function desc($slug) {
-        $data =  Tour::select('review_id','detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
+        $data =  Tour::select('review_id', 'detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
         return view('guest/desc-tour', compact('data'));
     }
 
-    public function createReview(Request $req) {
+    public function createReview(ValidationReview $req) {
         try {
             date_default_timezone_set('Asia/Jakarta');
             
             $data = array(
-                'id' => $req->id,
+                'id' => Generate::uuid4(),
+                'data_id' => $req->id,
                 'name' => $req->name,
                 'msg'   => $req->msg,
                 'email' => $req->email,
@@ -55,6 +58,10 @@ class PaketTourController extends Controller {
         }
 
        
+    }
+
+    public function deleteReview($id) {
+        $this->deleteReviewers($id);
     }
 
     /** 

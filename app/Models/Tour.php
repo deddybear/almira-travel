@@ -22,6 +22,6 @@ class Tour extends Model
     }
 
     public function reviews() {
-        return $this->hasMany(Review::class, 'id', 'review_id');
+        return $this->hasMany(Review::class, 'data_id', 'review_id');
     }
 }

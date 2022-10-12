@@ -28,6 +28,7 @@
 
         
     <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('/plugins/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/floating-button-wa.css') }}">    
     <link rel="stylesheet" href="{{ asset('/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/bootstrap.css') }}">

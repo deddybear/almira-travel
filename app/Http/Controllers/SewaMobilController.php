@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidationReview;
 use App\Traits\UploadFileTraits;
+use App\Traits\ReviewTraits;
 use App\Models\Mobil;
 use Carbon\Carbon;
 use App\Models\Photos;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
@@ -14,7 +17,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SewaMobilController extends Controller {
 
-    use UploadFileTraits;
+    use UploadFileTraits, ReviewTraits;
 
     /** 
         * TODO : Guest Function
@@ -28,14 +31,35 @@ class SewaMobilController extends Controller {
     }
 
     public function desc($slug) {
-        $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
-
+        $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
+       
         // return $data;
         return view('guest/desc-mobil', compact('data'));
     }
 
-    public function createReview(Request $req) {
-       return response()->json($req);
+    public function createReview(ValidationReview $req) {
+        try {
+            date_default_timezone_set('Asia/Jakarta');
+            
+            $data = array(
+                'id' => Generate::uuid4(),
+                'data_id' => $req->id,
+                'name' => $req->name,
+                'msg'   => $req->msg,
+                'email' => $req->email,
+                'star' => $req->rating
+            );
+
+            Review::create($data);
+
+            return response()->json(['success' =>  'Berhasil Menambahkan Review']);
+        } catch (\Throwable $th) {
+            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+        }
+    }
+
+    public function deleteReview($id) {
+        return $this->deleteReviewers($id);
     }
 
     /** 

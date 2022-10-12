@@ -1,6 +1,10 @@
 @extends('layouts.guest')
 @section('title',  $data->name . " Almira - Travel" )
 
+@section('rechapta')
+    {!! htmlScriptTagJsApi() !!}
+@endsection
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/desc/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/star-styles.css') }}">
@@ -58,33 +62,56 @@
                     <h3 class="text-center tour-text p-3 border-bottom">
                         Tour Review
                     </h3>
+                    @if (count($data->reviews) > 0)
                     <div class="card-body rounded-3 px-5 row border-bottom">
+                        {{-- Untuk Mencari Rating dari keseluruhan Review --}}
+                        @php
+                            $rating = 0;
+                            $sumStar = 0;
+                            $reviewers = count($data->reviews);
+                        
+                            foreach ($data->reviews as $key => $value) {
+                                $sumStar += $value->star;
+                            }
+    
+                            $rating = $sumStar / $reviewers;
+                        @endphp
                         <div class="total-star mr-3">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                            @for ($i = 0; $i < $rating; $i++)
+                                <i class="fa fa-star"></i>
+                            @endfor
                         </div>
-                        <span class="align-middle mt-1">3.00 Based on 1 review</span>
+                        <span class="align-middle mt-1">{{ floor($rating)}} Based on {{ $reviewers }} review</span>
                     </div>
                     <div class="tour-reviewer p-5 row border-bottom">
-                        <div class="card ml-3 col-6 col-md-2">
+                        @foreach ($data->reviews as $item)
+                        <div class="card ml-3 col-6 col-md-2 mb-5">
                             <img src="{{ asset('/images/user.png') }}" class="card-img-top rounded-3" height="122" width="122">
                             <div class="card-body">
-                                <span class="name-reviewer text-center align-middle align-items-center ml-2">Brandon</span>
+                                <span class="card-text name-reviewer text-center align-middle align-items-center">{{ $item->name }}</span>
                             </div>
                         </div>
                         <div class="col-6 col-md-9 my-3">
                             <div class="overflow-hidden my-3">
                                 <div class="total-star float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                                    @for ($i = 0; $i < $item->star; $i++)
+                                        <i class="fa fa-star"></i>
+                                    @endfor
                                 </div>
-                                <span class="float-right">Test</span>
+                                @if (Auth::check())
+                                    <span class="float-right ml-1"><a href="javascript:;" class="btn btn-sm btn-danger delete" data="{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></a></span>
+                                @endif                                
+                                <span class="float-right mr-1">{{ date_format( $item->created_at, "F d, Y") }}</span>
                             </div>
-                            <p>lorem ipsum dolor si amet</p>
+                            <p>{{ $item->msg }}</p>
                         </div>
+                        @endforeach
                     </div>
+                    @else
+                    <h3 class="text-center tour-text p-3 border-bottom">
+                        Belum Ada Review
+                    </h3>
+                    @endif
                     <div class="p-4">
                         <p class="tour-text p-3">
                             Leave Review

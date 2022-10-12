@@ -46,7 +46,7 @@
                             ....
                           </p>
                           <div class="go-to">
-                            <a class="btn btn-primary col-5 mt-3 mx-auto" href="/tour/desc/{{ $item->slug }}">Selengkapnya <i class="fas fa-sign-in-alt icon-selengkapnya"></i> </a>
+                            <a class="btn btn-primary col-lg-7 col-md-6 col-12 mt-3 mx-auto" href="/tour/desc/{{ $item->slug }}">Selengkapnya <i class="fas fa-sign-in-alt icon-selengkapnya"></i> </a>
                           </div>
                         </div>
                     </div>
