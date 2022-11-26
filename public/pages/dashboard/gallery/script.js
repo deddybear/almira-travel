@@ -27,6 +27,7 @@ $(document).ready(function() {
     }
 
     $('#adding_photo').click(function() {
+        let countField = $("#field_photo").children().length;
         if (countField < 3) {
             $('#field_photo').append(`
             <div class="form-group row uploadFields">
@@ -43,12 +44,7 @@ $(document).ready(function() {
             `);
             $('.del-field').click(function() {
                 $(this).parent().remove();
-                if (countField > 0) {
-                    countField = countField - 1;
-                }
-                
             });
-            countField = countField + 1;
     
         }
     });

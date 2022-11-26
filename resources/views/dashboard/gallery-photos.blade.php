@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
 @section('title', 'Panel Admin')
-@section('title-header', 'Kontak')
+@section('title-header', 'Gallery Foto')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/plugins/dataTables/datatables.css') }}">
@@ -69,7 +69,7 @@
                     <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                             <label>Nama Agenda</label>
-                            <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket">
+                            <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket" required>
                         </div>
                         <div class="form-group">
                             <label>Deskripsi Agenda</label>

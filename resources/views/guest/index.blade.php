@@ -42,8 +42,11 @@
             <div class="col-12">
                 <h4 class="text-center title-motto m-0">CV. Almira Travel</h4>
                 <h4 class="text-center title-desc">Sewa Mobil & Tur Professional</h4>
-                <p class="text-center text-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sunt non consequuntur, error minima eos 
-                    debitis assumenda omnis rerum in quam soluta accusantium temporibus recusandae deleniti porro necessitatibus expedita est?</p>
+                <p class="text-center text-motto">
+                    Kami adalah penyedia jasa dibidang layanan travel & transport yang telah berdiri sejak 2010,
+                    dan sudah melayani ribuan <i>Client</i> pribadi, instansi perusahaan dan pemerintahan,
+                    Almira Travel berkomitmen untuk terus memberikan pelayanan terbaik agar membuahkan hasil tingkat kepuasan dan kepercayaan pelanggan makin meningkat dari waktu ke waktu.
+                </p>
             </div>
         </div>
     </div>
@@ -157,7 +160,9 @@
                 <div class="col-12 col-lg-5">
                     <div class="card">                        
                         <div class="card-body">
-                          <h2 class="title-service">Some quick example text to #hastag</h2>
+                          <h2 class="title-service">
+                            <b>Kelebihan</b> dan <b>Keunggulan</b> Almira Travel
+                          </h2>
                           <img src="https://via.placeholder.com/500?text=Picture" height="500" width="100%" alt="promo">
                         </div>
                     </div>
@@ -170,11 +175,11 @@
                                 <div class="card-body">
                                   <h3 class="card-title title-service">
                                     <div class="row px-3">
-                                        <i class="far fa-address-card" aria-hidden="true"></i>
-                                        <p class="ml-3 card-title-service">lorem ipsum</p>
+                                        <i class="fas fa-running" aria-hidden="true"></i>
+                                        <p class="ml-3 card-title-service">Efektif & Efesien</p>
                                       </div>                               
                                   </h3>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                                  
+                                  <p class="card-text">Almira Travel memberikan <i>Service</i> <b>Efektif & Efesien</b> untuk setiap pelanggan.</p>                                  
                                 </div>
                             </div>
                         </div>
@@ -183,12 +188,12 @@
                                 <div class="card-body">
                                   <h3 class="card-title title-service">
                                       <div class="row px-3">
-                                        <i class="far fa-address-card" aria-hidden="true"></i>
-                                        <p class="ml-3 card-title-service">lorem ipsum</p>
+                                        <i class="fas fa-user-shield" aria-hidden="true"></i>
+                                        <p class="ml-3 card-title-service">Aman & Nyaman</p>
                                       </div>
                                      
                                   </h3>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <p class="card-text">Almira Travel berkomitmen memberikan <i>Service</i> <b>Aman & Nyaman</b> untuk anda.</p>
                                   
                                 </div>
                             </div>
@@ -198,12 +203,12 @@
                                 <div class="card-body">
                                     <h3 class="card-title title-service">
                                         <div class="row px-3">
-                                          <i class="far fa-address-card" aria-hidden="true"></i>
-                                          <p class="ml-3 card-title-service">lorem ipsum</p>
+                                          <i class="fas fa-clock" aria-hidden="true"></i>
+                                          <p class="ml-3 card-title-service">Tepat Waktu</p>
                                         </div>
                                        
                                     </h3>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <p class="card-text">Kami memberikan <i>Service</i> <b>Tepat Waktu</b> agar pelanggan mendapatkan pengalaman terbaik.</p>
                                   
                                 </div>
                             </div>
@@ -213,12 +218,12 @@
                                 <div class="card-body">
                                     <h3 class="card-title title-service">
                                         <div class="row px-3">
-                                          <i class="far fa-address-card" aria-hidden="true"></i>
-                                          <p class="ml-3 card-title-service">lorem ipsum</p>
+                                          <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
+                                          <p class="ml-3 card-title-service">Best Price</p>
                                         </div>
                                        
                                     </h3>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <p class="card-text">Kelebihan Almira Travel memberikan harga yang <b>Terjangkau dan Bersaing</b>.</p>
                                   
                                 </div>
                             </div>
@@ -228,12 +233,12 @@
                                 <div class="card-body">
                                     <h3 class="card-title title-service">
                                         <div class="row px-3">
-                                          <i class="far fa-address-card" aria-hidden="true"></i>
-                                          <p class="ml-3 card-title-service">lorem ipsum</p>
+                                          <i class="fas fa-car-side"  aria-hidden="true"></i>
+                                          <p class="ml-3 card-title-service">Transportasi</p>
                                         </div>
                                        
                                     </h3>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <p class="card-text">Pilihan <b>Trasportasi</b> dari Almira Travel yang sangat beragam, bervariatif dan paling lengkap.</p>
                                   
                                 </div>
                             </div>
@@ -243,12 +248,12 @@
                                 <div class="card-body">
                                     <h3 class="card-title title-service">
                                         <div class="row px-3">
-                                          <i class="far fa-address-card" aria-hidden="true"></i>
-                                          <p class="ml-3 card-title-service">lorem ipsum</p>
+                                          <i class="fas fa-user-tie" aria-hidden="true"></i>
+                                          <p class="ml-3 card-title-service">Profesional</p>
                                         </div>
                                        
                                     </h3>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <p class="card-text">Almira Travel menjunjung tinggi terhadap <b>Profesional</b> agar mendapatkan pelayanan Tanggap & Memuaskan.</p>
                                   
                                 </div>
                             </div>
@@ -264,9 +269,7 @@
             <div class="container">
                 <div class="p">
                     <p><b>Almira Travel</b></p>
-                <h2 class="title-jasa">Siap <span class="text-primary">Melayani</span> Perjalanan Anda</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam adipisci sequi rem labore :</p>
+                <h2 class="title-jasa">Ready <span class="text-primary">To Serve Your</span> Trip</h2>
                 </div>
             </div>
         </div>
@@ -274,37 +277,41 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray">
-                        <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
+                        <img class="card-img-top" src="{{ asset('/images/pickup.jpg') }}" height="180">
                         <div class="card-body">
-                            <h5 class="card-title title-card-jasa">Airport Transfer</h5>
-                            <p class="card-text text-secondary text-card-jasa">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title title-card-jasa mb-0">Drop / Pickup</h5>
+                            <p class="card-text text-secondary text-card-jasa"><b>Antar / Jemput</b></p>
+                            <p class="card-text text-secondary text-card-jasa">Mengantar atau menjemput sesuai tujuan yang anda mau.</p>
                           </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray" >
-                        <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
+                        <img class="card-img-top" src="{{ asset('/images/special_event.jpg') }}" height="180">
                         <div class="card-body">
-                            <h5 class="card-title title-card-jasa">Acara Khusus</h5>
-                            <p class="card-text text-secondary text-card-jasa">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title title-card-jasa mb-0">Special Event</h5>
+                            <p class="card-text text-secondary text-card-jasa"><b>Acara Khusus</b></p>
+                            <p class="card-text text-secondary text-card-jasa">Menyediakan service transport untuk acara kedinasan, instansi dan <i>corporate</i>.</p>
                           </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray">
-                        <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
+                        <img class="card-img-top" src="{{ asset('/images/dinas.jpg') }}" height="180">
                         <div class="card-body">
-                            <h5 class="card-title title-card-jasa">Perjalanan Dinas</h5>
-                            <p class="card-text text-secondary text-card-jasa">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title title-card-jasa mb-0">Government Trip</h5>
+                            <p class="card-text text-secondary text-card-jasa"><b>Perjalanan Dinas</b></p>
+                            <p class="card-text text-secondary text-card-jasa">Menyediakan service transport untuk dinas luar kota.</p>
                           </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card text-center card-outline-btn-gray">
-                        <img class="card-img-top" src="https://via.placeholder.com/100?text=Picture" height="180">
+                        <img class="card-img-top" src="{{ asset('/images/gathering.jpg') }}" height="180">
                         <div class="card-body">
-                            <h5 class="card-title title-card-jasa">Wisata keluarga</h5>
-                            <p class="card-text text-secondary text-card-jasa">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title title-card-jasa mb-0">Gathering</h5>
+                            <p class="card-text text-secondary text-card-jasa"><b>Wisata Keluarga</b></p>
+                            <p class="card-text text-secondary text-card-jasa">Service transport untuk <i>Family Ghatering</i> <i>Coporate Ghatering</i> <i>Dinas Ghatering</i>.</p>
                           </div>
                     </div>
                 </div>
@@ -324,49 +331,58 @@
                             <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
-                                        <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
+                                        <i aria-hidden="true" class="far fa-check-circle"></i>
                                     </span>
                                     <div class="number"> 1. </div>                                    
                                 </div>                               
                                 <div class="col text-how-to">
-                                    <h5 class="text-how-title">Lorem ipsum</h5>
-                                    <p class="text-secondary text-how-desc text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
+                                    <h5 class="text-how-title">Pilih Layanan Kami sesuai kebutuhan</h5>
+                                    <p class="text-secondary text-how-desc text-sm">
+                                        Memilih Layanan yang kami sediakan seperti Paket Tour atau Sewa Mobil dari website 
+                                    </p>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
-                                        <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
+                                        <i aria-hidden="true" class="fas fa-bus"></i>                            
                                     </span>
                                     <div class="number"> 2. </div>                                    
                                 </div>                               
                                 <div class="col text-how-to">
-                                    <h5 class="text-how-title ">Lorem ipsum</h5>
-                                    <p class="text-secondary text-how-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
+                                    <h5 class="text-how-title">Memilih Paket Tour / Mobil</h5>
+                                    <p class="text-secondary text-how-desc">
+                                        Memilih Paket Tour atau Mobil yang ingin anda pesan, sesuai deskripsi yang tertera di website, 
+                                        dengan memilih item jika anda sudah yakin anda dapat menekan tombol <b>Pesan Sekarang</b>  
+                                    </p>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
-                                        <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
+                                        <i aria-hidden="true" class="fas fa-map-marked-alt"></i>                                   
                                     </span>
                                     <div class="number"> 3. </div>                                    
                                 </div>                               
                                 <div class="col text-how-to">
-                                    <h5 class="text-how-title ">Lorem ipsum</h5>
-                                    <p class="text-secondary text-how-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
+                                    <h5 class="text-how-title ">Penjemputan / Pengantaran</h5>
+                                    <p class="text-secondary text-how-desc">
+                                        Tim kami akan menjemput anda di tempat atau mengantarkan unit pesanan untuk sewa lepas kunci
+                                    </p>
                                 </div>
                             </div>  
                             <div class="row p-3">
                                 <div class="icon-how-to">
                                     <span class="icon mx-auto my-auto">
-                                        <i aria-hidden="true" class="far fa-comment-dots"></i>                                        
+                                        <i aria-hidden="true" class="fas fa-smile-wink"></i>                                  
                                     </span>
                                     <div class="number"> 4. </div>                                    
                                 </div>                               
                                 <div class="col text-how-to">
-                                    <h5 class="text-how-title">Lorem ipsum</h5>
-                                    <p class="text-secondary text-how-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dolores totam consequuntur, neque nihil dolorem </p>
+                                    <h5 class="text-how-title">Menikmati Layanan Kami</h5>
+                                    <p class="text-secondary text-how-desc">
+                                        Tim profesional kami akan memberikan pelayanan yang terbaik untuk anda, agar mendapatkan kenyamanan dan keamanan yang terbaik dari kami
+                                    </p>
                                 </div>
                             </div>                       
                         </div>

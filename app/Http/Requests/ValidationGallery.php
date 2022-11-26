@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidationTour extends FormRequest
+class ValidationGallery extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,8 @@ class ValidationTour extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50',
-            'price' => 'required|numeric',
-            'plan' => 'required',
-            'detail' => 'required',
-            'offer' => 'required',
-            'prepare' => 'required',
+            'name' => 'required|max:30',
+            'desc' => 'required',
             'photo.*' => 'sometimes|mimes:jpg,jpeg,bmp,png|max:3072'
         ];
     }
@@ -39,14 +35,9 @@ class ValidationTour extends FormRequest
         return [
             'name.required'  => 'Mohon di isi nama Paket Tour',
             'name.max'       => 'Nama Maksimal 50 Huruf',
-            'price.required' => 'Masukkan Harga',
-            'price.numeric'  => 'Format harga salah',
-            'plan.required'  => 'Trip Plan Harus di isi',
-            'detail.required' => 'Detail Harus di isi',
-            'offer.required'  => 'Best Offer Harus di isi',
-            'prepare.required' => 'Prepare Harus di isi',
-            'photo.mimes'      => 'Tipe Extensi Foto harus JPG, JPEG, BMP, PNG',
-            'photo.max'       => 'Foto Ukuran Maksimal 3MB',
+            'desc.required'  => 'Deskripsi harus di isi',
+            'photo.mimes'    => 'Tipe Extensi Foto harus JPG, JPEG, BMP, PNG',
+            'photo.max'      => 'Foto Ukuran Maksimal 3MB',
         ];
     }
 

@@ -3,6 +3,14 @@
     background-color: #EDEDED;
 }
 
+a.underlineIfHover:hover {
+    text-decoration: underline !important;
+}
+
+.icons-lg {
+    font-size: 20px !important;
+}
+
 .pull-left {
     float: left !important;
 }

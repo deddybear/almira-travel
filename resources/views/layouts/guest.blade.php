@@ -81,8 +81,8 @@
         </div>
     </nav>
 
-    <section id="section">
 
+    <section id="section">
         @yield('content')
         <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float-wa" target="_blank">
           <i class="fab fa-whatsapp"></i>
@@ -90,30 +90,44 @@
         <a href="https://www.instagram.com/almiratranstourtravel.id/" class="float-ig" target="_blank">
           <i class="fab fa-instagram"></i>
         </a>
+        <div class="p-5"></div>
     </section>
-
+    
     <footer class="py-5 bg-orange-gradient-rev col-12">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mx-auto">
-                    <img src="/images/logo.png" width="150" height="70" alt="logo" srcset="/images/logo.png">
+                    <img class="mb-3" src="/images/logo.png" width="150" height="70" alt="logo" srcset="/images/logo.png">
                     <ul class="row list-unstyled">
-                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
-                        <li class="col-12 col-md-6 text-dark"><a href="">Beranda</a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Beranda</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Paket Tour</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Sewa Mobil</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Gallery Foto</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Kontak</b></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mx-auto">
-                    <h4><u>About We</u></h4>
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid facilis.
+                    <h4>ABOUT US</h4>
+                    <p class="text-sm">
+                        Penyedia jasa bergerak dibidang travel & transport, 
+                        telah berdiri sejak 2010 dan sudah melayani ribuan Client. 
+                        Almira Travel berkomitmen untuk terus memberikan pelayanan terbaik
                     </p>
                 </div>
                 <div class="col-md-4 mx-auto">
-                    <h4><u>Social Media</u></h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid facilis.</p>
+                    <h4>CONTACT US</h4>       
+                        <a class="text-dark mx-2 col-12" href="#">
+                            <i class="fab fa-whatsapp icons-lg"></i>
+                        </a>
+                        <br>
+                        <a class="text-dark mx-2 col-12" href="#">
+                            <i class="fab fa-instagram icons-lg"></i>
+                        </a>
+                        <br>
+                        <a class="text-dark mx-2 col-12" href="#">
+                            <i class="far fa-envelope icons-lg"></i>
+                        </a>
+                        <br>
                 </div>
             </div>
         </div>

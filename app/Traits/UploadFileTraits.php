@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Http\Requests\ValidationPhoto;
 use App\Models\Photos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

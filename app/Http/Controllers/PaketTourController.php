@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\ValidationTour;
 
 
 class PaketTourController extends Controller {
@@ -27,7 +28,6 @@ class PaketTourController extends Controller {
 
     public function index() {
         $data = Tour::select('detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
-
         return view('guest/paket-tour', compact('data'));
     }
 
@@ -106,7 +106,7 @@ class PaketTourController extends Controller {
         return $results;
     }
 
-    public function create(Request $req) {
+    public function create(ValidationTour $req) {
         date_default_timezone_set('Asia/Jakarta');
         $id = Generate::uuid4();
 
@@ -138,7 +138,7 @@ class PaketTourController extends Controller {
         }
     }
 
-    public function update($id, Request $req) {
+    public function update($id, ValidationTour $req) {
         date_default_timezone_set('Asia/Jakarta');
 
         try {
