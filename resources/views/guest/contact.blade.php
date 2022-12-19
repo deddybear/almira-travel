@@ -33,7 +33,12 @@
                         <li class="list-group-item pl-5 pt-1">
                             <i class="fas fa-phone-square icons"></i>
                             <h5>Telepon</h5>
-                            <p>+{{ $data->wa }}</p>
+                            @php
+                                $number = str_replace('62', ' ', $contact->wa);
+                            @endphp
+
+                               
+                            <p> +62 {{ trim(chunk_split($number, 4, ' ')) }}</p>
                         </li>
                         <li class="list-group-item pl-5 pt-1">
                             <i class="fas fa-envelope icons"></i>

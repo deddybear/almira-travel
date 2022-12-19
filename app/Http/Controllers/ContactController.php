@@ -12,6 +12,7 @@ class ContactController extends Controller
     
     public function __construct() {
         $this->id = 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649';
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();
     }
 
     /** 
@@ -19,9 +20,10 @@ class ContactController extends Controller
     */
 
     public function index() {
+        $contact = $this->contact;
         $data = $this->data();
 
-        return view('guest/contact', compact('data'));
+        return view('guest/contact', compact('data', 'contact'));
     }
 
     /** 

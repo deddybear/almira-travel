@@ -155,12 +155,14 @@
             </div>
             <div class="col-12 col-md-3 mt-5">
                 <div class="card text-white bg-secondary mb-3">
-                      <div class="card-header text-center">
-                        <h3>Rp. {{ number_format($data->price, 0 ,',', '.') }},-</h3>
-                      </div>
-                      <div class="card-body">
-                        <p class="card-text text-center">Pesan Sekarang ! </p>
-                      </div>
+                    <a class="text-white no-decoration" href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20ingin%20memesan%20mobil%20{{ $data->name }}.">
+                        <div class="card-header text-center">
+                          <h3>Rp. {{ number_format($data->price, 0 ,',', '.') }},-</h3>
+                        </div>
+                        <div class="card-body text-center mx-auto">
+                              <h3 class="m-0">Pesan Sekarang !</h3>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

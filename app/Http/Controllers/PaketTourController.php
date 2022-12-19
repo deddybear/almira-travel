@@ -16,7 +16,7 @@ use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\ValidationTour;
-
+use App\Models\Contact;
 
 class PaketTourController extends Controller {
 
@@ -26,15 +26,21 @@ class PaketTourController extends Controller {
         * TODO : Guest Function
     */
 
+    public function __construct() {
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();;
+    }
+
     public function index() {
+        $contact = $this->contact;
         $data = Tour::select('detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
-        return view('guest/paket-tour', compact('data'));
+        return view('guest/paket-tour', compact('data', 'contact'));
     }
 
     
     public function desc($slug) {
+        $contact = $this->contact;
         $data =  Tour::select('review_id', 'detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
-        return view('guest/desc-tour', compact('data'));
+        return view('guest/desc-tour', compact('data', 'contact'));
     }
 
     public function createReview(ValidationReview $req) {

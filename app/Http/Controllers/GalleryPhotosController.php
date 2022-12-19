@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Traits\UploadFileTraits;
 use App\Models\GalleryPhotos;
 use Illuminate\Http\Request;
@@ -18,10 +19,15 @@ class GalleryPhotosController extends Controller {
         * TODO : Guest Function
     */
 
+    public function __construct() {
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();
+    }
+
     public function index() {
+        $contact = $this->contact;
         $data = GalleryPhotos::select('collection_photos_id', 'name', 'desc')->with('photos:id,path')->get();
 
-        return view('guest.gallery-photos', compact('data'));
+        return view('guest.gallery-photos', compact('data', 'contact'));
     }
 
     /** 

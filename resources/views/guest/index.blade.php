@@ -23,7 +23,7 @@
         <div class="owl-carousel owl-theme">
             @if (count($caraousel) > 0)
                 @foreach ($caraousel as $item)
-                <div class="item text-center px-5 py-3">
+                <div class="item text-center px-5 py-3 w-75 mx-auto mt-5">
                     <img src={{ asset('/storage/images/'. $item->path) }} height="500">
                 </div>
                 @endforeach
@@ -163,7 +163,7 @@
                           <h2 class="title-service">
                             <b>Kelebihan</b> dan <b>Keunggulan</b> Almira Travel
                           </h2>
-                          <img src="https://via.placeholder.com/500?text=Picture" height="500" width="100%" alt="promo">
+                          <img src="{{ asset('/images/1.jpg') }}" height="500" width="100%" alt="promo">
                         </div>
                     </div>
                 </div>
@@ -323,7 +323,7 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-lg-6 p-0">
-                    <img class="img-booking" src="https://via.placeholder.com/585?text=CaraBooking" alt="">
+                    <img class="img-booking" src="{{ asset('/images/2.jpg') }}" alt="cara-booking">
                 </div>
                 <div class="col-12 col-lg-6 p-0">
                     <div class="card card-how-to p-2">

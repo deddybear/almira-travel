@@ -19,11 +19,11 @@
 </div>
 
 <div class="row p-4">
-
+    {{-- @dd($data) --}}
     @if (count($data) > 0)
         @foreach ($data as $item)
             <div class="col-12 col-md-3 mb-3">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-top">
                         @if (count($item->photos) > 0)
                             <img class="card-img-top" src="{{ asset('/storage/images/' . $item->photos[0]->path) }}" width="360" height="240">
@@ -45,6 +45,33 @@
                       <p class="card-text text-secondary">
                         {{  str_limit(strip_tags($item->detail), 100)  }}
                       </p>
+                      <br>
+                      @if (count($item->reviews) > 0)
+                          <div class="card-body rounded-3 row">
+                              {{-- Untuk Mencari Rating dari keseluruhan Review --}}
+                              @php
+                                  $rating = 0;
+                                  $sumStar = 0;
+                                  $reviewers = count($item->reviews);
+
+                                  foreach ($item->reviews as $key => $value) {
+                                      $sumStar += $value->star;
+                                  }
+                              
+                                  $rating = $sumStar / $reviewers;
+                              @endphp
+                              <div class="total-star mr-3">
+                                  @for ($i = 0; $i < $rating; $i++)
+                                      <i class="fa fa-star"></i>
+                                  @endfor
+                              </div>
+                              <span class="align-middle mt-1">{{ floor($rating)}} Based on {{ $reviewers }} review</span>
+                          </div>
+                      @else 
+                        <h4 class="tour-text text-muted">
+                          Belum Ada Review
+                        </h4>
+                      @endif
                       <div class="go-to">
                         <a class="btn btn-primary col-lg-7 col-md-6 col-12 mt-3 mx-auto" href="/mobil/desc/{{ $item->slug }}">Selengkapnya <i class="fas fa-sign-in-alt icon-selengkapnya"></i> </a>
                       </div>

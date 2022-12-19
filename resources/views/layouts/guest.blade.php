@@ -84,7 +84,7 @@
 
     <section id="section">
         @yield('content')
-        <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float-wa" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20tertarik%20untuk%20memesan%20jasa%20dari%20Almira-Travel." class="float-wa" target="_blank">
           <i class="fab fa-whatsapp"></i>
         </a>
         <a href="https://www.instagram.com/almiratranstourtravel.id/" class="float-ig" target="_blank">
@@ -108,26 +108,37 @@
                 </div>
                 <div class="col-md-4 mx-auto">
                     <h4>ABOUT US</h4>
-                    <p class="text-sm">
-                        Penyedia jasa bergerak dibidang travel & transport, 
+                    <p class="text-sm text-justify">
+                        Penyedia jasa bergerak dibidang travel dan transport, 
                         telah berdiri sejak 2010 dan sudah melayani ribuan Client. 
                         Almira Travel berkomitmen untuk terus memberikan pelayanan terbaik
                     </p>
                 </div>
                 <div class="col-md-4 mx-auto">
                     <h4>CONTACT US</h4>       
-                        <a class="text-dark mx-2 col-12" href="#">
+                        <a class="text-dark mx-2 col-12 row" href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20tertarik%20untuk%20memesan%20jasa%20dari%20Almira-Travel.">
                             <i class="fab fa-whatsapp icons-lg"></i>
+                            <div class="ml-2 mt-1"> 
+                                @php
+                                    $number = str_replace('62', ' ', $contact->wa);
+                                @endphp
+
+                                +62 {{ trim(chunk_split($number, 4, ' ')) }}
+                            </div>
                         </a>
-                        <br>
-                        <a class="text-dark mx-2 col-12" href="#">
+   
+                        <a class="text-dark mx-2 col-12 row" href="https://www.instagram.com/almiratranstourtravel.id/">
                             <i class="fab fa-instagram icons-lg"></i>
+                            <div class="ml-2 mt-1">
+                                almiratranstourtravel.id
+                            </div>
                         </a>
-                        <br>
-                        <a class="text-dark mx-2 col-12" href="#">
+   
+                        <a class="text-dark mx-2 col-12 row" href="mailto:{{ $contact->email }}">
                             <i class="far fa-envelope icons-lg"></i>
+                            <div class="ml-2 mt-1">{{ $contact->email }}</div>
                         </a>
-                        <br>
+   
                 </div>
             </div>
         </div>

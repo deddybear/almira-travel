@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidationReview;
+use App\Models\Contact;
 use App\Traits\UploadFileTraits;
 use App\Traits\ReviewTraits;
 use App\Models\Mobil;
@@ -23,18 +24,24 @@ class SewaMobilController extends Controller {
         * TODO : Guest Function
     */
 
+    public function __construct() {
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();;
+    }
+
     public function index() {
-        $data = Mobil::select('detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
+        $contact = $this->contact;
+        $data = Mobil::select('review_id', 'detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path', 'reviews:*')->get();
 
 
-        return view('guest/sewa-mobil', compact('data'));
+        return view('guest/sewa-mobil', compact('data', 'contact'));
     }
 
     public function desc($slug) {
+        $contact = $this->contact;
         $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
        
         // return $data;
-        return view('guest/desc-mobil', compact('data'));
+        return view('guest/desc-mobil', compact('data', 'contact'));
     }
 
     public function createReview(ValidationReview $req) {
