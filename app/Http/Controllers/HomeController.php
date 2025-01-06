@@ -25,4 +25,9 @@ class HomeController extends Controller {
 
         return view('guest.index', compact('caraousel', 'mobil', 'contact'));
     }
+
+    public function indexv2() {
+
+        return view('guest-v2.index');
+    }
 }

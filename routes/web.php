@@ -25,8 +25,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
-Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/paket-tour', [PaketTourController::class, 'index']);
@@ -43,6 +41,13 @@ Route::prefix('send')->group(function () {
     Route::post('/msg', [MessagingController::class, 'sendMsg']);
 
 });
+
+Route::prefix('v2')->group(function () {
+    Route::get('/', [HomeController::class, 'indexv2'])->name('home');
+});
+
+Auth::routes();
+Auth::routes(['verify' => true]);
 
 // Route untuk admin 
 

@@ -1,0 +1,90 @@
+#header {
+    width: 100%;
+    height: 43.75em;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+
+.navbar-custom-style {
+    font-family: "Montserrat";
+    font-weight: 500;
+}
+
+.navbar-nav-custom-style {
+    margin-top: 0.8rem !important;
+}
+
+.position-card-service {
+    left: 50% !important;
+    bottom: -83% !important;
+}
+
+.position-banner-msg {
+    position: absolute !important;
+    left: 1% !important;
+    bottom: 10% !important;
+    background: rgba(255, 255, 255, 0.4000000059604645);
+    opacity: 1;
+    overflow: hidden;
+    width: 28.9375em;
+}
+
+.msg-banner-1 {
+    color: rgba(8,8,8,1);
+    font-family: Francois One;
+    font-weight: Regular;
+    font-size: 36px;
+    text-align: left;
+}
+
+.msg-banner-2 {
+    color: rgba(9,9,9,1);
+    font-family: Francois One;
+    font-weight: Regular;
+    font-size: 16px;
+    text-align: left;
+}
+
+.stats-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.stats-box .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.stats-box .stat-label {
+    font-size: 1rem;
+    color: #666;
+}
+
+.greenTea {
+    color: rgba(189,210,182,1);
+}
+
+@media only screen and (max-width: 380px) {
+    .position-banner-msg {
+        position: absolute !important;
+        bottom: 30% !important;
+        background: rgba(255, 255, 255, 0.4000000059604645);
+        opacity: 1;
+        overflow: hidden;
+        width: 22em;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .position-banner-msg {
+        position: absolute !important;
+        bottom: 30% !important;
+        background: rgba(255, 255, 255, 0.4000000059604645);
+        opacity: 1;
+        overflow: hidden;
+        width: 25.5em;
+    }
+}
