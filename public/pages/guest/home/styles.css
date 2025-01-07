@@ -1,0 +1,43 @@
+.welcome-desc {
+    font-family: "Niramit", serif !important;
+    font-size: 2.5em;
+    font-style: normal;
+}
+
+.service-desc {
+    font-family: "Niramit", serif !important;
+    font-size: 2.5em;
+    font-style: normal;
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1400px) {
+    .welcome-desc {
+        font-size: 2em;
+    }
+
+    .service-desc {
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 710px) and (max-width: 1079px){
+    .welcome-desc {
+        font-size: 1.5em;
+    }
+
+    .service-desc {
+        font-size: 1.5em;
+    }
+}
+
+
+@media screen and (min-width: 360px) and (max-width: 700px) {
+    .welcome-desc {
+        font-size: 1em;
+    }
+
+    .service-desc {
+        font-size: 1em;
+    }
+}
+

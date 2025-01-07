@@ -128,9 +128,19 @@
         </div>
     </section>
 
-    <section>
+    <section class="spacing-content">
         @yield('content')
     </section>
+
+    <footer class="footer background-footer">
+        <div class="col-12">
+           <h1 class="m-0">&nbsp;</h1>
+           <h1 class="m-0">&nbsp;</h1>
+           <h1 class="m-0">&nbsp;</h1>
+           <h1 class="m-0">&nbsp;</h1>
+           <h1 class="m-0">&nbsp;</h1>
+        </div>
+    </footer>
 </body>
 <script src="{{ asset('/plugins/jquery-3.5.1.js') }}"></script>
 {{-- <script src="{{ asset('/plugins/bootstrap/bootstrap.bundle.js') }}"></script> --}}
