@@ -30,6 +30,10 @@ class GalleryPhotosController extends Controller {
         return view('guest.gallery-photos', compact('data', 'contact'));
     }
 
+    public function indexv2() {
+        return view('guest-v2.gallery');
+    }
+
     /** 
         * TODO : Dashboard Admin Function
     */

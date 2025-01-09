@@ -26,6 +26,10 @@ class ContactController extends Controller
         return view('guest/contact', compact('data', 'contact'));
     }
 
+    public function indexv2() {
+        return view('guest-v2.contact');
+    }
+
     /** 
         * TODO : Dashboard Admin Function
     */

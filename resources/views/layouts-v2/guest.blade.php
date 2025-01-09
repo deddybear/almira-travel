@@ -34,7 +34,7 @@
 
 <body>
     <section class="position-relative" id="header"
-        style="background-image: url('{{ asset('/images/landscape-nature-grass-field.jpg') }}')">
+        style="background-image: url('@yield('banner-img')')">
 
         {{-- navbar --}}
         <nav class="navbar navbar-expand-lg navbar-light py-2 navbar-custom-style">
@@ -56,19 +56,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav navbar-nav-custom-style">
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark {{ request()->is('/') ? 'posisi' : '' }}" href="/">Home</a>
+                        <a class="nav-link text-dark {{ request()->is('/') ? 'posisi' : '' }}" href="/v2">Home</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/paket-tour">Paket Tour</a>
+                        <a class="nav-link text-dark" href="/v2/paket-tour">Paket Tour</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/sewa-mobil">Sewa Mobil</a>
+                        <a class="nav-link text-dark" href="/v2/sewa-mobil">Sewa Mobil</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/gallery-photos">Gallery</a>
+                        <a class="nav-link text-dark" href="/v2/gallery">Gallery</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/contact">Contact</a>
+                        <a class="nav-link text-dark" href="/v2/contact">Contact</a>
                     </li>
                     @if (Auth::check())
                         <li class="nav-item mx-1">
@@ -82,13 +82,11 @@
         {{-- banner message --}}
         <div class="position-banner-msg p-2">
             <span class="msg-banner-1">
-                Discovery Your Next Journey
-                With Almira Travel
+                @yield('title-banner')
             </span>
             <p>
                 <span class="msg-banner-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis
-                    bibendum diam, ac commodo arcu. Nullam rutrum fermentum lorem bibendum placerat.
+                    @yield('msg-banner')
                 </span>
         </div>
 

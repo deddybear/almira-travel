@@ -44,6 +44,10 @@ Route::prefix('send')->group(function () {
 
 Route::prefix('v2')->group(function () {
     Route::get('/', [HomeController::class, 'indexv2'])->name('home');
+    Route::get('/sewa-mobil', [SewaMobilController::class, 'indexv2']);
+    Route::get('/paket-tour', [PaketTourController::class, 'indexv2']);
+    Route::get('/gallery', [GalleryPhotosController::class, 'indexv2']);
+    Route::get('/contact', [ContactController::class, 'indexv2']);
 });
 
 Auth::routes();

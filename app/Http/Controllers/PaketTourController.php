@@ -36,6 +36,10 @@ class PaketTourController extends Controller {
         return view('guest/paket-tour', compact('data', 'contact'));
     }
 
+    public function indexv2() {
+        return view('guest-v2/paket-tour');
+    }
+
     
     public function desc($slug) {
         $contact = $this->contact;

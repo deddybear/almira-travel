@@ -36,6 +36,11 @@ class SewaMobilController extends Controller {
         return view('guest/sewa-mobil', compact('data', 'contact'));
     }
 
+    public function indexv2() {
+        return view('guest-v2/sewa-mobil');
+    }
+
+
     public function desc($slug) {
         $contact = $this->contact;
         $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
