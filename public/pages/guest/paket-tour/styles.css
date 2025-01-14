@@ -7,3 +7,15 @@
     background-position: 1% 25%;
     background-size: cover;
 }
+
+.card-tour span.badge {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    opacity: 80%;
+    font-family: "Francois One", serif !important;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-size: small;
+    letter-spacing: 2px;
+}

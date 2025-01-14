@@ -215,6 +215,8 @@ $(document).ready(function() {
                     return idrFormatter.format(row.price)
                 }, 
                 name: "price"},
+            { data: "category", name: "category"},
+            { data: "lokasi", name: "lokasi"},
             { data: "created_at", name: "created_at"},
             { data: "updated_at", name: "updated_at"},
             {

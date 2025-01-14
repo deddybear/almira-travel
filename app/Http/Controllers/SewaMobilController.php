@@ -8,10 +8,8 @@ use App\Traits\UploadFileTraits;
 use App\Traits\ReviewTraits;
 use App\Models\Mobil;
 use Carbon\Carbon;
-use App\Models\Photos;
 use App\Models\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
@@ -37,16 +35,21 @@ class SewaMobilController extends Controller {
     }
 
     public function indexv2() {
-        return view('guest-v2/sewa-mobil');
+        $contact = $this->contact;
+        
+        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+        ->with('photos:id,path', 'reviews:*')
+        ->get();
+
+        return view('guest-v2/sewa-mobil', compact('mobil', 'contact'));
     }
 
 
     public function desc($slug) {
         $contact = $this->contact;
         $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
-       
         // return $data;
-        return view('guest/desc-mobil', compact('data', 'contact'));
+        return view('guest-v2/desc-mobil', compact('data', 'contact'));
     }
 
     public function createReview(ValidationReview $req) {

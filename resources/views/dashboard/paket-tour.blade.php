@@ -35,6 +35,8 @@
                                 <th>No. </th>
                                 <th>Nama</th>
                                 <th>Harga</th>
+                                <th>Kategori</th>
+                                <th>Lokasi</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diupdate</th>
                                 <th>Aksi</th>
@@ -108,6 +110,14 @@
                                         <div class="form-group">
                                             <label>Nama Paket Tour</label>
                                             <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kategori</label>
+                                            <input type="text" class="form-control price-tour" name="category" placeholder="Kategori">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Lokasi</label>
+                                            <input type="text" class="form-control price-tour" name="lokasi" placeholder="Lokasi">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Paket Tour</label>

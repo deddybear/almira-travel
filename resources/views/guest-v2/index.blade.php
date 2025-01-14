@@ -68,16 +68,61 @@
 
         <div class="list-car mt-5 p-5 rounded-3">
             <div class="row">
-                @for ($i = 0; $i < 8; $i++)
-                <div class="col-xs-12 col-sm-6 col-md-3 mt-2">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ asset("/images/vehicle-". rand(1,4) .".png") }}" class="card-img-top h-25" alt="card-1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                @if (count($mobil) > 0)
+                    @foreach ($mobil as $item)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
+                            <div class="card">
+                                <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
+                                @if (count($item->photos) > 0)
+                                    <img src="{{ asset("/storage/images/". $item->photos[0]->path) }}" class="card-img-top h-25" alt="card-1">
+                                @else
+                                    <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
+                                @endif
+                                <div class="card-body body-tour">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col title-car">
+                                                {{  str_limit(strip_tags($item->name), 10) }}
+                                            </div>
+                                            <div class="col">
+                                                <div class="float-end desc-car rounded-4 px-2">
+                                                    <i class="fa-solid fa-users"></i>
+                                                    {{ $item->kursi }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
+                                </div>
+                              </div>
                         </div>
-                      </div>
-                </div>
-                @endfor
+                    @endforeach
+                @else
+                    @for ($i = 0; $i <= 7; $i++)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
+                            <div class="card">
+                                <span class="badge text-bg-dark">...</span>
+                                <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
+                                <div class="card-body body-tour">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col title-car">
+                                                Segera
+                                            </div>
+                                            <div class="col">
+                                                <div class="float-end desc-car rounded-4 px-2">
+                                                    <i class="fa-solid fa-users"></i>
+                                                    X
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                @endif
             </div>
         </div>
     </div>
@@ -101,16 +146,43 @@
 
     <div class="list-tour mt-5 p-5 container rounded-3">
         <div class="row">
-            @for ($l = 0; $l < 8; $l++)
-                <div class="col-xs-12 col-sm-6 col-md-3 mt-2">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ asset("/images/tour-". rand(1,4) .".jpg") }}" class="card-img-top h-25" alt="card-1">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            @if (count($tour) > 0)
+                @foreach ($tour as $item)
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
+                        <div class="card">
+                            <span class="badge text-bg-dark"> {{ $item->category }} </span>
+                            @if (count($item->photos) > 0)
+                                <img src="{{ asset("/storage/images/". $item->photos[0]->path) }}" class="card-img-top h-25" alt="card-1">
+                            @else
+                                <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
+                            @endif
+                            <div class="card-body body-tour">
+                              <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
+                              <p class="mb-0 desc-tour">
+                                <i class="fa-solid fa-location-dot"></i>
+                                {{ $item->lokasi }}
+                              </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endfor
+                @endforeach
+            @else
+                @for ($l = 0; $l < 8; $l++)
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
+                        <div class="card">
+                            <span class="badge text-bg-dark">...</span>
+                            <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
+                            <div class="card-body body-tour">
+                              <p class="mb-1 title-tour">...</p>
+                              <p class="mb-0 desc-tour">
+                                <i class="fa-solid fa-location-dot"></i>
+                                ...
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+            @endif
         </div>
     </div>
 
@@ -124,7 +196,9 @@
             <div class="row">
                 @for ($j = 1; $j <= 3; $j++)
                     <div class="col-12 col-md-4">
-                        <img src="{{ asset("/images/our-patner-$j.png")}}" >
+                        <div class="justify-content-center">
+                            <img class="mx-auto" src="{{ asset("/images/our-patner-$j.png")}}" >
+                        </div>
                     </div>
                 @endfor
             </div>

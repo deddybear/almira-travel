@@ -5,13 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ValidationReview;
 use App\Traits\UploadFileTraits;
 use App\Models\Tour;
-use App\Models\Photos;
 use App\Models\Review;
 use App\Traits\ReviewTraits;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
@@ -37,14 +34,18 @@ class PaketTourController extends Controller {
     }
 
     public function indexv2() {
-        return view('guest-v2/paket-tour');
+        $contact = $this->contact;
+        
+        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')->with('photos:id,path')->get();
+
+        return view('guest-v2/paket-tour', compact('tour', 'contact'));
     }
 
     
     public function desc($slug) {
         $contact = $this->contact;
         $data =  Tour::select('review_id', 'detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
-        return view('guest/desc-tour', compact('data', 'contact'));
+        return view('guest-v2/desc-tour', compact('data', 'contact'));
     }
 
     public function createReview(ValidationReview $req) {
@@ -132,6 +133,8 @@ class PaketTourController extends Controller {
                 'review_id' => Generate::uuid4(),
                 'collection_photos_id' => $idPhotos,
                 'name'  => $req->name,
+                'category' => $req->category,
+                'lokasi' => $req->lokasi,
                 'price' => str_replace(".","", $req->price),
                 'detail' => $req->detail,
                 'trip_plan' => $req->plan,
@@ -169,6 +172,8 @@ class PaketTourController extends Controller {
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
                 'price' => str_replace(".","", $req->price),
+                'category' => $req->category,
+                'lokasi' => $req->lokasi,
                 'detail' => $req->detail,
                 'trip_plan' => $req->plan,
                 'best_offer' => $req->offer,

@@ -94,14 +94,14 @@
     margin-top: 8rem !important;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 360px) {
     .position-banner-msg {
         position: absolute !important;
         bottom: 30% !important;
         background: rgba(255, 255, 255, 0.4000000059604645);
         opacity: 1;
         overflow: hidden;
-        width: 22em;
+        width: 20em;
     }
 }
 
@@ -135,4 +135,13 @@
         left: 50% !important;
         bottom: -99% !important;
     }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1000px)  {
+    .navbar-custom-style{
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+        text-align: center;
+    }
+     
 }

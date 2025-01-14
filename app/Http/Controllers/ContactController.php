@@ -27,7 +27,10 @@ class ContactController extends Controller
     }
 
     public function indexv2() {
-        return view('guest-v2.contact');
+        $contact = $this->contact;
+        $data = $this->data();
+
+        return view('guest-v2.contact', compact('data', 'contact'));
     }
 
     /** 

@@ -57,7 +57,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="{{route('home')}}" class="nav-link">
                                 <i class="fa-solid fa-house-chimney nav-icon"></i>
                                 <p>Back To Home</p>
                             </a>

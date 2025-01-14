@@ -28,56 +28,20 @@
     {{-- <link rel="stylesheet" href="{{ asset('/plugins/owl-carousel/owl.carousel.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('/plugins/floating-button-ig.css') }}">
     <link rel="stylesheet" href="{{ asset('/fontawesome/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/nav-mobile.css')}}">
     @yield('css')
 
 </head>
 
 <body>
-    <section class="position-relative" id="header"
-        style="background-image: url('@yield('banner-img')')">
+    {{-- navbar desktop --}}
 
-        {{-- navbar --}}
-        <nav class="navbar navbar-expand-lg navbar-light py-2 navbar-custom-style">
-            {{-- logo --}}
-            <a class="navbar-brand mx-5" href="/">
-                <img src="/images/logo.png" width="140" height="50" alt="logo" srcset="/images/logo.png">
-            </a>
+    <section class="position-relative" id="header" style="background-image: url('@yield('banner-img')')">
 
-            {{-- tombol menu mobile --}}
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- MENU MOBILE SIDE BAR -->
+        @include('layouts-v2.navigation')
+        {{-- navbar mobile --}}
+        @include('layouts-v2.navigation-mobile')
 
-
-            {{-- menu --}}
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav navbar-nav-custom-style">
-                    <li class="nav-item mx-1">
-                        <a class="nav-link text-dark {{ request()->is('/') ? 'posisi' : '' }}" href="/v2">Home</a>
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/v2/paket-tour">Paket Tour</a>
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/v2/sewa-mobil">Sewa Mobil</a>
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/v2/gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="/v2/contact">Contact</a>
-                    </li>
-                    @if (Auth::check())
-                        <li class="nav-item mx-1">
-                            <a class="nav-link text-dark" href="/admin/dashboard">Dashboard</a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </nav>
 
         {{-- banner message --}}
         <div class="position-banner-msg p-2">
@@ -132,11 +96,11 @@
 
     <footer class="footer background-footer">
         <div class="col-12">
-           <h1 class="m-0">&nbsp;</h1>
-           <h1 class="m-0">&nbsp;</h1>
-           <h1 class="m-0">&nbsp;</h1>
-           <h1 class="m-0">&nbsp;</h1>
-           <h1 class="m-0">&nbsp;</h1>
+            <h1 class="m-0">&nbsp;</h1>
+            <h1 class="m-0">&nbsp;</h1>
+            <h1 class="m-0">&nbsp;</h1>
+            <h1 class="m-0">&nbsp;</h1>
+            <h1 class="m-0">&nbsp;</h1>
         </div>
     </footer>
 </body>
@@ -149,6 +113,7 @@
 <script src="{{ asset('/plugins/bootstrap-5.3.3/bootstrap.js') }}"></script>
 {{-- <script src="{{ asset('/plugins/owl-carousel/owl.carousel.js') }}"></script> --}}
 <script src="{{ asset('/fontawesome/all.js') }}"></script>
+<script src="{{ asset('/plugins/navigation.js') }}"></script>
 @yield('js')
 
 
