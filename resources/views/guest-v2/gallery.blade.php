@@ -20,13 +20,26 @@
 @section('content')
     <div class="container mt-5">
         <div class="row section-gallery" data-masonry='{"percentPosition": true }'>
-            @for ($i = 0; $i < 11; $i++)
-            <div class="col-xs-12 col-sm-6 col-md-3 mt-3 item-gallery">
-                <div class="card">
-                    <img src="{{ asset("/images/tour-". rand(1,4) .".jpg") }}" class="card-img-top rounded-2" alt="card-1">
-                </div>
-            </div>
-            @endfor
+            @if (count($data) > 0)
+                @foreach ($data as $item)
+                        @foreach ($item->photos as $photo)
+                        <div class="col-xs-12 col-sm-6 col-md-3 mt-3 item-gallery">
+                            <div class="card">
+                                <img src="{{ asset('/storage/images/' . $photo->path) }}" class="card-img-top rounded-2" alt="card-1">
+                            </div>
+                        </div>
+                        @endforeach
+                @endforeach
+            @else
+                @for ($i = 0; $i < 11; $i++)
+                    <div class="col-xs-12 col-sm-6 col-md-3 mt-3 item-gallery">
+                        <div class="card">
+                            <img src="{{ asset("/images/tour-". rand(1,4) .".jpg") }}" class="card-img-top rounded-2" alt="card-1">
+                        </div>
+                    </div>
+                @endfor
+            @endif
+
         </div>
     </div>
 @endsection

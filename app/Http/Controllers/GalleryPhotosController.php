@@ -23,15 +23,12 @@ class GalleryPhotosController extends Controller {
         $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();
     }
 
+
     public function index() {
         $contact = $this->contact;
         $data = GalleryPhotos::select('collection_photos_id', 'name', 'desc')->with('photos:id,path')->get();
 
-        return view('guest.gallery-photos', compact('data', 'contact'));
-    }
-
-    public function indexv2() {
-        return view('guest-v2.gallery');
+        return view('guest-v2.gallery', compact('data', 'contact'));
     }
 
     /** 

@@ -29,12 +29,6 @@ class PaketTourController extends Controller {
 
     public function index() {
         $contact = $this->contact;
-        $data = Tour::select('detail', 'name', 'price', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
-        return view('guest/paket-tour', compact('data', 'contact'));
-    }
-
-    public function indexv2() {
-        $contact = $this->contact;
         
         $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')->with('photos:id,path')->get();
 

@@ -26,11 +26,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [HomeController::class, 'indexv2'])->name('home');
-Route::get('/sewa-mobil', [SewaMobilController::class, 'indexv2'])->name('sewa_mobil');
-Route::get('/paket-tour', [PaketTourController::class, 'indexv2'])->name('paket_tour');
-Route::get('/gallery', [GalleryPhotosController::class, 'indexv2'])->name('galeri');
-Route::get('/contact', [ContactController::class, 'indexv2'])->name('kontak');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/sewa-mobil', [SewaMobilController::class, 'index'])->name('sewa_mobil');
+Route::get('/paket-tour', [PaketTourController::class, 'index'])->name('paket_tour');
+Route::get('/gallery', [GalleryPhotosController::class, 'index'])->name('galeri');
+Route::get('/contact', [ContactController::class, 'index'])->name('kontak');
 Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc'])->name('mobil-desc');
 Route::get('/tour/desc/{slug}', [PaketTourController::class, 'desc'])->name('tour-desc');
 
@@ -41,9 +41,6 @@ Route::prefix('send')->group(function () {
 
 });
 
-Route::prefix('v2')->group(function () {
-
-});
 
 Auth::routes();
 Auth::routes(['verify' => true]);
