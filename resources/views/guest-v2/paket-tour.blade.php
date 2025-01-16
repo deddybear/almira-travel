@@ -43,7 +43,7 @@
             @if (count($tour) > 0)
                 @foreach ($tour as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
-                        <a href="/v2/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
                                 <span class="badge text-bg-dark"> {{ $item->category }} </span>
                                 @if (count($item->photos) > 0)

@@ -45,7 +45,7 @@
             @if (count($mobil) > 0)
                 @foreach ($mobil as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
-                        <a href="/v2/mobil/desc/{{ $item->slug }}" class="text-decoration-none">
+                        <a href="/mobil/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
                                 <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
                                 @if (count($item->photos) > 0)

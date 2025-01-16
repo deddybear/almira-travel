@@ -44,9 +44,15 @@ class SewaMobilController extends Controller {
 
     public function desc($slug) {
         $contact = $this->contact;
+
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'sewa')
+        ->first();
+
         $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
         // return $data;
-        return view('guest-v2/desc-mobil', compact('data', 'contact'));
+        return view('guest-v2/desc-mobil', compact('data', 'contact', 'carousel'));
     }
 
     public function createReview(ValidationReview $req) {

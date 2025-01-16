@@ -5,11 +5,11 @@
     {!! htmlScriptTagJsApi() !!}
 @endsection
 
-@section('banner-img', '/images/Phra-Nang_1536886961.jpg')
+@section('banner-img', "/storage/images/" . $carousel->path)
 
-@section('title',  $data->name . " Almira - Travel" )
+@section('title-banner', $carousel->judul_banner)
 
-@section('title-banner', 'Discovery Your Next Journey With Almira Travel')
+@section('msg-banner', $carousel->desc_banner)
 
 @section('msg-banner', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis bibendum diam, ac commodo
     arcu. Nullam rutrum fermentum lorem bibendum placerat.')

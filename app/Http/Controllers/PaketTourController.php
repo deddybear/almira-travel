@@ -44,8 +44,14 @@ class PaketTourController extends Controller {
     
     public function desc($slug) {
         $contact = $this->contact;
+
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'tour')
+        ->first();
+
         $data =  Tour::select('review_id', 'detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
-        return view('guest-v2/desc-tour', compact('data', 'contact'));
+        return view('guest-v2/desc-tour', compact('data', 'contact', 'carousel'));
     }
 
     public function createReview(ValidationReview $req) {
