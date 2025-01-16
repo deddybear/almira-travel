@@ -163,13 +163,13 @@
                                 <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
                             </div>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group mb-3">
                             <textarea class="form-control" name="msg" cols="30" rows="10" placeholder="Silahkan Masuk Review Anda "></textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <input class="form-control" type="text" name="name" placeholder="Nama Anda">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <input class="form-control" type="email" name="email" placeholder="Email Anda">
                         </div>
                         <div class="form-group col-12 p-0">

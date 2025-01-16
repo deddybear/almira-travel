@@ -142,13 +142,13 @@
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <textarea class="form-control" name="msg" cols="30" rows="10" placeholder="Silahkan Masuk Review Anda "></textarea>
+                                <textarea class="form-control mb-3" name="msg" cols="30" rows="10" placeholder="Silahkan Masuk Review Anda "></textarea>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" name="name" placeholder="Nama Anda">
+                                <input class="form-control mb-3" type="text" name="name" placeholder="Nama Anda">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="email" name="email" placeholder="Email Anda">
+                                <input class="form-control mb-3" type="email" name="email" placeholder="Email Anda">
                             </div>
                             <div class="form-group col-12 p-0">
                                 <div class="captcha">
