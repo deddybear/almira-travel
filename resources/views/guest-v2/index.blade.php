@@ -58,7 +58,7 @@
             <p>Deals for you !</p>
             <div class="float-end border rounded-pill button-see-all px-1">
                 <span class="m-2 fw-bold">
-                    <a class="text-black text-decoration-none" href="/v2/sewa-mobil">
+                    <a class="text-black text-decoration-none" href="{{ route('sewa_mobil') }}">
                         See All
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -135,7 +135,7 @@
             <p>Unforgettable adventure !</p>
             <div class="float-end border rounded-pill button-see-all px-1">
                 <span class="m-2 fw-bold">
-                    <a class="text-black text-decoration-none" href="/v2/paket-tour">
+                    <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
                         See All
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
