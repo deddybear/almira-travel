@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\ValidationTour;
 use App\Models\Contact;
+use App\Models\Caraousel;
 
 class PaketTourController extends Controller {
 
@@ -29,10 +30,15 @@ class PaketTourController extends Controller {
 
     public function index() {
         $contact = $this->contact;
+
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'tour')
+        ->first();
         
         $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')->with('photos:id,path')->get();
 
-        return view('guest-v2/paket-tour', compact('tour', 'contact'));
+        return view('guest-v2/paket-tour', compact('tour', 'contact', 'carousel'));
     }
 
     

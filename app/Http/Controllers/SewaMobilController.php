@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\Caraousel;
 
 class SewaMobilController extends Controller {
 
@@ -33,7 +34,12 @@ class SewaMobilController extends Controller {
         ->with('photos:id,path', 'reviews:*')
         ->get();
 
-        return view('guest-v2/sewa-mobil', compact('mobil', 'contact'));
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'sewa')
+        ->first();
+
+        return view('guest-v2/sewa-mobil', compact('mobil', 'contact', 'carousel'));
     }
 
     public function desc($slug) {

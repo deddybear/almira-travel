@@ -33,6 +33,9 @@
                             <tr>
                                 <th>No. </th>
                                 <th>Preview</th>
+                                <th>Jenis</th>
+                                <th>Judul Banner</th>
+                                <th>Deskripsi Banner</th>
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diubah</th>
                                 <th>Aksi</th>
@@ -87,6 +90,24 @@
                                         <label class="custom-file-label" id="labelFile_1" for="photo_1">Choose file</label>
                                     </div>
                                  </div>
+                        </div>
+                        <div class="form-group col-10 p-0">
+                            <label for="exampleFormControlSelect1">Jenis Banner</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="jenis">
+                              <option value="home" selected>Home</option>
+                              <option value="tour">Tour</option>
+                              <option value="sewa">Sewa Mobil</option>
+                              <option value="gallery">Gallery</option>
+                              <option value="contact">Contact</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-10 p-0">
+                            <label>Judul Banner</label>
+                            <input type="text" class="form-control" name="judul_banner" placeholder="Masukkan Judul Banner">
+                        </div>
+                        <div class="form-group col-10 p-0">
+                            <label>Deskripsi Banner</label>
+                            <input type="text" class="form-control" name="desc_banner" placeholder="Masukkan Deskripsi Banner">
                         </div>
                     </div>          
             </div>

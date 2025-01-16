@@ -22,7 +22,7 @@ class CarouselListController extends Controller {
 
     public function listData() {
         // <img src="{{ asset('/images/mobil-1.png') }}" width="500" height="350">
-        $data = Caraousel::select('carousel_images.id', 'carousel_images.created_at', 'carousel_images.updated_at', 'collection_photos.path')
+        $data = Caraousel::select('carousel_images.*', 'collection_photos.path')
                          ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
                          ->orderBy('carousel_images.created_at');
 
@@ -66,8 +66,16 @@ class CarouselListController extends Controller {
 
         $id = Generate::uuid4();
 
+        $dataCaraousel = Caraousel::where('jenis', '=', $req->jenis)->first();
+
+        if ($dataCaraousel != null) {
+            return response()->json(['errors' => ['errors' => "Duplikasi Jenis caraousel $req->jenis"]], 500); 
+        }
+       
+
         try {
-            $idPhotos = $this->uploadFiles($req);
+
+            $idPhotos = $this->uploadFile($req);
 
             if (!$idPhotos) {
                 return response()->json(['errors' => ['errors' => 'Gagal upload file foto']], 500); 
@@ -76,6 +84,9 @@ class CarouselListController extends Controller {
             $data = array(
                 'id' => $id,
                 'collection_photos_id' => $idPhotos,
+                'jenis' => $req->jenis,
+                'judul_banner' => $req->judul_banner,
+                'desc_banner' => $req->desc_banner
             );
 
             Caraousel::create($data);
@@ -92,7 +103,7 @@ class CarouselListController extends Controller {
         try {
             $idPhotos       = Caraousel::select('collection_photos_id')->where('id', $id)->first();
             $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
-            $statusUpload   = $this->uploadFiles($req);
+            $statusUpload   = $this->uploadFile($req);
 
             if (!$statusDelFiles) {
                 return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
@@ -105,6 +116,9 @@ class CarouselListController extends Controller {
             $data = array(
                 'id' => $id,
                 'collection_photos_id' => $statusUpload,
+                'jenis' => $req->jenis,
+                'judul_banner' => $req->judul_banner,
+                'desc_banner' => $req->desc_banner
             );
 
             Caraousel::where('id', $id)->update($data);
@@ -131,34 +145,12 @@ class CarouselListController extends Controller {
         }
     }
 
-    // public function uploadFiles(Request $req) {
-    //     $id = Generate::uuid4();
-        
+
+
+    // public function deleteFile($idPhotos) {
     //     try {
 
-    //         if (!$req->exists('photo') && !$req->file('photo')) {
-    //             return 'null';
-    //         }
-
-    //         $photos = $req->file('photo');
-    //         $nameFile = $photos->hashName();
-    //         $photos->storeAs('public/images', $nameFile);
-
-    //         Photos::create([
-    //             'id'   => $id,
-    //             'path' => $nameFile
-    //         ]);
-            
-    //        return $id;
-    //     } catch (\Throwable $th) {
-    //        return false;
-    //     }
-    // }
-
-    // public function deleteFiles($idPhotos) {
-    //     try {
-
-    //         if ($idPhotos == 'null') {
+    //         if ($idPhotos == null) {
     //             return true;
     //         }
 

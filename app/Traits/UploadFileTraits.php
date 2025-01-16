@@ -15,6 +15,30 @@ use Illuminate\Support\Facades\DB;
 
 trait UploadFileTraits {
     
+    public function uploadFile(Request $req) {
+        $id = Generate::uuid4();
+        
+        try {
+
+            if (!$req->exists('photo') && !$req->file('photo')) {
+                return 'null';
+            }
+
+            $photos = $req->file('photo');
+            $nameFile = $photos->hashName();
+            $photos->storeAs('public/images', $nameFile);
+
+            Photos::create([
+                'id'   => $id,
+                'path' => $nameFile
+            ]);
+            
+           return $id;
+        } catch (\Throwable $th) {
+           return false;
+        }
+    }
+
     public function uploadFiles(Request $req) {
         $id = Generate::uuid4();
         

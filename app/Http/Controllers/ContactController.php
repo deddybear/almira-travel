@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Caraousel;
 
 class ContactController extends Controller
 {  
@@ -23,14 +24,12 @@ class ContactController extends Controller
         $contact = $this->contact;
         $data = $this->data();
 
-        return view('guest/contact', compact('data', 'contact'));
-    }
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'contact')
+        ->first();
 
-    public function indexv2() {
-        $contact = $this->contact;
-        $data = $this->data();
-
-        return view('guest-v2.contact', compact('data', 'contact'));
+        return view('guest-v2.contact', compact('data', 'contact', 'carousel'));
     }
 
     /** 

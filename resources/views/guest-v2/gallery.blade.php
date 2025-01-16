@@ -2,11 +2,11 @@
 
 @section('title', 'Almira Travel - Gallery')
 
-@section('banner-img', "/images/Gallery.jpg")
+@section('banner-img', "/storage/images/" . $carousel->path)
 
-@section('title-banner', 'Discovery Your Next Journey With Almira Travel')
+@section('title-banner', $carousel->judul_banner)
 
-@section('msg-banner', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis  bibendum diam, ac commodo arcu. Nullam rutrum fermentum lorem bibendum placerat.')
+@section('msg-banner', $carousel->desc_banner)
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/guest/gallery/styles.css') }}">

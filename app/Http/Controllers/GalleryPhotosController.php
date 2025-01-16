@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caraousel;
 use App\Models\Contact;
 use App\Traits\UploadFileTraits;
 use App\Models\GalleryPhotos;
@@ -26,9 +27,16 @@ class GalleryPhotosController extends Controller {
 
     public function index() {
         $contact = $this->contact;
+
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'gallery')
+        ->first();
+
+
         $data = GalleryPhotos::select('collection_photos_id', 'name', 'desc')->with('photos:id,path')->get();
 
-        return view('guest-v2.gallery', compact('data', 'contact'));
+        return view('guest-v2.gallery', compact('data', 'contact', 'carousel'));
     }
 
     /** 

@@ -59,8 +59,10 @@ $(document).ready(function() {
                 orderable: false,
                 searchable: false,
             },
-            { data: "path", name: "path"
-            },
+            { data: "path", name: "path" },
+            { data: "jenis", name: "jenis"},
+            { data: "judul_banner", name: "judul_banner"},
+            { data: "desc_banner", name: "desc_banner"},
             { data: "created_at", name: "created_at"},
             { data: "updated_at", name: "updated_at"},
             {

@@ -2,12 +2,11 @@
 
 @section('title', 'Almira Travel - Sewa Mobil')
 
-@section('banner-img', '/images/Car-Rentals-1.png')
+@section('banner-img', "/storage/images/" . $carousel->path)
 
-@section('title-banner', 'Discovery Your Next Journey With Almira Travel')
+@section('title-banner', $carousel->judul_banner)
 
-@section('msg-banner', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis bibendum diam, ac commodo
-    arcu. Nullam rutrum fermentum lorem bibendum placerat.')
+@section('msg-banner', $carousel->desc_banner)
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/guest/sewa-mobil/styles.css') }}">
