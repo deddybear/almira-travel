@@ -5,6 +5,8 @@
     {!! htmlScriptTagJsApi() !!}
 @endsection
 
+@section('title',  $data->name . " Almira - Travel" )
+
 @section('banner-img', "/storage/images/" . $carousel->path)
 
 @section('title-banner', $carousel->judul_banner)
