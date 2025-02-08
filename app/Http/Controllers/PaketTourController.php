@@ -58,7 +58,7 @@ class PaketTourController extends Controller {
 
     /**
      * Summary of getListTour
-     * untuk mendapatkan list data sewa mobil
+     * untuk mendapatkan list data paket tour dengan ajax
      * @return JsonResponse|mixed
      */
     public function getListTour(ValidationSearchPaketTour $req) : JsonResponse {

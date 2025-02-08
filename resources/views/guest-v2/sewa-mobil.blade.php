@@ -13,25 +13,26 @@
 @endsection
 
 @section('js')
+<script src="{{ asset('/pages/guest/sewa-mobil/script.js') }}"></script>
 @endsection
 
 @section('content')
     <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
-        <form action="#" class="row">
+        <form action="#" id="formSearch" class="row">
             <div class="col">
                 <label for="searchName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="searchName" placeholder="&#xf031; Search Name"
+                <input type="text" name="name" class="form-control" id="searchName" placeholder="&#xf031; Search Name"
                     style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <label for="searchCategory" class="form-label">Category</label>
-                <input type="text" class="form-control" id="searchCategory" placeholder="&#xf682; Search Category"
+                <input type="text" name="tipe_mobil" class="form-control" id="searchCategory" placeholder="&#xf682; Search Category"
                     style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <div class="float-center">
                     <div class="my-4-custom"></div>
-                    <button type="button" class="btn btn-dark" id="searchButton">
+                    <button type="submit" class="btn btn-dark" id="searchButton">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         Search
                     </button>
@@ -41,8 +42,21 @@
     </div>
 
     <div class="list-car mt-5 p-5 container rounded-3">
-        <div class="row">
-            @if (count($mobil) > 0)
+        <div id="button-pagination">
+            <div class="float-end">
+                <div class="row">
+                    <button class="col-5 button-prev border rounded-pill mx-1 back" style=" background-color: #798777;" onclick="fetchData('back')">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="col-5 button-next border rounded-pill mx-1 next" style=" background-color: #798777;" onclick="fetchData('next')">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5" id="list-data">
+            
+            {{-- @if (count($mobil) > 0)
                 @foreach ($mobil as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
                         <a href="/mobil/desc/{{ $item->slug }}" class="text-decoration-none">
@@ -56,19 +70,16 @@
                                 @endif
                                 <div class="card-body body-tour">
                                     <div class="row">
-                                        <div class="row">
-                                            <div class="col title-car">
-                                                {{ str_limit(strip_tags($item->name), 10) }}
-                                            </div>
-                                            <div class="col">
-                                                <div class="float-end desc-car rounded-4 px-2">
-                                                    <i class="fa-solid fa-users"></i>
-                                                    {{ $item->kursi }}
-                                                </div>
+                                        <div class="col title-car">
+                                            {{ str_limit(strip_tags($item->name), 10) }}
+                                        </div>
+                                        <div class="col">
+                                            <div class="float-end desc-car rounded-4 px-2">
+                                                <i class="fa-solid fa-users"></i>
+                                                {{ $item->kursi }}
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                 </div>
                             </div>
                         </a>
@@ -94,12 +105,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                             </div>
                         </div>
                     </div>
                 @endfor
-            @endif
+            @endif --}}
         </div>
     </div>
 @endsection

@@ -14,6 +14,8 @@ use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Caraousel;
+use Illuminate\Http\JsonResponse;
+use App\Http\Requests\ValidationSearchPaketTour;
 
 class SewaMobilController extends Controller {
 
@@ -30,16 +32,16 @@ class SewaMobilController extends Controller {
     public function index() {
         $contact = $this->contact;
         
-        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
-        ->with('photos:id,path', 'reviews:*')
-        ->get();
+        // $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+        // ->with('photos:id,path')
+        // ->get();
 
         $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
         ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
         ->where('carousel_images.jenis', '=', 'sewa')
         ->first();
 
-        return view('guest-v2/sewa-mobil', compact('mobil', 'contact', 'carousel'));
+        return view('guest-v2/sewa-mobil', compact('contact', 'carousel'));
     }
 
     public function desc($slug) {
@@ -53,6 +55,43 @@ class SewaMobilController extends Controller {
         $data =  Mobil::select('review_id', 'detail', 'name', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
         // return $data;
         return view('guest-v2/desc-mobil', compact('data', 'contact', 'carousel'));
+    }
+
+    /**
+     * Summary of getListTour
+     * untuk mendapatkan list data paket tour dengan ajax
+     * @return JsonResponse|mixed
+     */
+    public function getListTour(ValidationSearchPaketTour $req) : JsonResponse {
+        
+        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+                ->with('photos:id,path')
+                ->limit($req->limit)
+                ->offset($req->offset)
+                ->get();
+        
+        return response()->json($mobil);
+    }
+
+
+    /**
+     * Summary of searchGuest
+     * untuk pencarian halaman guest dengan ajax
+     * @param \App\Http\Requests\ValidationSearchPaketTour $req
+     * @return mixed|\Illuminate\Http\JsonResponse
+     */
+    public function searchGuest(ValidationSearchPaketTour $req)  {
+
+        $query = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+                 ->with('photos:id,path');
+
+        foreach ($req->all() as $column => $value) {
+            if ($req->$column) {
+                $query->whereRaw("LOWER($column) like '%". strtolower($value) ."%'",);
+            }
+        }
+
+        return response()->json($query->get());
     }
 
     public function createReview(ValidationReview $req) {

@@ -2,7 +2,7 @@
 
 @section('title', 'Almira Travel - Paket Tour')
 
-@section('banner-img', "/storage/images/" . $carousel->path)
+@section('banner-img', '/storage/images/' . $carousel->path)
 
 @section('title-banner', $carousel->judul_banner)
 
@@ -21,15 +21,18 @@
         <form id="formSearch" class="row">
             <div class="col">
                 <label for="searchName" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="searchName" placeholder="&#xf031; Name Location" style="font-family:Arial, FontAwesome">
+                <input type="text" name="name" class="form-control" id="searchName" placeholder="&#xf031; Name Location"
+                    style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <label for="searchLocation" class="form-label">Location</label>
-                <input type="text" name="lokasi" class="form-control" id="searchLocation" placeholder="&#xf002; Search Location" style="font-family:Arial, FontAwesome">
+                <input type="text" name="lokasi" class="form-control" id="searchLocation"
+                    placeholder="&#xf002; Search Location" style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <label for="searchCategory" class="form-label">Category</label>
-                <input type="text" name="category" class="form-control" id="searchCategory" placeholder="&#xf682 Search Category" style="font-family:Arial, FontAwesome">
+                <input type="text" name="category" class="form-control" id="searchCategory"
+                    placeholder="&#xf682 Search Category" style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <div class="float-center">
@@ -44,7 +47,19 @@
     </div>
 
     <div class="list-tour mt-5 p-5 container rounded-3">
-        <div class="row" id="list-data">
+        <div id="button-pagination">
+            <div class="float-end">
+                <div class="row">
+                    <button class="col-5 button-prev border rounded-pill mx-1 back" style=" background-color: #798777;" onclick="fetchData('back')">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="col-5 button-next border rounded-pill mx-1 next" style=" background-color: #798777;" onclick="fetchData('next')">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5" id="list-data">
             {{-- @if (count($tour) > 0)
                 @foreach ($tour as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
@@ -70,7 +85,6 @@
             @else
                 <h1 class="text-center">Coming Soon...</h1>
             @endif --}}
-
         </div>
     </div>
 @endsection
