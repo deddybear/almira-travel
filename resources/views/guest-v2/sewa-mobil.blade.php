@@ -20,12 +20,12 @@
         <form action="#" class="row">
             <div class="col">
                 <label for="searchName" class="form-label">Name</label>
-                <input type="email" class="form-control" id="searchName" placeholder="&#xf031; Search Name"
+                <input type="text" class="form-control" id="searchName" placeholder="&#xf031; Search Name"
                     style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <label for="searchCategory" class="form-label">Category</label>
-                <input type="email" class="form-control" id="searchCategory" placeholder="&#xf682; Search Category"
+                <input type="text" class="form-control" id="searchCategory" placeholder="&#xf682; Search Category"
                     style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
@@ -50,7 +50,7 @@
                                 <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
                                 @if (count($item->photos) > 0)
                                     <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
-                                        class="card-img-top h-25" alt="card-1">
+                                        class="card-img-top img-card-list-cust" alt="card-1">
                                 @else
                                     <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
                                 @endif

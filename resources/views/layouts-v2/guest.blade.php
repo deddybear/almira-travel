@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="{{ asset('/plugins/floating-button-ig.css') }}">
     <link rel="stylesheet" href="{{ asset('/fontawesome/all.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/nav-mobile.css')}}">
+    <link rel="stylesheet" href="{{ asset('/plugins/sweetalert2/sweetalert2.css') }}">
     @yield('css')
 
 </head>
@@ -135,6 +136,7 @@
 {{-- <script src="{{ asset('/plugins/owl-carousel/owl.carousel.js') }}"></script> --}}
 <script src="{{ asset('/fontawesome/all.js') }}"></script>
 <script src="{{ asset('/plugins/navigation.js') }}"></script>
+<script src="{{ asset('/plugins/sweetalert2/sweetalert2.all.js') }}"></script>
 @yield('js')
 
 

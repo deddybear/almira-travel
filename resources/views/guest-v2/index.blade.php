@@ -2,7 +2,7 @@
 
 @section('title', 'Almira Travel - Home Page')
 
-@section('banner-img', "/storage/images/" . $carousel->path)
+@section('banner-img', '/storage/images/' . $carousel->path)
 
 @section('title-banner', $carousel->judul_banner)
 
@@ -71,30 +71,33 @@
                 @if (count($mobil) > 0)
                     @foreach ($mobil as $item)
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
-                            <div class="card">
-                                <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
-                                @if (count($item->photos) > 0)
-                                    <img src="{{ asset("/storage/images/". $item->photos[0]->path) }}" class="card-img-top h-25" alt="card-1">
-                                @else
-                                    <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
-                                @endif
-                                <div class="card-body body-tour">
-                                    <div class="row">
+                            <a href="/mobil/desc/{{ $item->slug }}" class="text-decoration-none">
+                                <div class="card">
+                                    <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
+                                    @if (count($item->photos) > 0)
+                                        <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
+                                            class="card-img-top img-card-list-cust" alt="card-1">
+                                    @else
+                                        <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
+                                    @endif
+                                    <div class="card-body body-tour">
                                         <div class="row">
-                                            <div class="col title-car">
-                                                {{  str_limit(strip_tags($item->name), 10) }}
-                                            </div>
-                                            <div class="col">
-                                                <div class="float-end desc-car rounded-4 px-2">
-                                                    <i class="fa-solid fa-users"></i>
-                                                    {{ $item->kursi }}
+                                            <div class="row">
+                                                <div class="col title-car">
+                                                    {{ str_limit(strip_tags($item->name), 10) }}
+                                                </div>
+                                                <div class="col">
+                                                    <div class="float-end desc-car rounded-4 px-2">
+                                                        <i class="fa-solid fa-users"></i>
+                                                        {{ $item->kursi }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
-                                  {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                 </div>
-                              </div>
+                            </a>
                         </div>
                     @endforeach
                 @else
@@ -117,7 +120,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                  {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
+                                    {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -149,21 +152,24 @@
             @if (count($tour) > 0)
                 @foreach ($tour as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
-                        <div class="card">
-                            <span class="badge text-bg-dark"> {{ $item->category }} </span>
-                            @if (count($item->photos) > 0)
-                                <img src="{{ asset("/storage/images/". $item->photos[0]->path) }}" class="card-img-top h-25" alt="card-1">
-                            @else
-                                <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
-                            @endif
-                            <div class="card-body body-tour">
-                              <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
-                              <p class="mb-0 desc-tour">
-                                <i class="fa-solid fa-location-dot"></i>
-                                {{ $item->lokasi }}
-                              </p>
+                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                            <div class="card">
+                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
+                                @if (count($item->photos) > 0)
+                                    <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
+                                        class="card-img-top img-card-list-cust" alt="card-1">
+                                @else
+                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
+                                @endif
+                                <div class="card-body body-tour">
+                                    <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
+                                    <p class="mb-0 desc-tour">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        {{ $item->lokasi }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             @else
@@ -173,11 +179,11 @@
                             <span class="badge text-bg-dark">...</span>
                             <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
                             <div class="card-body body-tour">
-                              <p class="mb-1 title-tour">...</p>
-                              <p class="mb-0 desc-tour">
-                                <i class="fa-solid fa-location-dot"></i>
-                                ...
-                              </p>
+                                <p class="mb-1 title-tour">...</p>
+                                <p class="mb-0 desc-tour">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    ...
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -197,7 +203,7 @@
                 @for ($j = 1; $j <= 3; $j++)
                     <div class="col-12 col-md-4">
                         <div class="justify-content-center">
-                            <img class="mx-auto" src="{{ asset("/images/our-patner-$j.png")}}" >
+                            <img class="mx-auto" src="{{ asset("/images/our-patner-$j.png") }}">
                         </div>
                     </div>
                 @endfor

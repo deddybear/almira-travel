@@ -41,6 +41,15 @@ Route::prefix('send')->group(function () {
 
 });
 
+Route::prefix('/sewa-mobil')->group(function () {
+
+});
+
+
+Route::prefix('/paket-tour')->group(function () {
+    Route::get('get-list', [PaketTourController::class, 'getListTour']);
+    Route::post('search-guest', [PaketTourController::class, 'searchGuest']);
+});
 
 Auth::routes();
 Auth::routes(['verify' => true]);

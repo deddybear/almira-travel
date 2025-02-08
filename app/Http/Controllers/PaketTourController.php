@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidationReview;
+use App\Http\Requests\ValidationSearchPaketTour;
 use App\Traits\UploadFileTraits;
 use App\Models\Tour;
 use App\Models\Review;
 use App\Traits\ReviewTraits;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
@@ -36,9 +38,9 @@ class PaketTourController extends Controller {
         ->where('carousel_images.jenis', '=', 'tour')
         ->first();
         
-        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')->with('photos:id,path')->get();
+        // $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')->with('photos:id,path')->get();
 
-        return view('guest-v2/paket-tour', compact('tour', 'contact', 'carousel'));
+        return view('guest-v2/paket-tour', compact('contact', 'carousel'));
     }
 
     
@@ -52,6 +54,43 @@ class PaketTourController extends Controller {
 
         $data =  Tour::select('review_id', 'detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
         return view('guest-v2/desc-tour', compact('data', 'contact', 'carousel'));
+    }
+
+    /**
+     * Summary of getListTour
+     * untuk mendapatkan list data sewa mobil
+     * @return JsonResponse|mixed
+     */
+    public function getListTour(ValidationSearchPaketTour $req) : JsonResponse {
+        
+        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+                ->with('photos:id,path')
+                ->limit($req->limit)
+                ->offset($req->offset)
+                ->get();
+        
+        return response()->json($tour);
+    }
+
+
+    /**
+     * Summary of searchGuest
+     * untuk pencarian halaman guest dengan ajax
+     * @param \App\Http\Requests\ValidationSearchPaketTour $req
+     * @return mixed|\Illuminate\Http\JsonResponse
+     */
+    public function searchGuest(ValidationSearchPaketTour $req)  {
+
+        $query = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+                 ->with('photos:id,path');
+
+        foreach ($req->all() as $column => $value) {
+            if ($req->$column) {
+                $query->whereRaw("LOWER($column) like '%". strtolower($value) ."%'",);
+            }
+        }
+
+        return response()->json($query->get());
     }
 
     public function createReview(ValidationReview $req) {
