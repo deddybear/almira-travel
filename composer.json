@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The Laravel Framework. dengan php 8.0.13",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
