@@ -22,6 +22,16 @@
             </a>
         </li>
         <li>
+            <a class="navbar-brand" href="{{ route('tour_private')}}">
+                Tour Private
+            </a>
+        </li>
+        <li>
+            <a class="navbar-brand" href="{{ route('travel-reguler')}}">
+                Travel Reguler
+            </a>
+        </li>
+        <li>
             <a class="navbar-brand" href="{{ route('sewa_mobil')}}">
                 Sewa Mobil
             </a>

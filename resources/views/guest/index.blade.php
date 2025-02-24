@@ -21,8 +21,8 @@
 @section('content')
     <div class="carousel">
         <div class="owl-carousel owl-theme">
-            @if (count($caraousel) > 0)
-                @foreach ($caraousel as $item)
+            @if (count($carousel) > 0)
+                @foreach ($carousel as $item)
                 <div class="item text-center px-5 py-3 w-75 mx-auto mt-5">
                     <img src={{ asset('/storage/images/'. $item->path) }} height="500">
                 </div>

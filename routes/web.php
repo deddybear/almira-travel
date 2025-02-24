@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\CaptchaController;
+// use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\CarouselListController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -10,7 +10,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\PaketTourController;
 use App\Http\Controllers\SewaMobilController;
-use App\Models\GalleryPhotos;
+use App\Http\Controllers\TravelRegulerController;
+// use App\Models\GalleryPhotos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +30,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/sewa-mobil', [SewaMobilController::class, 'index'])->name('sewa_mobil');
 Route::get('/paket-tour', [PaketTourController::class, 'index'])->name('paket_tour');
+Route::get('/tour-private', [PaketTourController::class,'index'])->name('tour_private');
+Route::get('/travel-reguler', [TravelRegulerController::class,'index'])->name('travel-reguler');
 Route::get('/gallery', [GalleryPhotosController::class, 'index'])->name('galeri');
 Route::get('/contact', [ContactController::class, 'index'])->name('kontak');
 Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc'])->name('mobil-desc');

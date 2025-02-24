@@ -21,12 +21,14 @@ class SewaMobilController extends Controller {
 
     use UploadFileTraits, ReviewTraits;
 
+    public $contact;
+
     /** 
         * TODO : Guest Function
     */
 
     public function __construct() {
-        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();;
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();
     }
 
     public function index() {

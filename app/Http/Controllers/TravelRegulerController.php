@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Traits\UploadFileTraits;
+use App\Models\Contact;
 use App\Models\Travel;
 use App\Models\Photos;
 use Illuminate\Http\Request;
@@ -14,14 +15,22 @@ use Illuminate\Support\Str;
 
 class TravelRegulerController extends Controller {
 
+    public $contact;
+
     /** 
         * TODO : Guest Function
     */
 
+    public function __construct() {
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();
+    }
+
     public function index() {
+        $contact = $this->contact;
+
         $data = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
 
-        return view('guest/travel-reguler', compact('data'));
+        return view('guest/travel-reguler', compact('data', 'contact'));
     }
 
     public function desc($slug) {
