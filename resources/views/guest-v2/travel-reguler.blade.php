@@ -1,78 +1,85 @@
-@extends('layouts.guest')
+@extends('layouts-v2.guest')
 
 @section('title', 'Almira Travel - Travel Reguler / Carter')
 
+@section('banner-img', '/storage/images/' . $carousel->path)
+
+@section('title-banner', $carousel->judul_banner)
+
+@section('msg-banner', $carousel->desc_banner)
+
 @section('css')
-    <link rel="stylesheet" href="{{ asset('/pages/paket-tour/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('/pages/guest/travel-reguler/styles.css') }}">
 @endsection
 
 @section('js')
+    <script src="{{ asset('/pages/guest/travel-reguler/script.js') }}"></script>
 @endsection
 
 @section('content')
-<div class="my-4 text-center">
-    <div class="subtitle text-decoration-none mb-3 text-white">Travel Reguler atau Carter</div>
-    <h3 class="primary text-white">Favorit</h3>
-</div>
-<div class="row p-4">
-    @if (count($data) > 0)
-        @foreach ($data as $item)
-            <div class="col-12 col-md-3 mb-3">
-                <div class="card">
-                    <div class="card-top">
-                        @if (count($item->photos) > 0)
-                            <img class="card-img-top" src="{{ asset('/storage/images/' . $item->photos[0]->path) }}" width="360" height="240">
-                        @else
-                            <img class="card-img-top" src="https://via.placeholder.com/500?text=Segera...." width="360" height="240">
-                        @endif
-                        <div class="item-price">
-                            <span class="item-price-badge">
-                                <bdi>
-                                    <span>
-                                        Rp {{ number_format($item->price, 0 ,',', '.') }}
-                                    </span>
-                                </bdi>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">{{ $item->name }}</h5>
-                      <p class="card-text text-secondary">
-                        {{  str_limit(strip_tags($item->trip), 250)  }}
-                        ...
-                      </p>
-                      <div class="go-to">
-                        <a class="btn btn-primary col-5 mt-3 mx-auto" href="/travel/desc/{{ $item->slug }}">Selengkapnya <i class="fas fa-sign-in-alt icon-selengkapnya"></i> </a>
-                      </div>
-                    </div>
+    <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+        <form id="formSearch" class="row">
+            <div class="col">
+                <label for="searchName" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="searchName" placeholder="&#xf031; Name Location"
+                    style="font-family:Arial, FontAwesome">
+            </div>
+            <div class="col">
+                <label for="searchPrice" class="form-label">Price</label>
+                <input type="text" name="price" class="form-control" id="searchPrice"
+                    placeholder="&#xf002; Search Price" style="font-family:Arial, FontAwesome">
+            </div>
+            <div class="col">
+                <div class="float-center">
+                    <div class="my-4-custom"></div>
+                    <button type="submit" class="btn btn-dark" id="searchButton">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Search
+                    </button>
                 </div>
             </div>
-        @endforeach
-    @else
-        @for ($i = 0; $i < 8; $i++)
-        <div class="col-12 col-md-3 mb-3">
-            <div class="card">
-                <div class="card-top">
-                    <img class="card-img-top" src="https://via.placeholder.com/500?text=Segera...." width="360" height="240">
-                    <div class="item-price">
-                        <span class="item-price-badge">
-                            <bdi>
-                                <span>
-                                    Coming Soon
-                                </span>
-                            </bdi>
-                        </span>
-                    </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Coming Soon...</h5>
-                  <p class="card-text text-secondary">Coming Soon....</p>
+        </form>
+    </div>
 
+    <div class="list-tour mt-5 p-5 container rounded-3">
+        <div id="button-pagination">
+            <div class="float-end">
+                <div class="row">
+                    <button class="col-5 button-prev border rounded-pill mx-1 back" style=" background-color: #798777;" onclick="fetchData('back')">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="col-5 button-next border rounded-pill mx-1 next" style=" background-color: #798777;" onclick="fetchData('next')">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        @endfor
-    @endif
-
-</div>
+        <div class="row my-5" id="list-data">
+            {{-- @if (count($tour) > 0)
+                @foreach ($tour as $item)
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
+                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                            <div class="card">
+                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
+                                @if (count($item->photos) > 0)
+                                    <img src="{{ asset("/storage/images/". $item->photos[0]->path) }}" class="card-img-top img-card-list-cust" alt="card-1">
+                                @else
+                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
+                                @endif
+                                <div class="card-body body-tour">
+                                  <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
+                                  <p class="mb-0 desc-tour">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    {{ $item->lokasi }}
+                                  </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @else
+                <h1 class="text-center">Coming Soon...</h1>
+            @endif --}}
+        </div>
+    </div>
 @endsection

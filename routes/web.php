@@ -44,6 +44,12 @@ Route::prefix('send')->group(function () {
 
 });
 
+Route::prefix('/travel-reguler')->group(function () {
+    Route::get('get-list', [TravelRegulerController::class, 'getListTravel']);
+    Route::post('search-guest', [TravelRegulerController::class, 'searchGuest']);
+});
+
+
 Route::prefix('/sewa-mobil')->group(function () {
     Route::get('get-list', [SewaMobilController::class, 'getListTour']);
     Route::post('search-guest', [SewaMobilController::class, 'searchGuest']);

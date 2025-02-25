@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidationSearchTravelRegular;
+use App\Models\Caraousel;
 use App\Traits\UploadFileTraits;
+use Illuminate\Http\JsonResponse;
 use App\Models\Contact;
 use App\Models\Travel;
 use App\Models\Photos;
@@ -28,16 +31,60 @@ class TravelRegulerController extends Controller {
     public function index() {
         $contact = $this->contact;
 
-        $data = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'travel')
+        ->first();
 
-        return view('guest/travel-reguler', compact('data', 'contact'));
+        // $data = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')->with('photos:id,path')->get();
+
+        return view('guest-v2/travel-reguler', compact('carousel', 'contact'));
     }
 
     public function desc($slug) {
         $data =  Travel::select('name', 'price', 'trip', 'transport', 'door', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
 
         // return $data;
-        return view('guest/desc-travel', compact('data'));
+        return view('guest-v2/desc-travel', compact('data'));
+    }
+
+    /**
+     * Summary of getListTravel
+     * untuk mendapatkan list data paket Travel Reguler dengan ajax
+     * @param \App\Http\Requests\ValidationSearchTravelRegular $req
+     * @return JsonResponse|mixed
+     */
+    public function getListTravel(ValidationSearchTravelRegular $req) : JsonResponse {
+        
+        $tour = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')
+                ->with('photos:id,path')
+                ->orderBy('created_at')
+                ->limit($req->limit)
+                ->offset($req->offset)
+                ->get();
+        
+        return response()->json($tour);
+    }
+
+    /**
+     * Summary of searchGuest
+     * untuk pencarian halaman guest dengan ajax
+     * @param \App\Http\Requests\ValidationSearchTravelRegular $req
+     * @return mixed|\Illuminate\Http\JsonResponse
+     */
+    public function searchGuest(ValidationSearchTravelRegular $req)  {
+
+        $query = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')
+                 ->with('photos:id,path')
+                 ->orderBy('created_at');
+
+        foreach ($req->all() as $column => $value) {
+            if ($req->$column) {
+                $query->whereRaw("LOWER($column) like '%". strtolower($value) ."%'",);
+            }
+        }
+
+        return response()->json($query->get());
     }
 
 

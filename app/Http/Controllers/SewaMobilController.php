@@ -68,6 +68,7 @@ class SewaMobilController extends Controller {
         
         $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
                 ->with('photos:id,path')
+                ->orderBy('created_at')
                 ->limit($req->limit)
                 ->offset($req->offset)
                 ->get();
@@ -85,7 +86,8 @@ class SewaMobilController extends Controller {
     public function searchGuest(ValidationSearchPaketTour $req)  {
 
         $query = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
-                 ->with('photos:id,path');
+                 ->with('photos:id,path')
+                 ->orderBy('created_at');
 
         foreach ($req->all() as $column => $value) {
             if ($req->$column) {

@@ -99,6 +99,8 @@
                               <option value="sewa">Sewa Mobil</option>
                               <option value="gallery">Gallery</option>
                               <option value="contact">Contact</option>
+                              <option value="private">Tour Private</option>
+                              <option value="travel">Travel Reguler</option>
                             </select>
                         </div>
                         <div class="form-group col-10 p-0">
@@ -107,7 +109,7 @@
                         </div>
                         <div class="form-group col-10 p-0">
                             <label>Deskripsi Banner</label>
-                            <input type="text" class="form-control" name="desc_banner" placeholder="Masukkan Deskripsi Banner">
+                            <textarea type="text" class="form-control" name="desc_banner" placeholder="Masukkan Deskripsi Banner"></textarea>
                         </div>
                     </div>          
             </div>

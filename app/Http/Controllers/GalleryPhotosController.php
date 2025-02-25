@@ -15,6 +15,7 @@ use Ramsey\Uuid\Uuid as Generate;
 class GalleryPhotosController extends Controller {
     
     use UploadFileTraits;
+    public $contact;
 
     /** 
         * TODO : Guest Function

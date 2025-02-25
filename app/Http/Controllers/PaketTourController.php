@@ -21,6 +21,7 @@ use App\Models\Caraousel;
 class PaketTourController extends Controller {
 
     use UploadFileTraits, ReviewTraits;
+    public $contact;
     
     /** 
         * TODO : Guest Function
@@ -65,6 +66,7 @@ class PaketTourController extends Controller {
         
         $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
                 ->with('photos:id,path')
+                ->orderBy('created_at')
                 ->limit($req->limit)
                 ->offset($req->offset)
                 ->get();
@@ -82,7 +84,8 @@ class PaketTourController extends Controller {
     public function searchGuest(ValidationSearchPaketTour $req)  {
 
         $query = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
-                 ->with('photos:id,path');
+                 ->with('photos:id,path')
+                 ->orderBy('created_at');
 
         foreach ($req->all() as $column => $value) {
             if ($req->$column) {
