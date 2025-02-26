@@ -33,7 +33,9 @@
                             <tr>
                                 <th>No. </th>
                                 <th>Nama</th>
-                                <th>Harga</th>
+                                <th>Kategori</th>
+                                <th>Lokasi</th>
+                                <th>Harga</th>                                
                                 <th>Tanggal Dibuat</th>
                                 <th>Tanggal Diupdate</th>
                                 <th>Aksi</th>
@@ -44,7 +46,9 @@
                         <tfoot>
                             <th></th>
                             <th class="search"></th>
-                            <th></th>
+                            <th class="search"></th>
+                            <th class="search"></th>
+                            <th class="search"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th><input type="text" class="date text-sm form-control" placeholder="Search Date"></th>
                             <th></th>
@@ -108,6 +112,14 @@
                                                 <div class="form-group">
                                                     <label>Harga Travel</label>
                                                     <input type="text" class="form-control price-travel" name="price" placeholder="Harga">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Kategori</label>
+                                                    <input type="text" class="form-control" name="category" placeholder="Kategori">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Lokasi</label>
+                                                    <input type="text" class="form-control" name="lokasi" placeholder="Lokasi">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6">

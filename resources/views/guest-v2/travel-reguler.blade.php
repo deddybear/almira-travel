@@ -25,9 +25,14 @@
                     style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
-                <label for="searchPrice" class="form-label">Price</label>
-                <input type="text" name="price" class="form-control" id="searchPrice"
-                    placeholder="&#xf002; Search Price" style="font-family:Arial, FontAwesome">
+                <label for="searchLocation" class="form-label">Location</label>
+                <input type="text" name="lokasi" class="form-control" id="searchLocation"
+                    placeholder="&#xf002; Search Location" style="font-family:Arial, FontAwesome">
+            </div>
+            <div class="col">
+                <label for="searchCategory" class="form-label">Category</label>
+                <input type="text" name="category" class="form-control" id="searchCategory"
+                    placeholder="&#xf002; Search Category" style="font-family:Arial, FontAwesome">
             </div>
             <div class="col">
                 <div class="float-center">

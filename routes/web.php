@@ -36,6 +36,7 @@ Route::get('/gallery', [GalleryPhotosController::class, 'index'])->name('galeri'
 Route::get('/contact', [ContactController::class, 'index'])->name('kontak');
 Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc'])->name('mobil-desc');
 Route::get('/tour/desc/{slug}', [PaketTourController::class, 'desc'])->name('tour-desc');
+Route::get('/travel-reguler/desc/{slug}', [TravelRegulerController::class, 'desc'])->name('travel-reguler-desc');
 
 Route::prefix('send')->group(function () {
     Route::post('/mobil/review', [SewaMobilController::class, 'createReview']);
@@ -78,6 +79,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/carousel', [CarouselListController::class, 'pageView']);
             Route::get('/account', [AccountController::class, 'pageView']);
             Route::get('/messaging', [MessagingController::class, 'pageView']);
+            Route::get('/travel-reguler', [TravelRegulerController::class,'pageView']);
         });
     });
     
@@ -88,6 +90,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/create', [PaketTourController::class, 'create']);
         Route::patch('/update/{id}', [PaketTourController::class, 'update']);
         Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
+    });
+
+    Route::prefix('travel')->group(function () {
+        Route::get('/list', [TravelRegulerController::class, 'listData']);
+        Route::get('/search', [TravelRegulerController::class, 'search']);
+        Route::post('/create', [TravelRegulerController::class, 'create']);
+        Route::patch('/update/{id}', [TravelRegulerController::class, 'update']);
+        Route::delete('/delete/{id}', [TravelRegulerController::class, 'delete']);
     });
     
     Route::prefix('gallery')->group(function () {

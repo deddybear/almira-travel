@@ -29,6 +29,7 @@ function fetchData(action) {
             offset: offset
         },
         success: function (data) {
+            // console.log(data);
             
            let html = ``;
 
@@ -42,7 +43,7 @@ function fetchData(action) {
 
                 for (let index = 0; index < data.length; index++) {
                     html += `<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">`
-                        html += `<a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">`
+                        html += `<a href="/travel-reguler/desc/${data[index].slug}" class="text-decoration-none">`
                             html += `<div class="card">`
                                 html += `<span class="badge text-bg-dark"> ${data[index].category} </span>`
                                 if (data[index].photos.length > 0) {
@@ -190,15 +191,16 @@ $(document).ready( function() {
         });
     
         /** function jika 3 kolom search kosong maka realod ke data awal */
-        $('#searchName, #searchPrice').on("input change", function() {
+        $('#searchName, #searchLocation, #searchCategory').on("input change", function() {
             // console.log($('#searchCategory').val());
             
-            let valueInputSearchPrice = $('#searchPrice').val().length
-            let valueInputSearchName  = $('#searchName').val().length
+            let valueInputSearchLocation = $('#searchLocation').val().length
+            let valueInputSearchName     = $('#searchName').val().length
+            let valueInputSearchCategory = $('#searchCategory').val().length
+
+            // console.log([valueInputSearchCategory, valueInputsearchLocation, valueInputSearchName])
     
-            // console.log([valueInputSearchCategory, valueInputSearchPrice, valueInputSearchName])
-    
-            if (valueInputSearchPrice == 0 && valueInputSearchName == 0) {
+            if (valueInputSearchLocation == 0 && valueInputSearchName == 0 && valueInputSearchCategory == 0) {
                 fetchData('first')
             }
         })    

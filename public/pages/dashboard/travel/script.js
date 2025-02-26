@@ -188,7 +188,10 @@ $(document).ready(function () {
     });
 
     const type = [
-        'name'
+        'name',
+        'category',
+        'lokasi',
+        'price'
     ];
 
     $(".date").datepicker({
@@ -209,6 +212,8 @@ $(document).ready(function () {
               searchable: false,
           },
           { data: "name", name: "name"},
+          { data: "category", name: "category"},
+          { data: "lokasi", name: "lokasi"},
           { 
               data: function (row) {
                   return idrFormatter.format(row.price)

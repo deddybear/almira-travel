@@ -78,6 +78,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="/admin/dashboard/travel-reguler" class="nav-link">
+                                        <i class="fa-solid fa-route nav-icon"></i>
+                                        <p>Travel Reguler</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="/admin/dashboard/gallery" class="nav-link">
                                         <i class="fa-solid fa-plane-departure nav-icon"></i>
                                         <p>Gallery Foto</p>

@@ -42,10 +42,14 @@ class TravelRegulerController extends Controller {
     }
 
     public function desc($slug) {
-        $data =  Travel::select('name', 'price', 'trip', 'transport', 'door', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
+        $data =  Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'transport', 'door', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path')->first();
 
+        $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
+        ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
+        ->where('carousel_images.jenis', '=', 'travel')
+        ->first();
         // return $data;
-        return view('guest-v2/desc-travel', compact('data'));
+        return view('guest-v2/desc-travel', compact('data', 'carousel'));
     }
 
     /**
@@ -56,7 +60,7 @@ class TravelRegulerController extends Controller {
      */
     public function getListTravel(ValidationSearchTravelRegular $req) : JsonResponse {
         
-        $tour = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')
+        $tour = Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'slug', 'collection_photos_id')
                 ->with('photos:id,path')
                 ->orderBy('created_at')
                 ->limit($req->limit)
@@ -74,7 +78,7 @@ class TravelRegulerController extends Controller {
      */
     public function searchGuest(ValidationSearchTravelRegular $req)  {
 
-        $query = Travel::select('name', 'price', 'trip', 'slug', 'collection_photos_id')
+        $query = Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'slug', 'collection_photos_id')
                  ->with('photos:id,path')
                  ->orderBy('created_at');
 
@@ -96,7 +100,7 @@ class TravelRegulerController extends Controller {
         return view('dashboard.travel-reguler');
     }
 
-    public function listData(){
+    public function listData(){ 
         $data = Travel::orderBy('created_at');
 
         return DataTables::eloquent($data)
@@ -147,6 +151,8 @@ class TravelRegulerController extends Controller {
                 'name'  => $req->name,
                 'price' => str_replace(".","", $req->price),
                 'trip'  => $req->trip,
+                'lokasi' => $req->lokasi, 
+                'category' => $req->category,
                 'transport' => $req->trans,
                 'door'  => $req->door,
                 'slug'  => Str::slug($req->name, '-')
@@ -180,6 +186,8 @@ class TravelRegulerController extends Controller {
                 'id' => $id,
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
+                'lokasi' => $req->lokasi, 
+                'category' => $req->category,
                 'price' => str_replace(".","", $req->price),
                 'trip'  => $req->trip,
                 'transport' => $req->trans,
