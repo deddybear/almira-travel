@@ -66,6 +66,7 @@ class PaketTourController extends Controller {
         
         $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
                 ->with('photos:id,path')
+                ->where('type_tour', '=', 'paket')
                 ->orderBy('created_at')
                 ->limit($req->limit)
                 ->offset($req->offset)
@@ -85,6 +86,7 @@ class PaketTourController extends Controller {
 
         $query = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
                  ->with('photos:id,path')
+                 ->where('type_tour', '=', 'paket')
                  ->orderBy('created_at');
 
         foreach ($req->all() as $column => $value) {
@@ -132,7 +134,7 @@ class PaketTourController extends Controller {
     }
 
     public function listData() {
-        $data = Tour::orderBy('created_at');
+        $data = Tour::where('type_tour', '=', 'paket')->orderBy('created_at');
 
         return DataTables::eloquent($data)
                         ->addIndexColumn()
@@ -158,6 +160,7 @@ class PaketTourController extends Controller {
     public function search(Request $req) {
         
         $results = Tour::select($req->type)
+                         ->where('type_tour', '=', 'paket')
                          ->whereRaw("LOWER($req->type) LIKE ?", ["%".strtolower($req->keyword)."%"])
                          ->distinct()
                          ->get();
@@ -188,6 +191,7 @@ class PaketTourController extends Controller {
                 'trip_plan' => $req->plan,
                 'best_offer' => $req->offer,
                 'prepare' => $req->prepare,
+                'type_tour' => 'paket',
                 'slug'  => Str::slug($req->name, '-')
             );
             Tour::create($data);

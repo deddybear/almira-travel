@@ -9,6 +9,7 @@ use App\Http\Controllers\GalleryPhotosController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\PaketTourController;
+use App\Http\Controllers\PrivateTourController;
 use App\Http\Controllers\SewaMobilController;
 use App\Http\Controllers\TravelRegulerController;
 // use App\Models\GalleryPhotos;
@@ -28,15 +29,38 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/sewa-mobil', [SewaMobilController::class, 'index'])->name('sewa_mobil');
-Route::get('/paket-tour', [PaketTourController::class, 'index'])->name('paket_tour');
-Route::get('/tour-private', [PaketTourController::class,'index'])->name('tour_private');
-Route::get('/travel-reguler', [TravelRegulerController::class,'index'])->name('travel-reguler');
+
+Route::prefix('sewa-mobil')->group(function () {
+    Route::get('/', [SewaMobilController::class, 'index'])->name('sewa_mobil');
+    Route::get('get-list', [SewaMobilController::class, 'getListTour']);
+    Route::get('desc/{slug}', [SewaMobilController::class, 'desc'])->name('mobil-desc');
+    Route::post('search-guest', [SewaMobilController::class, 'searchGuest']);
+});
+
+Route::prefix('paket-tour')->group(function () {
+    Route::get('/', [PaketTourController::class, 'index'])->name('paket_tour');
+    Route::get('get-list', [PaketTourController::class, 'getListTour']);
+    Route::get('desc/{slug}', [PaketTourController::class, 'desc'])->name('tour-desc');
+    Route::post('search-guest', [PaketTourController::class, 'searchGuest']);
+});
+
+Route::prefix('travel-reguler')->group(function () {
+    Route::get('/', [TravelRegulerController::class,'index'])->name('travel-reguler');
+    Route::get('get-list', [TravelRegulerController::class, 'getListTravel']);
+    Route::get('desc/{slug}', [TravelRegulerController::class, 'desc'])->name('travel-reguler-desc');
+    Route::post('search-guest', [TravelRegulerController::class, 'searchGuest']);
+});
+
+Route::prefix('tour-private')->group(function () {
+    Route::get('/', [PrivateTourController::class, 'index'])->name('tour_private');
+    Route::get('get-list', [PrivateTourController::class, 'getListTravel']);
+    Route::get('desc/{slug}', [PrivateTourController::class, 'desc'])->name('tour_private_desc');
+    Route::post('search-guest', [PrivateTourController::class, 'searchGuest']);
+});
+
+
 Route::get('/gallery', [GalleryPhotosController::class, 'index'])->name('galeri');
 Route::get('/contact', [ContactController::class, 'index'])->name('kontak');
-Route::get('/mobil/desc/{slug}', [SewaMobilController::class, 'desc'])->name('mobil-desc');
-Route::get('/tour/desc/{slug}', [PaketTourController::class, 'desc'])->name('tour-desc');
-Route::get('/travel-reguler/desc/{slug}', [TravelRegulerController::class, 'desc'])->name('travel-reguler-desc');
 
 Route::prefix('send')->group(function () {
     Route::post('/mobil/review', [SewaMobilController::class, 'createReview']);
@@ -45,22 +69,9 @@ Route::prefix('send')->group(function () {
 
 });
 
-Route::prefix('/travel-reguler')->group(function () {
-    Route::get('get-list', [TravelRegulerController::class, 'getListTravel']);
-    Route::post('search-guest', [TravelRegulerController::class, 'searchGuest']);
-});
 
 
-Route::prefix('/sewa-mobil')->group(function () {
-    Route::get('get-list', [SewaMobilController::class, 'getListTour']);
-    Route::post('search-guest', [SewaMobilController::class, 'searchGuest']);
-});
 
-
-Route::prefix('/paket-tour')->group(function () {
-    Route::get('get-list', [PaketTourController::class, 'getListTour']);
-    Route::post('search-guest', [PaketTourController::class, 'searchGuest']);
-});
 
 Auth::routes();
 Auth::routes(['verify' => true]);

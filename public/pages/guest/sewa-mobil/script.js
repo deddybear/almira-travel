@@ -1,4 +1,4 @@
-/** function global in this page paket tour */
+/** function global in this page paket sewa-mobil */
 
 let limit = 0;
 let offset = 0;
@@ -43,7 +43,7 @@ function fetchData(action) {
 
                 for (let index = 0; index < data.length; index++) {
                     html += `<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">`
-                        html += `<a href="/tour/desc/${data[index].slug}" class="text-decoration-none">`
+                        html += `<a href="/sewa-mobil/desc/${data[index].slug}" class="text-decoration-none">`
                             html += `<div class="card">`
                                 html += `<span class="badge text-bg-dark"> ${data[index].tipe_mobil} </span>`
                                     if (data[index].photos.length > 0) {
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
                     for (let index = 0; index < data.length; index++) {
                         html += `<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">`
-                            html += `<a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">`
+                            html += `<a href="/sewa-mobil/desc/{{ $item->slug }}" class="text-decoration-none">`
                                 html += `<div class="card">`
                                     html += `<span class="badge text-bg-dark"> ${data[index].tipe_mobil} </span>`
                                         if (data[index].photos.length > 0) {

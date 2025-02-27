@@ -60,31 +60,7 @@
             </div>
         </div>
         <div class="row my-5" id="list-data">
-            {{-- @if (count($tour) > 0)
-                @foreach ($tour as $item)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
-                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
-                            <div class="card">
-                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
-                                @if (count($item->photos) > 0)
-                                    <img src="{{ asset("/storage/images/". $item->photos[0]->path) }}" class="card-img-top img-card-list-cust" alt="card-1">
-                                @else
-                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
-                                @endif
-                                <div class="card-body body-tour">
-                                  <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
-                                  <p class="mb-0 desc-tour">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    {{ $item->lokasi }}
-                                  </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            @else
-                <h1 class="text-center">Coming Soon...</h1>
-            @endif --}}
+
         </div>
     </div>
 @endsection

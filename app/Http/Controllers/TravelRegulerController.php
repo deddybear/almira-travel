@@ -6,6 +6,7 @@ use App\Http\Requests\ValidationSearchTravelRegular;
 use App\Models\Caraousel;
 use App\Traits\UploadFileTraits;
 use Illuminate\Http\JsonResponse;
+use App\Traits\ReviewTraits;
 use App\Models\Contact;
 use App\Models\Travel;
 use App\Models\Photos;
@@ -18,6 +19,7 @@ use Illuminate\Support\Str;
 
 class TravelRegulerController extends Controller {
 
+    use UploadFileTraits, ReviewTraits;
     public $contact;
 
     /** 
@@ -220,53 +222,4 @@ class TravelRegulerController extends Controller {
         }
     }
 
-    public function uploadFiles(Request $req) {
-        $id = Generate::uuid4();
-        
-        try {
-
-            if (!$req->exists('photo') && !$req->file('photo')) {
-                return 'null';
-            }
-
-            $photos = $req->file('photo');
-
-            for ($i = 0; $i < count($photos); $i++) { 
-                $nameFile =  $photos[$i]->hashName();
-                $photos[$i]->storeAs('public/images',  $nameFile);
-
-                Photos::create([
-                    'id'   => $id,
-                    'path' => $nameFile
-                ]);
-            }
-            
-           return $id;
-        } catch (\Throwable $th) {
-           return false;
-        }
-    }
-
-    public function deleteFiles($idPhotos) {
-        try {
-
-            if ($idPhotos == 'null') {
-                return true;
-            }
-            $filenames = Photos::select('path')->where('id', $idPhotos)->get();
- 
-            foreach ($filenames as $value) {
-
-                if (Storage::disk('public')->exists('images/' . $value->path)) {
-                    Storage::disk('public')->delete('images/' . $value->path);
-                    Photos::where('path', $value->path)->delete();
-                }
-               
-            }
-            
-            return true;
-        } catch (\Throwable $th) {
-            return false;
-        }
-    }
 }
