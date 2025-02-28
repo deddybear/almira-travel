@@ -168,6 +168,13 @@ class PaketTourController extends Controller {
         return $results;
     }
 
+    public function get($id) {
+        
+        $data = Tour::with('photos:id,path')->find($id);
+        
+        return response()->json($data);
+    }
+
     public function create(ValidationTour $req) {
         date_default_timezone_set('Asia/Jakarta');
         $id = Generate::uuid4();

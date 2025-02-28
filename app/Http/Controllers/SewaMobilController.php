@@ -98,6 +98,18 @@ class SewaMobilController extends Controller {
         return response()->json($query->get());
     }
 
+    /**
+     * Summary of get
+     * @param mixed $id
+     * @return JsonResponse|mixed
+     */
+    public function get($id) {
+        
+        $data = Mobil::with('photos:id,path')->find($id);
+        
+        return response()->json($data);
+    }
+
     public function createReview(ValidationReview $req) {
         try {
             date_default_timezone_set('Asia/Jakarta');

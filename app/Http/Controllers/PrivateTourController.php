@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidationReview;
-use App\Http\Requests\ValidationSearchPaketTour;
+use App\Http\Requests\ValidationSearchPrivateTour;
 use App\Models\Caraousel;
 use App\Traits\UploadFileTraits;
 use App\Models\Tour;
@@ -28,7 +28,7 @@ class PrivateTourController extends Controller
     */
 
     public function __construct() {
-        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();;
+        $this->contact = Contact::select('wa', 'email')->where('id', 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649')->first();
     }
 
     public function index() {
@@ -40,7 +40,7 @@ class PrivateTourController extends Controller
         ->first();
         
 
-        return view('guest-v2/paket-tour', compact('contact', 'carousel'));
+        return view('guest-v2/private-tour', compact('contact', 'carousel'));
     }
 
     
@@ -58,10 +58,10 @@ class PrivateTourController extends Controller
 
     /**
      * Summary of getListTour
-     * untuk mendapatkan list data paket tour dengan ajax
+     * untuk mendapatkan list data private tour dengan ajax
      * @return JsonResponse|mixed
      */
-    public function getListTour(ValidationSearchPaketTour $req) : JsonResponse {
+    public function getListTour(ValidationSearchPrivateTour $req) : JsonResponse {
         
         $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
                 ->with('photos:id,path')
@@ -81,7 +81,7 @@ class PrivateTourController extends Controller
      * @param \App\Http\Requests\ValidationSearchPaketTour $req
      * @return mixed|\Illuminate\Http\JsonResponse
      */
-    public function searchGuest(ValidationSearchPaketTour $req)  {
+    public function searchGuest(ValidationSearchPrivateTour $req)  {
 
         $query = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
                  ->with('photos:id,path')
@@ -129,7 +129,7 @@ class PrivateTourController extends Controller
     */
 
     public function pageView() {
-        return view('dashboard.paket-tour');
+        return view('dashboard.private-tour');
     }
 
     public function listData() {
@@ -165,6 +165,13 @@ class PrivateTourController extends Controller
                          ->get();
         
         return $results;
+    }
+
+    public function get($id) {
+        
+        $data = Tour::with('photos:id,path')->find($id);
+        
+        return response()->json($data);
     }
 
     public function create(ValidationTour $req) {

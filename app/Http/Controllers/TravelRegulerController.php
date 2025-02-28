@@ -136,6 +136,18 @@ class TravelRegulerController extends Controller {
         return $results;
     }
 
+        /**
+     * Summary of get
+     * @param mixed $id
+     * @return JsonResponse|mixed
+     */
+    public function get($id) {
+        
+        $data = Travel::with('photos:id,path')->find($id);
+        
+        return response()->json($data);
+    }
+
     public function create(Request $req) {
         date_default_timezone_set('Asia/Jakarta');
         $id = Generate::uuid4();

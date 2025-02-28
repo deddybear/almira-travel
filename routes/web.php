@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-// use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\CarouselListController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -12,7 +11,6 @@ use App\Http\Controllers\PaketTourController;
 use App\Http\Controllers\PrivateTourController;
 use App\Http\Controllers\SewaMobilController;
 use App\Http\Controllers\TravelRegulerController;
-// use App\Models\GalleryPhotos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,7 +51,7 @@ Route::prefix('travel-reguler')->group(function () {
 
 Route::prefix('tour-private')->group(function () {
     Route::get('/', [PrivateTourController::class, 'index'])->name('tour_private');
-    Route::get('get-list', [PrivateTourController::class, 'getListTravel']);
+    Route::get('get-list', [PrivateTourController::class, 'getListTour']);
     Route::get('desc/{slug}', [PrivateTourController::class, 'desc'])->name('tour_private_desc');
     Route::post('search-guest', [PrivateTourController::class, 'searchGuest']);
 });
@@ -84,6 +82,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'pageView']);
             Route::get('/tour', [PaketTourController::class, 'pageView']);
+            Route::get('/tour-private', [PrivateTourController::class, 'pageView']);
             Route::get('/gallery', [GalleryPhotosController::class, 'pageView']);
             Route::get('/car', [SewaMobilController::class, 'pageView']);
             Route::get('/contact', [ContactController::class, 'pageView']);
@@ -98,14 +97,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('tour')->group(function () {
         Route::get('/list', [PaketTourController::class, 'listData']);
         Route::get('/search', [PaketTourController::class, 'search']);
+        Route::get('/get-data/{id}', [PaketTourController::class, 'get']);
         Route::post('/create', [PaketTourController::class, 'create']);
         Route::patch('/update/{id}', [PaketTourController::class, 'update']);
         Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
     });
 
+    Route::prefix('tour-private')->group(function () {
+        Route::get('/list', [PrivateTourController::class, 'listData']);
+        Route::get('/search', [PrivateTourController::class, 'search']);
+        Route::get('/get-data/{id}', [PrivateTourController::class, 'get']);
+        Route::post('/create', [PrivateTourController::class, 'create']);
+        Route::patch('/update/{id}', [PrivateTourController::class, 'update']);
+        Route::delete('/delete/{id}', [PrivateTourController::class, 'delete']);
+    });
+
     Route::prefix('travel')->group(function () {
         Route::get('/list', [TravelRegulerController::class, 'listData']);
         Route::get('/search', [TravelRegulerController::class, 'search']);
+        Route::get('/get-data/{id}', [TravelRegulerController::class, 'get']);
         Route::post('/create', [TravelRegulerController::class, 'create']);
         Route::patch('/update/{id}', [TravelRegulerController::class, 'update']);
         Route::delete('/delete/{id}', [TravelRegulerController::class, 'delete']);
@@ -122,6 +132,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('mobil')->group(function () {
         Route::get('/list', [SewaMobilController::class, 'listData']);
         Route::get('/search', [SewaMobilController::class, 'search']);
+        Route::get('/get-data/{id}', [SewaMobilController::class, 'get']);
         Route::post('/create', [SewaMobilController::class, 'create']);
         Route::patch('/update/{id}', [SewaMobilController::class, 'update']);
         Route::delete('/delete/{id}', [SewaMobilController::class, 'delete']);

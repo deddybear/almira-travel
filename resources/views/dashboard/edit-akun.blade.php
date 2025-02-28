@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Edit Akun')
+@section('title', 'Panel Admin - Edit Akun')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/dashboard/akun/styles.css') }}">

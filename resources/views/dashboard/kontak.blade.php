@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin')
+@section('title', 'Panel Admin - Kontak')
 @section('title-header', 'Kontak')
 
 @section('css')

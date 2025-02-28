@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin')
+@section('title', 'Panel Admin - Data Travel Reguler')
 @section('title-header', 'Data Travel Reguler')
 
 @section('css')
@@ -133,7 +133,7 @@
                                     <div class="tab-pane fade" id="trans" role="tabpanel" aria-labelledby="trans-tab">
                                         <label>Konten Transportasi pada Travel Reguler</label>
                                         <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
-                                        <textarea class="form-control ckeditor" name="trans" id="trans" cols="30" rows="10"></textarea>
+                                        <textarea class="form-control ckeditor" name="trans" id="transport" cols="30" rows="10"></textarea>
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>
                                     </div>
                                     <div class="tab-pane fade" id="door" role="tabpanel" aria-labelledby="door-tab">

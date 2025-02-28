@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Kotak Pesan')
+@section('title', 'Panel Admin - Kotak Pesan')
 @section('title-header', 'Data Kotak Pesan')
 
 @section('css')

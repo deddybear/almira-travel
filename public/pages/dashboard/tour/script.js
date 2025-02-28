@@ -17,12 +17,14 @@ $(document).ready(function() {
     });
 
     document.querySelectorAll('.ckeditor').forEach(function (val, i) {
+        // console.log(val.id);
+        
         ClassicEditor
           .create(val, {
             toolbar: toolbars,
           })
           .then(editor => {
-            listEditors[i] = editor;
+            listEditors[val.id] = editor;
           })
           .catch(error => {
             console.error(error);
@@ -94,13 +96,14 @@ $(document).ready(function() {
         // get each input in this tab pane and validate
 
         $(this).parents('.tab-pane').find('.ckeditor').each(function(i, e){
+            // console.log(i, e.id);
             
-            let textEditor = listEditors[indexTab].getData();
+            let textEditor = listEditors[e.id].getData();
 
             // some condition(s) to validate each input
             let len = $(e).val().length;
 
-            if (indexTab == 0) { //tab detail
+            if (e.id == 'detail') { //tab detail
                 let nameTour = $('.name-tour').val().length;
                 let priceTour = $('.price-tour').val().length;
 
@@ -316,6 +319,57 @@ $(document).ready(function() {
         indexTab = 0;
         $("#form")[0].reset();
         id = $(this).attr('data');
+
+        $.ajax({
+            url: `/tour/get-data/${id}`,
+            method: "GET",
+            dataType: "JSON",
+            processData: false,
+            contentType: false,
+            beforeSend : function () {
+                $('#loader-wrapper').show();
+            },
+            complete: function() {
+                $('#loader-wrapper').hide();
+            },
+            success: function (data) {
+                // console.log(data);
+                
+                // console.log(listEditors);
+                
+               for (const key in data) {
+
+                if (key == 'detail' || key == 'best_offer' || key == 'trip_plan'|| key == 'prepare' ) { // untuk textarea
+                    listEditors[key].setData(data[key])
+
+                    // console.log(listEditors[key].getData())
+                    
+                    
+                } else {
+                    $(`[name="${key}"]`).val(data[key])
+                }
+
+
+
+               }
+               
+               
+            },
+            error: function (res) {
+
+                let text = ''; 
+
+                for (const key in res.responseJSON.errors) {
+                    text += message(res.responseJSON.errors[key]); 
+                }
+
+                Swal.fire(
+                    'Whoops ada Kesalahan',
+                    `Error : <br> ${text}`,
+                    'error'
+                )
+            },
+        })
 
         domModal('Edit Post Paket Tour', 'Simpan & Edit Post', 'Batalkan');
         $('#modal_form').modal('show')

@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin')
+@section('title', 'Panel Admin - Data Sewa Mobil')
 @section('title-header', 'Data Sewa Mobil')
 
 @section('css')
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="col-8">
-                        <textarea id="ckeditor" name="content" cols="30" rows="30"></textarea>
+                        <textarea id="detail" name="content" cols="30" rows="30"></textarea>
                     </div>  
                 </div>                     
             </div>

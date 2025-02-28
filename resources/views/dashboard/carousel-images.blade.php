@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin')
+@section('title', 'Panel Admin - Data Gambar Caraousel')
 @section('title-header', 'Data Gambar Caraousel')
 
 @section('css')

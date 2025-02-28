@@ -1,6 +1,6 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin')
+@section('title', 'Panel Admin - Gallery Foto')
 @section('title-header', 'Gallery Foto')
 
 @section('css')

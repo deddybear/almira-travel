@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin - Data Paket Tour')
-@section('title-header', 'Data Paket Tour')
+@section('title', 'Panel Admin - Tour Private')
+@section('title-header', 'Data Tour Private')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/plugins/dataTables/datatables.css') }}">
@@ -14,7 +14,7 @@
 <script src="{{ asset('/plugins/sweetalert2/sweetalert2.js') }}"></script>
 <script src="{{ asset('/plugins/dataTables/datatables.js') }}"></script>
 <script src="{{ asset('/plugins/ckeditor/ckeditor.js') }}"></script>
-<script src="{{ asset('/pages/dashboard/tour/script.js') }}"></script>
+<script src="{{ asset('/pages/dashboard/tour-private/script.js') }}"></script>
 @endsection
 
 @section('content')
@@ -108,7 +108,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Nama Paket Tour</label>
+                                            <label>Nama Tour Private</label>
                                             <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket">
                                         </div>
                                         <div class="form-group">
@@ -120,31 +120,31 @@
                                             <input type="text" class="form-control price-tour" name="lokasi" placeholder="Lokasi">
                                         </div>
                                         <div class="form-group">
-                                            <label>Harga Paket Tour</label>
+                                            <label>Harga Tour Private</label>
                                             <input type="text" class="form-control price-tour" name="price" placeholder="Harga">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
-                                        <label>Isi Konten Detail pada Paket Tour</label>
-                                        <textarea class="form-control ckeditor" name="detail" id="detail" cols="30" rows="10"> hahaha</textarea>
+                                        <label>Isi Konten Detail pada Tour Private</label>
+                                        <textarea class="form-control ckeditor" name="detail" id="detail" cols="30" rows="10"></textarea>
                                     </div>                                   
                                 </div>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>                                
                             </div>
                             <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
-                                <label>Konten Rencana Perjalanan pada Paket Tour</label>
+                                <label>Konten Rencana Perjalanan pada Tour Private</label>
                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
-                                <textarea class="form-control ckeditor" name="plan" id="trip_plan" cols="30" rows="10"></textarea>
+                                <textarea class="form-control ckeditor" name="plan" id="plan" cols="30" rows="10"></textarea>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="offer" role="tabpanel" aria-labelledby="offer-tab">
-                                <label>Konten Best Offer pada Paket Tour</label>
+                                <label>Konten Best Offer pada Tour Private</label>
                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
-                                <textarea class="form-control ckeditor" name="offer" id="best_offer" cols="30" rows="10"></textarea>
+                                <textarea class="form-control ckeditor" name="offer" id="offer" cols="30" rows="10"></textarea>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="prepare" role="tabpanel" aria-labelledby="prepare-tab">
-                                <label>Konten Persiapan pada Paket Tour</label>
+                                <label>Konten Persiapan pada Tour Private</label>
                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="prepare" id="prepare" cols="30" rows="10"></textarea>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>

@@ -21,7 +21,7 @@ $(document).ready(function () {
             toolbar: toolbars,
           })
           .then(editor => {
-            listEditors[i] = editor;
+            listEditors[val.id] = editor;
           })
           .catch(error => {
             console.error(error);
@@ -92,12 +92,12 @@ $(document).ready(function () {
         let allValid = false;
         // get each input in this tab pane and validate
         $(this).parents('.tab-pane').find('.ckeditor').each(function(i, e){
-            let textEditor = listEditors[indexTab].getData();
+            let textEditor = listEditors[e.id].getData();
            
             // some condition(s) to validate each input
             let len = $(e).val().length;
 
-            if (indexTab == 0) { //tab detail
+            if (e.id == 'trip') { //tab detail
               let nameTour = $('.name-travel').val().length;
               let priceTour = $('.price-travel').val().length;
 
@@ -323,6 +323,55 @@ $(document).ready(function () {
           indexTab = 0;
           $("#form")[0].reset();
           id = $(this).attr('data');
+
+          $.ajax({
+            url: `/travel/get-data/${id}`,
+            method: "GET",
+            dataType: "JSON",
+            processData: false,
+            contentType: false,
+            beforeSend : function () {
+                $('#loader-wrapper').show();
+            },
+            complete: function() {
+                $('#loader-wrapper').hide();
+            },
+            success: function (data) {
+
+                console.log(data);
+                
+               for (const key in data) {
+
+                if (key == 'trip' || key == 'transport' || key == 'door' ) { // untuk textarea ckeditor
+                    listEditors[key].setData(data[key])
+
+                    
+                    
+                } else {
+                    $(`[name="${key}"]`).val(data[key])
+                }
+
+
+
+               }
+               
+               
+            },
+            error: function (res) {
+
+                let text = ''; 
+
+                for (const key in res.responseJSON.errors) {
+                    text += message(res.responseJSON.errors[key]); 
+                }
+
+                Swal.fire(
+                    'Whoops ada Kesalahan',
+                    `Error : <br> ${text}`,
+                    'error'
+                )
+            },
+        })
           
           domModal('Edit Post Travel', 'Simpan & Edit Post', 'Batalkan');
           $('#modal_form').modal('show')
