@@ -7,6 +7,7 @@ use App\Models\Caraousel;
 use App\Models\Mobil;
 use App\Models\Tour;
 use App\Models\Contact;
+use App\Models\Travel;
 
 class HomeController extends Controller {
 
@@ -40,6 +41,13 @@ class HomeController extends Controller {
                 ->inRandomOrder()
                 ->get();
 
-        return view('guest-v2.index', compact('mobil', 'tour', 'carousel'));
+        $tourPrivate = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+                        ->with('photos:id,path')
+                        ->where('type_tour', '=', 'private')
+                        ->limit(4)
+                        ->inRandomOrder()
+                        ->get();
+
+        return view('guest-v2.index', compact('mobil', 'tour', 'carousel', 'tourPrivate'));
     }
 }

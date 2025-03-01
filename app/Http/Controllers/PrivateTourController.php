@@ -36,7 +36,7 @@ class PrivateTourController extends Controller
 
         $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
         ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
-        ->where('carousel_images.jenis', '=', 'tour')
+        ->where('carousel_images.jenis', '=', 'private')
         ->first();
         
 
@@ -49,7 +49,7 @@ class PrivateTourController extends Controller
 
         $carousel = Caraousel::select('carousel_images.*', 'collection_photos.path')
         ->join('collection_photos', 'carousel_images.collection_photos_id', 'collection_photos.id')
-        ->where('carousel_images.jenis', '=', 'tour')
+        ->where('carousel_images.jenis', '=', 'private')
         ->first();
 
         $data =  Tour::select('review_id', 'detail', 'name', 'trip_plan', 'best_offer', 'prepare', 'price', 'collection_photos_id')->where('slug', $slug)->with('photos:id,path', 'reviews:*')->first();
