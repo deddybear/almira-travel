@@ -21,7 +21,7 @@
                 Paket Tour
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a class="navbar-brand" href="{{ route('tour_private')}}">
                 Tour Private
             </a>
@@ -30,7 +30,7 @@
             <a class="navbar-brand" href="{{ route('travel-reguler')}}">
                 Travel Reguler
             </a>
-        </li>
+        </li> --}}
         <li>
             <a class="navbar-brand" href="{{ route('sewa_mobil')}}">
                 Sewa Mobil
