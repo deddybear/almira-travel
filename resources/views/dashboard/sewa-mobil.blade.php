@@ -86,7 +86,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tipe Mobil</label>
-                            <input type="text" class="form-control" name="type" placeholder="Tipe Harga">
+                            <input type="text" class="form-control" name="tipe_mobil" placeholder="Tipe Harga">
                         </div>
                         <div class="form-group">
                             <label>Banyak Kursi</label>

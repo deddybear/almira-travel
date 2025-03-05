@@ -168,6 +168,12 @@ class SewaMobilController extends Controller {
 
     }
 
+    /**
+     * Summary of search
+     * search untuk dashboard
+     * @param \Illuminate\Http\Request $req
+     * @return Mobil[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function search(Request $req) {
         
         $results = Mobil::select($req->type)
@@ -196,7 +202,7 @@ class SewaMobilController extends Controller {
                 'collection_photos_id' => $idPhotos,
                 'review_id' => Generate::uuid4(),
                 'name'  => $req->name,
-                'tipe_mobil' => $req->type,
+                'tipe_mobil' => $req->tipe_mobil,
                 'kursi' => str_replace(".","", $req->kursi) ,
                 'cc'    => str_replace(".","", $req->cc),
                 'price' => str_replace(".","", $req->price),
@@ -233,7 +239,7 @@ class SewaMobilController extends Controller {
                 'id' => $id,
                 'collection_photos_id' => $statusUpload,
                 'name'  => $req->name,
-                'tipe_mobil' => $req->type,
+                'tipe_mobil' => $req->tipe_mobil,
                 'kursi' => str_replace(".","", $req->kursi),
                 'cc'    => str_replace(".","", $req->cc) ,
                 'price' => str_replace(".","", $req->price),
