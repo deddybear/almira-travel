@@ -214,15 +214,21 @@ class PrivateTourController extends Controller
 
         try {
             $idPhotos       = Tour::select('collection_photos_id')->where('id', $id)->first();
-            $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
-            $statusUpload   = $this->uploadFiles($req);
+            $statusUpload   = $idPhotos->collection_photos_id;
 
-            if (!$statusDelFiles) {
-                return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
-            }
+            /** jika ada inputan file pada saat melakukan update */
+            if ($req->hasFile('photo')) {
+                $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
 
-            if (!$statusUpload) {
-                return response()->json(['errors' => ['errors' => 'Gagal Mengupload file foto']], 500);
+                if (!$statusDelFiles) {
+                    return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
+                }
+
+                $statusUpload   = $this->uploadFiles($req);
+
+                if (!$statusUpload) {
+                    return response()->json(['errors' => ['errors' => 'Gagal Mengupload file foto']], 500);
+                }
             }
 
             $data = array(

@@ -225,6 +225,8 @@ class SewaMobilController extends Controller {
 
         try {
             $idPhotos       = Mobil::select('collection_photos_id')->where('id', $id)->first();
+            $statusUpload   = $idPhotos->collection_photos_id;
+
             
             /** jika ada inputan file pada saat melakukan update */
             if ($req->hasFile('photo')) {

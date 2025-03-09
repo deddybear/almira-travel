@@ -9,11 +9,9 @@ use Illuminate\Http\JsonResponse;
 use App\Traits\ReviewTraits;
 use App\Models\Contact;
 use App\Models\Travel;
-use App\Models\Photos;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid as Generate;
 use Illuminate\Support\Str;
 
@@ -185,6 +183,8 @@ class TravelRegulerController extends Controller {
 
         try {
             $idPhotos       = Travel::select('collection_photos_id')->where('id', $id)->first();
+            $statusUpload   = $idPhotos->collection_photos_id;
+
             /** jika ada inputan file pada saat melakukan update */
             if ($req->hasFile('photo')) {
                 $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
