@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidationSewaMobil extends FormRequest
+class ValidationTravelReguler extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,18 @@ class ValidationSewaMobil extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:50',
-            'price' => 'required|string',
-            'tipe_mobil' => 'required',
-            'kursi' => 'required|numeric',
-            'cc' => 'required|numeric',
-            'content' => 'required|string',
+            'name' => 'required|max:50',
+            'price' => 'required|numeric',
+            'category' => 'required',
+            'lokasi' => 'required',
+            'trip' => 'required',
+            'trans' => 'required',
+            'door' => 'required',
             'photo' =>  'sometimes|required',
             'photo.*' => 'required|mimes:jpg,jpeg,png,webp|max:1024'
         ];
     }
+
     public function messages()
     {
         return [

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidationSearchTravelRegular;
+use App\Http\Requests\ValidationTravelReguler;
 use App\Models\Caraousel;
 use App\Traits\UploadFileTraits;
 use Illuminate\Http\JsonResponse;
@@ -178,7 +179,7 @@ class TravelRegulerController extends Controller {
         }
     }
 
-    public function update($id, Request $req) {
+    public function update($id, ValidationTravelReguler $req) {
         date_default_timezone_set('Asia/Jakarta');
 
         try {

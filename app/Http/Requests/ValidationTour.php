@@ -49,7 +49,7 @@ class ValidationTour extends FormRequest
             'offer.required'  => 'Best Offer Harus di isi',
             'prepare.required' => 'Prepare Harus di isi',
             'photo.mimes'      => 'Tipe Extensi Foto harus JPG, JPEG, BMP, PNG',
-            'photo.max'       => 'Foto Ukuran Maksimal 3MB',
+            'photo.max'       => 'Foto Ukuran Maksimal 1MB',
         ];
     }
 

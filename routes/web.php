@@ -89,7 +89,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/carousel', [CarouselListController::class, 'pageView']);
             Route::get('/account', [AccountController::class, 'pageView']);
             Route::get('/messaging', [MessagingController::class, 'pageView']);
-            // Route::get('/travel-reguler', [TravelRegulerController::class,'pageView']);
+            Route::get('/travel-reguler', [TravelRegulerController::class,'pageView']);
         });
     });
     
