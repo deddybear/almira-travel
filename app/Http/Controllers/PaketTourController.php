@@ -212,7 +212,6 @@ class PaketTourController extends Controller {
 
     public function update($id, ValidationTour $req) {
 
-        dd($req->all());
         date_default_timezone_set('Asia/Jakarta');
 
         try {
