@@ -25,12 +25,15 @@ class ValidationTour extends FormRequest
     {
         return [
             'name' => 'required|max:50',
+            'category' => 'required',
+            'lokasi' => 'required',
             'price' => 'required|numeric',
             'plan' => 'required',
             'detail' => 'required',
             'offer' => 'required',
             'prepare' => 'required',
-            'photo.*' => 'sometimes|mimes:jpg,jpeg,bmp,png|max:3072'
+            'photo' =>  'sometimes|required',
+            'photo.*' => 'required|mimes:jpg,jpeg,png,webp|max:1024'
         ];
     }
 

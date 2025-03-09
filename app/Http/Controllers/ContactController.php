@@ -10,6 +10,8 @@ use App\Models\Caraousel;
 
 class ContactController extends Controller
 {  
+
+    private $contact, $id;
     
     public function __construct() {
         $this->id = 'd10a7e1e-1cb6-4a0a-ba9d-33fa89c63649';
@@ -58,7 +60,7 @@ class ContactController extends Controller
             Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Nomer Whatsapp']);    
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
         
     }
@@ -75,7 +77,7 @@ class ContactController extends Controller
             Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Kontak Email']);    
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -91,7 +93,7 @@ class ContactController extends Controller
             Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Kontak Alamat']);    
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     
     }
@@ -108,7 +110,7 @@ class ContactController extends Controller
             Contact::where('id', $this->id)->update($data);
             return response()->json(['success' => 'Berhasil Merubah Point Gps']);    
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
         return response()->json(['success' => $req->gps]);
     }

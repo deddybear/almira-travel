@@ -176,7 +176,7 @@ class TravelRegulerController extends Controller {
             return response()->json(['success' => 'Berhasil Membuat Postingan Baru']);  
 
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -185,15 +185,19 @@ class TravelRegulerController extends Controller {
 
         try {
             $idPhotos       = Travel::select('collection_photos_id')->where('id', $id)->first();
-            $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
-            $statusUpload   = $this->uploadFiles($req);
+            /** jika ada inputan file pada saat melakukan update */
+            if ($req->hasFile('photo')) {
+                $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
 
-            if (!$statusDelFiles) {
-                return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
-            }
+                if (!$statusDelFiles) {
+                    return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
+                }
 
-            if (!$statusUpload) {
-                return response()->json(['errors' => ['errors' => 'Gagal Mengupload file foto']], 500);
+                $statusUpload   = $this->uploadFiles($req);
+
+                if (!$statusUpload) {
+                    return response()->json(['errors' => ['errors' => 'Gagal Mengupload file foto']], 500);
+                }
             }
 
             $data = array(
@@ -213,7 +217,7 @@ class TravelRegulerController extends Controller {
             
             return response()->json(['success' => 'Berhasil Mengedit Postingan ']);   
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -230,7 +234,7 @@ class TravelRegulerController extends Controller {
 
             return response()->json(['success' => 'Berhasil Menghapus Postingan']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 

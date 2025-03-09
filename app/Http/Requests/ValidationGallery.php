@@ -26,7 +26,8 @@ class ValidationGallery extends FormRequest
         return [
             'name' => 'required|max:30',
             'desc' => 'required',
-            'photo.*' => 'sometimes|mimes:jpg,jpeg,bmp,png|max:3072'
+            'photo' =>  'sometimes|required',
+            'photo.*' => 'required|mimes:jpg,jpeg,png,webp|max:1024'
         ];
     }
 

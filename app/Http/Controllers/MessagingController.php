@@ -33,7 +33,7 @@ class MessagingController extends Controller {
 
             return response()->json(['success' => 'Berhasil Mengirim Pesan nanti akan kami balas secepatnya']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
         
     }
@@ -87,7 +87,7 @@ class MessagingController extends Controller {
 
             return response()->json(['Nfound' => 'Pesan Tidak ada']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
 
     }
@@ -98,7 +98,7 @@ class MessagingController extends Controller {
             return response()->json(['success' => 'Berhasil Menghapus Pesan']);
 
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 }

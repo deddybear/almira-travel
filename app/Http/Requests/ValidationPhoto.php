@@ -24,7 +24,8 @@ class ValidationPhoto extends FormRequest
     public function rules()
     {
         return [
-            'photo.*' => 'sometimes|mimes:jpg,jpeg,bmp,png|max:3072'
+            'photo' =>  'sometimes|required',
+            'photo.*' => 'required|mimes:jpg,jpeg,png,webp|max:1024'
         ];
     }
 

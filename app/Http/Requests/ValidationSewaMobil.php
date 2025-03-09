@@ -25,7 +25,13 @@ class ValidationSewaMobil extends FormRequest
     {
         return [
             'name' => 'required|string|max:50',
-            'price' => 'required|'
+            'price' => 'required|string',
+            'tipe_mobil' => 'required',
+            'kursi' => 'required|numeric',
+            'cc' => 'required|numeric',
+            'content' => 'required|string',
+            'photo' =>  'sometimes|required',
+            'photo.*' => 'required|mimes:jpg,jpeg,png,webp|max:1024'
         ];
     }
     public function messages()

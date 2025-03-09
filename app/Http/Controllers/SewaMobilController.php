@@ -16,6 +16,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Models\Caraousel;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\ValidationSearchPaketTour;
+use App\Http\Requests\ValidationSewaMobil;
 
 class SewaMobilController extends Controller {
 
@@ -127,7 +128,7 @@ class SewaMobilController extends Controller {
 
             return response()->json(['success' =>  'Berhasil Menambahkan Review']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -215,24 +216,29 @@ class SewaMobilController extends Controller {
             return response()->json(['success' => 'Berhasil Membuat Postingan Baru']);  
 
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
-    public function update($id, Request $req){
+    public function update($id, ValidationSewaMobil $req){
         date_default_timezone_set('Asia/Jakarta');
 
         try {
             $idPhotos       = Mobil::select('collection_photos_id')->where('id', $id)->first();
-            $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
-            $statusUpload   = $this->uploadFiles($req);
+            
+            /** jika ada inputan file pada saat melakukan update */
+            if ($req->hasFile('photo')) {
+                $statusDelFiles = $this->deleteFiles($idPhotos->collection_photos_id);
 
-            if (!$statusDelFiles) {
-                return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
-            }
+                if (!$statusDelFiles) {
+                    return response()->json(['errors' => ['errors' => 'Gagal Menghapus file foto']], 500);
+                }
 
-            if (!$statusUpload) {
-                return response()->json(['errors' => ['errors' => 'Gagal Mengupload file foto']], 500);
+                $statusUpload   = $this->uploadFiles($req);
+
+                if (!$statusUpload) {
+                    return response()->json(['errors' => ['errors' => 'Gagal Mengupload file foto']], 500);
+                }
             }
 
             $data = array(
@@ -251,7 +257,7 @@ class SewaMobilController extends Controller {
 
             return response()->json(['success' => 'Berhasil Mengedit Postingan ']);             
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -267,7 +273,7 @@ class SewaMobilController extends Controller {
             Mobil::where('id', $id)->delete();
             return response()->json(['success' => 'Berhasil Menghapus Konten Post']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 

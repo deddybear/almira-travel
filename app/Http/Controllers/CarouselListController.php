@@ -93,7 +93,7 @@ class CarouselListController extends Controller {
 
             return response()->json(['success' => 'Berhasil Membuat Postingan Baru']);  
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -125,7 +125,7 @@ class CarouselListController extends Controller {
 
             return response()->json(['success' => 'Berhasil Mengedit Postingan ']);  
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -141,7 +141,7 @@ class CarouselListController extends Controller {
             Caraousel::where('id', $id)->delete();
             return response()->json(['success' => 'Berhasil Menghapus Konten Post']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 

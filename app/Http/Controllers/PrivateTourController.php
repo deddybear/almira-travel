@@ -114,7 +114,7 @@ class PrivateTourController extends Controller
 
             return response()->json(['success' =>  'Berhasil Menambahkan Review']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
 
        
@@ -205,7 +205,7 @@ class PrivateTourController extends Controller
             return response()->json(['success' => 'Berhasil Membuat Postingan Baru']);       
 
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -243,7 +243,7 @@ class PrivateTourController extends Controller
 
             return response()->json(['success' => 'Berhasil Mengedit Postingan ']);       
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -259,7 +259,7 @@ class PrivateTourController extends Controller
             Tour::where('id', $id)->delete();
             return response()->json(['success' => 'Berhasil Menghapus Konten Post']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 }

@@ -104,7 +104,7 @@ class GalleryPhotosController extends Controller {
 
             return response()->json(['success' => 'Berhasil Mengupload Gallery Foto Baru']);  
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 
@@ -122,7 +122,7 @@ class GalleryPhotosController extends Controller {
             GalleryPhotos::where('id', $id)->delete();
             return response()->json(['success' => 'Berhasil Menghapus Gallery Foto']);
         } catch (\Throwable $th) {
-            return response()->json(['errors' => ['errors' => $th->errorInfo[2]]], 500);
+            return response()->json(['errors' => ['errors' => $th->getMessage()]], 500);
         }
     }
 }

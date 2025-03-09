@@ -29,7 +29,7 @@ function fetchData(action) {
             offset: offset
         },
         success: function (data) {
-            console.log(data);
+            // console.log(data);
             
             let html = ``;
 
