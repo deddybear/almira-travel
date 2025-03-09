@@ -148,7 +148,7 @@ class PaketTourController extends Controller {
                         })
                         ->addColumn('Actions', function ($data) {
                             return '
-                            <a href="'.url("/tour/desc/$data->slug").'" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                            <a href="'.url("/paket-tour/desc/$data->slug").'" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
                             <a href="javascript:;" class="btn btn-sm btn-warning edit" data="'.$data->id.'"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="javascript:;" class="btn btn-sm btn-danger delete" data="'.$data->id.'"><i class="fa-solid fa-trash-can"></i></a>
                             ';
