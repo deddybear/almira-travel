@@ -195,6 +195,26 @@
         </div>
     </div>
 
+    <div class="col-12 our-patner p-5 my-5">
+        <div class="title-our-patner mt-2 mb-3 d-flex justify-content-center">
+            <h1>
+                Our Patner
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                @for ($j = 1; $j <= 3; $j++)
+                    <div class="col-12 col-md-4">
+                        <div class="justify-content-center">
+                            <img class="mx-auto" src="{{ asset("/images/our-patner-$j.png") }}">
+                        </div>
+                    </div>
+                @endfor
+            </div>
+        </div>
+
+    </div>
+
     {{-- ! In Development --}}
     @if (env('APP_ENV') == 'local')
     <div class="car-section mt-5 container p-0">
@@ -319,26 +339,6 @@
                 @endfor
             @endif
         </div>
-    </div>
-
-    <div class="col-12 our-patner p-5 my-5">
-        <div class="title-our-patner mt-2 mb-3 d-flex justify-content-center">
-            <h1>
-                Our Patner
-            </h1>
-        </div>
-        <div class="container">
-            <div class="row">
-                @for ($j = 1; $j <= 3; $j++)
-                    <div class="col-12 col-md-4">
-                        <div class="justify-content-center">
-                            <img class="mx-auto" src="{{ asset("/images/our-patner-$j.png") }}">
-                        </div>
-                    </div>
-                @endfor
-            </div>
-        </div>
-
     </div>
 
     <div class="container mt-4">
