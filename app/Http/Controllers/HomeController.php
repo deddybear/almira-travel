@@ -48,6 +48,12 @@ class HomeController extends Controller {
                         ->inRandomOrder()
                         ->get();
 
-        return view('guest-v2.index', compact('mobil', 'tour', 'carousel', 'tourPrivate'));
+        $travelReguler = Travel::select('collection_photos_id', 'name', 'category', 'lokasi', 'price', 'slug')
+                            ->with('photos:id,path')
+                            ->limit(4)
+                            ->inRandomOrder()
+                            ->get();
+
+        return view('guest-v2.index', compact('mobil', 'tour', 'carousel', 'tourPrivate', 'travelReguler'));
     }
 }

@@ -42,19 +42,22 @@ Route::prefix('paket-tour')->group(function () {
     Route::post('search-guest', [PaketTourController::class, 'searchGuest']);
 });
 
-Route::prefix('travel-reguler')->group(function () {
-    // Route::get('/', [TravelRegulerController::class,'index'])->name('travel-reguler');
-    // Route::get('get-list', [TravelRegulerController::class, 'getListTravel']);
-    // Route::get('desc/{slug}', [TravelRegulerController::class, 'desc'])->name('travel-reguler-desc');
-    // Route::post('search-guest', [TravelRegulerController::class, 'searchGuest']);
-});
+if (env('APP_ENV') == 'local') {
+    Route::prefix('travel-reguler')->group(function () {
+        Route::get('/', [TravelRegulerController::class,'index'])->name('travel-reguler');
+        Route::get('get-list', [TravelRegulerController::class, 'getListTravel']);
+        Route::get('desc/{slug}', [TravelRegulerController::class, 'desc'])->name('travel-reguler-desc');
+        Route::post('search-guest', [TravelRegulerController::class, 'searchGuest']);
+    });
+    
+    Route::prefix('tour-private')->group(function () {
+        Route::get('/', [PrivateTourController::class, 'index'])->name('tour_private');
+        Route::get('get-list', [PrivateTourController::class, 'getListTour']);
+        Route::get('desc/{slug}', [PrivateTourController::class, 'desc'])->name('tour_private_desc');
+        Route::post('search-guest', [PrivateTourController::class, 'searchGuest']);
+    });    
+}
 
-Route::prefix('tour-private')->group(function () {
-    // Route::get('/', [PrivateTourController::class, 'index'])->name('tour_private');
-    // Route::get('get-list', [PrivateTourController::class, 'getListTour']);
-    // Route::get('desc/{slug}', [PrivateTourController::class, 'desc'])->name('tour_private_desc');
-    // Route::post('search-guest', [PrivateTourController::class, 'searchGuest']);
-});
 
 
 Route::get('/gallery', [GalleryPhotosController::class, 'index'])->name('galeri');
@@ -82,7 +85,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'pageView']);
             Route::get('/tour', [PaketTourController::class, 'pageView']);
-            // Route::get('/tour-private', [PrivateTourController::class, 'pageView']);
+            if (env('APP_ENV') == 'local') {
+                Route::get('/tour-private', [PrivateTourController::class, 'pageView']);
+            }
             Route::get('/gallery', [GalleryPhotosController::class, 'pageView']);
             Route::get('/car', [SewaMobilController::class, 'pageView']);
             Route::get('/contact', [ContactController::class, 'pageView']);
@@ -93,24 +98,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
     });
     
+    if (env('APP_ENV') == 'local') {
+        Route::prefix('tour')->group(function () {
+            Route::get('/list', [PaketTourController::class, 'listData']);
+            Route::get('/search', [PaketTourController::class, 'search']);
+            Route::get('/get-data/{id}', [PaketTourController::class, 'get']);
+            Route::post('/create', [PaketTourController::class, 'create']);
+            Route::patch('/update/{id}', [PaketTourController::class, 'update']);
+            Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
+        });
+    
+        Route::prefix('tour-private')->group(function () {
+            Route::get('/list', [PrivateTourController::class, 'listData']);
+            Route::get('/search', [PrivateTourController::class, 'search']);
+            Route::get('/get-data/{id}', [PrivateTourController::class, 'get']);
+            Route::post('/create', [PrivateTourController::class, 'create']);
+            Route::patch('/update/{id}', [PrivateTourController::class, 'update']);
+            Route::delete('/delete/{id}', [PrivateTourController::class, 'delete']);
+        });
+    }
 
-    Route::prefix('tour')->group(function () {
-        Route::get('/list', [PaketTourController::class, 'listData']);
-        Route::get('/search', [PaketTourController::class, 'search']);
-        Route::get('/get-data/{id}', [PaketTourController::class, 'get']);
-        Route::post('/create', [PaketTourController::class, 'create']);
-        Route::patch('/update/{id}', [PaketTourController::class, 'update']);
-        Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
-    });
-
-    Route::prefix('tour-private')->group(function () {
-        Route::get('/list', [PrivateTourController::class, 'listData']);
-        Route::get('/search', [PrivateTourController::class, 'search']);
-        Route::get('/get-data/{id}', [PrivateTourController::class, 'get']);
-        Route::post('/create', [PrivateTourController::class, 'create']);
-        Route::patch('/update/{id}', [PrivateTourController::class, 'update']);
-        Route::delete('/delete/{id}', [PrivateTourController::class, 'delete']);
-    });
 
     Route::prefix('travel')->group(function () {
         Route::get('/list', [TravelRegulerController::class, 'listData']);

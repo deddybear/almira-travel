@@ -14,6 +14,8 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('/plugins/mansory.pkgd.js')}}"></script>
+    <script src="{{ asset('/pages/guest/home/script.js') }}"></script>
 @endsection
 
 @section('content')
@@ -150,8 +152,8 @@
 
     <div class="list-tour mt-5 p-5 container rounded-3">
         <div class="row">
-            @if (count($tourPrivate) > 0)
-                @foreach ($tourPrivate as $item)
+            @if (count($tour) > 0)
+                @foreach ($tour as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
                         <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
@@ -196,9 +198,71 @@
     <div class="car-section mt-5 container p-0">
         <div class="title-car mb-5">
             <div class="title-car-section">
-                <h1>Discover your destination</h1>
+                <h1>Ready package private</h1>
             </div>
-            <p>Our Service tour package, make your journey unforgettable !</p>
+            <p>Our Service private tour, make your journey unforgettable !</p>
+            <div class="float-end border rounded-pill button-see-all px-1">
+                <span class="m-2 fw-bold">
+                    <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
+                        See All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-tour mt-5 p-5 container rounded-3">
+        <div class="row mansory-tour-private" data-masonry='{"percentPosition": true }'>
+            @if (count($tourPrivate) < 0)
+                @foreach ($tourPrivate as $item)
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour mansory-tour-private-item">
+                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                            <div class="card">
+                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
+                                @if (count($item->photos) > 0)
+                                    <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
+                                        class="card-img-top img-card-list-cust" alt="card-1">
+                                @else
+                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
+                                @endif
+                                <div class="card-body body-tour">
+                                    <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
+                                    <p class="mb-0 desc-tour">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        {{ $item->lokasi }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @else
+                @for ($l = 0; $l < 8; $l++)
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour mansory-tour-private-item">
+                        <div class="card">
+                            <span class="badge text-bg-dark">...</span>
+                            <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
+                            <div class="card-body body-tour">
+                                <p class="mb-1 title-tour">...</p>
+                                <p class="mb-0 desc-tour">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+            @endif
+        </div>
+    </div>
+
+    <div class="car-section mt-5 container p-0">
+        <div class="title-car mb-5">
+            <div class="title-car-section">
+                <h1>Ready package travel</h1>
+            </div>
+            <p>Our Travel Service, make your journey unforgettable !</p>
             <div class="float-end border rounded-pill button-see-all px-1">
                 <span class="m-2 fw-bold">
                     <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
@@ -212,8 +276,8 @@
 
     <div class="list-tour mt-5 p-5 container rounded-3">
         <div class="row">
-            @if (count($tourPrivate) > 0)
-                @foreach ($tourPrivate as $item)
+            @if (count($travelReguler) > 0)
+                @foreach ($travelReguler as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
                         <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
@@ -273,5 +337,46 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="container mt-4">
+        <div class="row test-row" data-masonry='{"percentPosition": true }'>
+            <div class="col-md-4 col-sm-6 grid-item">
+                <div class="card">
+                    <img src="https://picsum.photos/200/300" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 1</h5>
+                        <p class="card-text">Deskripsi singkat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 grid-item">
+                <div class="card">
+                    <img src="https://picsum.photos/300/250" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 2</h5>
+                        <p class="card-text">Deskripsi singkat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 grid-item">
+                <div class="card">
+                    <img src="https://picsum.photos/300/180" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 3</h5>
+                        <p class="card-text">Deskripsi singkat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 grid-item">
+                <div class="card">
+                    <img src="https://picsum.photos/300/220" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 4</h5>
+                        <p class="card-text">Deskripsi singkat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

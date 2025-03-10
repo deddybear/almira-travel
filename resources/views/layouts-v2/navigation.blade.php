@@ -24,12 +24,14 @@
                     <li class="nav-item mx-1">
                         <a class="nav-link text-dark" href="{{ route('paket_tour') }}">Paket Tour</a>
                     </li>
-                    {{-- <li class="nav-item mx-1">
+                    @if (env('APP_ENV') == 'local')
+                    <li class="nav-item mx-1">
                         <a class="nav-link text-dark" href="{{ route('tour_private') }}">Tour Private</a>
-                    </li> --}}
-                    {{-- <li class="nav-item mx-1">
+                    </li>
+                    <li class="nav-item mx-1">
                         <a class="nav-link text-dark" href="{{ route('travel-reguler') }}">Travel Reguler</a>
-                    </li> --}}
+                    </li>
+                    @endif
                     <li class="nav-item mx-1">
                         <a class="nav-link text-dark" href="{{ route('sewa_mobil') }}">Sewa Mobil</a>
                     </li>
