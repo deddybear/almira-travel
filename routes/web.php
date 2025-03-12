@@ -98,7 +98,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
     });
     
-    if (env('APP_ENV') == 'local') {
+    
         Route::prefix('tour')->group(function () {
             Route::get('/list', [PaketTourController::class, 'listData']);
             Route::get('/search', [PaketTourController::class, 'search']);
@@ -108,6 +108,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
         });
     
+    if (env('APP_ENV') == 'local') {
         Route::prefix('tour-private')->group(function () {
             Route::get('/list', [PrivateTourController::class, 'listData']);
             Route::get('/search', [PrivateTourController::class, 'search']);
