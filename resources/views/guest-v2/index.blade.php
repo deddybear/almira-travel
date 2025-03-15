@@ -14,7 +14,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('/plugins/mansory.pkgd.js')}}"></script>
+    {{-- <script src="{{ asset('/plugins/mansory.pkgd.js')}}"></script> --}}
     <script src="{{ asset('/pages/guest/home/script.js') }}"></script>
 @endsection
 
@@ -73,8 +73,8 @@
             <div class="row">
                 @if (count($mobil) > 0)
                     @foreach ($mobil as $item)
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
-                            <a href="/mobil/desc/{{ $item->slug }}" class="text-decoration-none">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-car">
+                            <a href="/sewa-mobil/desc/{{ $item->slug }}" class="text-decoration-none">
                                 <div class="card">
                                     <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
                                     @if (count($item->photos) > 0)
@@ -105,7 +105,7 @@
                     @endforeach
                 @else
                     @for ($i = 0; $i <= 7; $i++)
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-car">
                             <div class="card">
                                 <span class="badge text-bg-dark">...</span>
                                 <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
@@ -154,8 +154,8 @@
         <div class="row">
             @if (count($tour) > 0)
                 @foreach ($tour as $item)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
-                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
+                        <a href="/paket-tour/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
                                 <span class="badge text-bg-dark"> {{ $item->category }} </span>
                                 @if (count($item->photos) > 0)
@@ -177,7 +177,7 @@
                 @endforeach
             @else
                 @for ($l = 0; $l < 8; $l++)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
                         <div class="card">
                             <span class="badge text-bg-dark">...</span>
                             <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
@@ -220,7 +220,7 @@
     <div class="car-section mt-5 container p-0">
         <div class="title-car mb-5">
             <div class="title-car-section">
-                <h1>Ready package private</h1>
+                <h1>Ready tour private</h1>
             </div>
             <p>Our Service private tour, make your journey unforgettable !</p>
             <div class="float-end border rounded-pill button-see-all px-1">
@@ -235,11 +235,11 @@
     </div>
 
     <div class="list-tour mt-5 p-5 container rounded-3">
-        <div class="row mansory-tour-private" data-masonry='{"percentPosition": true }'>
+        <div class="row ">
             @if (count($tourPrivate) < 0)
                 @foreach ($tourPrivate as $item)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour mansory-tour-private-item">
-                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
+                        <a href="/tour-private/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
                                 <span class="badge text-bg-dark"> {{ $item->category }} </span>
                                 @if (count($item->photos) > 0)
@@ -261,7 +261,7 @@
                 @endforeach
             @else
                 @for ($l = 0; $l < 8; $l++)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour mansory-tour-private-item">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour ">
                         <div class="card">
                             <span class="badge text-bg-dark">...</span>
                             <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
@@ -300,8 +300,8 @@
         <div class="row">
             @if (count($travelReguler) > 0)
                 @foreach ($travelReguler as $item)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
-                        <a href="/tour/desc/{{ $item->slug }}" class="text-decoration-none">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
+                        <a href="/travel-reguler/desc/{{ $item->slug }}" class="text-decoration-none">
                             <div class="card">
                                 <span class="badge text-bg-dark"> {{ $item->category }} </span>
                                 @if (count($item->photos) > 0)
@@ -323,7 +323,7 @@
                 @endforeach
             @else
                 @for ($l = 0; $l < 8; $l++)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
                         <div class="card">
                             <span class="badge text-bg-dark">...</span>
                             <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
@@ -341,7 +341,7 @@
         </div>
     </div>
 
-    <div class="container mt-4">
+    <div class="container mb-4">
         <div class="row test-row" data-masonry='{"percentPosition": true }'>
             <div class="col-md-4 col-sm-6 grid-item">
                 <div class="card">
