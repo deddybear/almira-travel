@@ -44,26 +44,27 @@ function fetchData(action) {
                 for (let index = 0; index < data.length; index++) {
                     html += `<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-car">`
                         html += `<a href="/sewa-mobil/desc/${data[index].slug}" class="text-decoration-none">`
-                            html += `<div class="card">`
-                                html += `<span class="badge text-bg-dark"> ${data[index].tipe_mobil} </span>`
+                            html += `<div class="card p-1">`
+                                html += `<span class="badge text-bg-dark">${data[index].tipe_mobil}</span>`
                                     if (data[index].photos.length > 0) {
-                                        html += `<img src="/storage/images/${data[index].photos[0].path}" class="card-img-top img-card-list-cust" alt="card-1">`
+                                        html += `<img src="/storage/images/${data[index].photos[0].path}" class="card-img-top img-card-list-cust rounded" alt="card-1">`
                                     } else {
-                                        html += `<img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">`
+                                        html += `<img class="card-img-top rounded" src="https://placehold.co/286x161?text=Soon...">`
                                     }
                                 html += `<div class="card-body body-tour">`
-                                    html += `<div class="row">`
-                                        html += `<div class="col title-car">`
-                                            html += `${data[index].name.slice(0, 10) + (data[index].name.length > 10 ? "..." : "")}`
+                                    html += `<div class="mb-2">`
+                                        html += `${data[index].name.slice(0, 10) + (data[index].name.length > 20 ? "..." : "")}`
+                                    html += `</div>`
+                                    html += `<div class="rounded-2">`
+                                        html += `Seat : ${data[index].kursi} <i class="fa-solid fa-users"></i>`
+                                    html += `</div>`
+                                    html += `<div class="row mt-2 gap-4">`
+                                        html += `<div class="col-6 price pe-0 my-auto" style=" background-color: #649173;">`
+                                            html += `<b style="font-weight: 600">${rupiah(data[index].price)}</b>/Day`
                                         html += `</div>`
-                                        html += `<div class="col">`
-                                            html += `<div class="float-end desc-car rounded-4 px-2">`
-                                            html += `<i class="fa-solid fa-users"></i> `
-                                            html += `${data[index].kursi}`
-                                        html += `</div>`
-                                    html +=  `</div>`
+                                        html += `<div class="col-4 justify-content-end btn-grad-custome my-auto">Book Now</div>`
+                                    html += `</div>`
                                 html += `</div>`
-                            html += `</div>`
                             html += `</div>` // ???
                         html += `</a>`
                     html += `</div>`

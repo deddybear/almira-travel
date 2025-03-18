@@ -75,27 +75,27 @@
                     @foreach ($mobil as $item)
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-car">
                             <a href="/sewa-mobil/desc/{{ $item->slug }}" class="text-decoration-none">
-                                <div class="card">
+                                <div class="card p-1">
                                     <span class="badge text-bg-dark">{{ $item->tipe_mobil }}</span>
                                     @if (count($item->photos) > 0)
                                         <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
-                                            class="card-img-top img-card-list-cust" alt="card-1">
+                                            class="card-img-top img-card-list-cust rounded" alt="card-1">
                                     @else
-                                        <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
+                                        <img class="card-img-top rounded" src="https://placehold.co/286x157?text=Soon...">
                                     @endif
                                     <div class="card-body body-tour">
-                                        <div class="row">
-                                            <div class="row">
-                                                <div class="col title-car">
-                                                    {{ str_limit(strip_tags($item->name), 10) }}
-                                                </div>
-                                                <div class="col">
-                                                    <div class="float-end desc-car rounded-4 px-2">
-                                                        <i class="fa-solid fa-users"></i>
-                                                        {{ $item->kursi }}
-                                                    </div>
-                                                </div>
+                                        <div class="mb-2">
+                                            {{ str_limit(strip_tags($item->name), 20) }}
+                                        </div>
+                                        <div class="rounded-2">
+                                            Seat : {{ $item->kursi }}
+                                            <i class="fa-solid fa-users"></i>
+                                        </div>
+                                        <div class="row mt-2 gap-4">
+                                            <div class="col-6 price pe-0 my-auto" style=" background-color: #649173;">
+                                                Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
                                             </div>
+                                            <div class="col-4 justify-content-end btn-grad-custome my-auto">Book Now</div>
                                         </div>
                                         {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
@@ -110,19 +110,7 @@
                                 <span class="badge text-bg-dark">...</span>
                                 <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
                                 <div class="card-body body-tour">
-                                    <div class="row">
-                                        <div class="row">
-                                            <div class="col title-car">
-                                                Segera
-                                            </div>
-                                            <div class="col">
-                                                <div class="float-end desc-car rounded-4 px-2">
-                                                    <i class="fa-solid fa-users"></i>
-                                                    X
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h1 class="text-center mt-3">Soon</h1>
                                     {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                 </div>
                             </div>
@@ -156,20 +144,27 @@
                 @foreach ($tour as $item)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
                         <a href="/paket-tour/desc/{{ $item->slug }}" class="text-decoration-none">
-                            <div class="card">
+                            <div class="card p-1">
                                 <span class="badge text-bg-dark"> {{ $item->category }} </span>
                                 @if (count($item->photos) > 0)
                                     <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
-                                        class="card-img-top img-card-list-cust" alt="card-1">
+                                        class="img-card-list-cust rounded" alt="card-1">
                                 @else
-                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
+                                    <img class="rounded" src="https://placehold.co/286x161?text=Soon...">
                                 @endif
                                 <div class="card-body body-tour">
-                                    <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
-                                    <p class="mb-0 desc-tour">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        {{ $item->lokasi }}
-                                    </p>
+                                    <div class="mb-2">
+                                        {{ str_limit(strip_tags($item->name), 20) }}
+                                    </div>
+                                    <div class="rounded-2">
+                                        Location : {{ $item->Location }}<sup><i class="fa-solid fa-location-dot"></i></sup>
+                                    </div>
+                                    <div class="row mt-2 gap-4">
+                                        <div class="col-6 price pe-0 my-auto" style="background-color: #F8EDE3; !important">
+                                            Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                        </div>
+                                        <div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -177,16 +172,13 @@
                 @endforeach
             @else
                 @for ($l = 0; $l < 8; $l++)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-car">
                         <div class="card">
                             <span class="badge text-bg-dark">...</span>
-                            <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
+                            <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
                             <div class="card-body body-tour">
-                                <p class="mb-1 title-tour">...</p>
-                                <p class="mb-0 desc-tour">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    ...
-                                </p>
+                                <h1 class="text-center mt-3">Soon</h1>
+                                {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                             </div>
                         </div>
                     </div>
@@ -194,6 +186,143 @@
             @endif
         </div>
     </div>
+
+
+
+    {{-- ! In Development --}}
+    @if (env('APP_ENV') == 'local')
+        <div class="car-section mt-5 container p-0">
+            <div class="title-car mb-5">
+                <div class="title-car-section">
+                    <h1>Ready tour private</h1>
+                </div>
+                <p>Our Service private tour, make your journey unforgettable !</p>
+                <div class="float-end border rounded-pill button-see-all px-1">
+                    <span class="m-2 fw-bold">
+                        <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
+                            See All
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-tour mt-5 p-5 container rounded-3">
+            <div class="row ">
+                @if (count($tourPrivate) > 0)
+                    @foreach ($tourPrivate as $item)
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
+                        <a href="/tour-private/desc/{{ $item->slug }}" class="text-decoration-none">
+                            <div class="card p-1">
+                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
+                                @if (count($item->photos) > 0)
+                                    <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
+                                        class="img-card-list-cust rounded" alt="card-1">
+                                @else
+                                    <img class="rounded" src="https://placehold.co/286x161?text=Soon...">
+                                @endif
+                                <div class="card-body body-tour">
+                                    <div class="mb-2">
+                                        {{ str_limit(strip_tags($item->name), 20) }}
+                                    </div>
+                                    <div class="rounded-2">
+                                        Location : {{ $item->Location }}<sup><i class="fa-solid fa-location-dot"></i></sup>
+                                    </div>
+                                    <div class="row mt-2 gap-4">
+                                        <div class="col-6 price pe-0 my-auto" style="background-color: #F8EDE3; !important">
+                                            Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                        </div>
+                                        <div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                @else
+                    @for ($l = 0; $l < 8; $l++)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-car">
+                            <div class="card">
+                                <span class="badge text-bg-dark">...</span>
+                                <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
+                                <div class="card-body body-tour">
+                                    <h1 class="text-center mt-3">Soon</h1>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                @endif
+            </div>
+        </div>
+
+        <div class="car-section mt-5 container p-0">
+            <div class="title-car mb-5">
+                <div class="title-car-section">
+                    <h1>Ready package travel</h1>
+                </div>
+                <p>Our Travel Service, make your journey unforgettable !</p>
+                <div class="float-end border rounded-pill button-see-all px-1">
+                    <span class="m-2 fw-bold">
+                        <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
+                            See All
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-tour mt-5 p-5 container rounded-3">
+            <div class="row">
+                @if (count($travelReguler) > 0)
+                    @foreach ($travelReguler as $item)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
+                            <a href="/travel-reguler/desc/{{ $item->slug }}" class="text-decoration-none">
+                                <div class="card p-1">
+                                    <span class="badge text-bg-dark">{{ $item->category }}</span>
+                                    @if (count($item->photos) > 0)
+                                        <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
+                                            class="img-card-list-cust rounded" alt="card-1">
+                                    @else
+                                        <img class="rounded" src="https://placehold.co/286x161?text=Soon...">
+                                    @endif
+                                    <div class="card-body body-tour">
+                                        <div class="mb-2">
+                                            {{ str_limit(strip_tags($item->name), 20) }}
+                                        </div>
+                                        <div class="rounded-2">
+                                            Location : {{ $item->lokasi }}<sup><i class="fa-solid fa-location-dot"></i></sup>
+                                        </div>
+                                        <div class="row mt-2 gap-4">
+                                            <div class="col-6 price pe-0 my-auto" style="background-color: #F8EDE3; !important">
+                                                Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                            </div>
+                                            <div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                @else
+                    @for ($l = 0; $l < 8; $l++)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-car">
+                            <div class="card">
+                                <span class="badge text-bg-dark">...</span>
+                                <img class="card-img-top" src="https://placehold.co/286x157?text=Soon...">
+                                <div class="card-body body-tour">
+                                    <h1 class="text-center mt-3">Soon</h1>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                @endif
+            </div>
+        </div>
+    @endif
+
+    {{-- ! In Development --}}
 
     <div class="col-12 our-patner p-5 my-5">
         <div class="title-our-patner mt-2 mb-3 d-flex justify-content-center">
@@ -212,176 +341,5 @@
                 @endfor
             </div>
         </div>
-
     </div>
-
-    {{-- ! In Development --}}
-    @if (env('APP_ENV') == 'local')
-    <div class="car-section mt-5 container p-0">
-        <div class="title-car mb-5">
-            <div class="title-car-section">
-                <h1>Ready tour private</h1>
-            </div>
-            <p>Our Service private tour, make your journey unforgettable !</p>
-            <div class="float-end border rounded-pill button-see-all px-1">
-                <span class="m-2 fw-bold">
-                    <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
-                        See All
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="list-tour mt-5 p-5 container rounded-3">
-        <div class="row ">
-            @if (count($tourPrivate) < 0)
-                @foreach ($tourPrivate as $item)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
-                        <a href="/tour-private/desc/{{ $item->slug }}" class="text-decoration-none">
-                            <div class="card">
-                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
-                                @if (count($item->photos) > 0)
-                                    <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
-                                        class="card-img-top img-card-list-cust" alt="card-1">
-                                @else
-                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
-                                @endif
-                                <div class="card-body body-tour">
-                                    <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
-                                    <p class="mb-0 desc-tour">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        {{ $item->lokasi }}
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            @else
-                @for ($l = 0; $l < 8; $l++)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour ">
-                        <div class="card">
-                            <span class="badge text-bg-dark">...</span>
-                            <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
-                            <div class="card-body body-tour">
-                                <p class="mb-1 title-tour">...</p>
-                                <p class="mb-0 desc-tour">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    ...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endfor
-            @endif
-        </div>
-    </div>
-
-    <div class="car-section mt-5 container p-0">
-        <div class="title-car mb-5">
-            <div class="title-car-section">
-                <h1>Ready package travel</h1>
-            </div>
-            <p>Our Travel Service, make your journey unforgettable !</p>
-            <div class="float-end border rounded-pill button-see-all px-1">
-                <span class="m-2 fw-bold">
-                    <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
-                        See All
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="list-tour mt-5 p-5 container rounded-3">
-        <div class="row">
-            @if (count($travelReguler) > 0)
-                @foreach ($travelReguler as $item)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
-                        <a href="/travel-reguler/desc/{{ $item->slug }}" class="text-decoration-none">
-                            <div class="card">
-                                <span class="badge text-bg-dark"> {{ $item->category }} </span>
-                                @if (count($item->photos) > 0)
-                                    <img src="{{ asset('/storage/images/' . $item->photos[0]->path) }}"
-                                        class="card-img-top img-card-list-cust" alt="card-1">
-                                @else
-                                    <img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">
-                                @endif
-                                <div class="card-body body-tour">
-                                    <p class="mb-1 title-tour">{{ str_limit(strip_tags($item->name), 20) }}</p>
-                                    <p class="mb-0 desc-tour">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        {{ $item->lokasi }}
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            @else
-                @for ($l = 0; $l < 8; $l++)
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-4 card-tour">
-                        <div class="card">
-                            <span class="badge text-bg-dark">...</span>
-                            <img class="card-img-top" src="https://placehold.co/286x161?text=Soon......">
-                            <div class="card-body body-tour">
-                                <p class="mb-1 title-tour">...</p>
-                                <p class="mb-0 desc-tour">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    ...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endfor
-            @endif
-        </div>
-    </div>
-
-    <div class="container mb-4">
-        <div class="row test-row" data-masonry='{"percentPosition": true }'>
-            <div class="col-md-4 col-sm-6 grid-item">
-                <div class="card">
-                    <img src="https://picsum.photos/200/300" class="card-img-top" alt="Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Item 1</h5>
-                        <p class="card-text">Deskripsi singkat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 grid-item">
-                <div class="card">
-                    <img src="https://picsum.photos/300/250" class="card-img-top" alt="Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Item 2</h5>
-                        <p class="card-text">Deskripsi singkat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 grid-item">
-                <div class="card">
-                    <img src="https://picsum.photos/300/180" class="card-img-top" alt="Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Item 3</h5>
-                        <p class="card-text">Deskripsi singkat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 grid-item">
-                <div class="card">
-                    <img src="https://picsum.photos/300/220" class="card-img-top" alt="Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Item 4</h5>
-                        <p class="card-text">Deskripsi singkat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
-
-    {{-- ! In Development --}}
 @endsection

@@ -45,20 +45,27 @@ function fetchData(action) {
                 for (let index = 0; index < data.length; index++) {
                     html += `<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mt-2 card-tour">`
                         html += `<a href="/tour-private/desc/${data[index].slug}" class="text-decoration-none">`
-                            html += `<div class="card">`
+                            html += `<div class="card p-1">`
                                 html += `<span class="badge text-bg-dark"> ${data[index].category} </span>`
                                 if (data[index].photos.length > 0) {
-                                    html += `<img src="/storage/images/${data[index].photos[0].path}" class="card-img-top img-card-list-cust" alt="card-1">`
+                                    html += `<img src="/storage/images/${data[index].photos[0].path}" class="img-card-list-cust rounded" alt="card-1">`
                                 } else {
-                                    html += `<img class="card-img-top" src="https://placehold.co/286x161?text=Soon...">`
+                                    html += `<img class="rounded" src="https://placehold.co/286x161?text=Soon...">`
                                 }
 
                                 html += `<div class="card-body body-tour">`
-                                    html += `<p class="mb-1 title-tour">${data[index].name.slice(0, 20) + (data[index].name.length > 20 ? "..." : "")}</p>`
-                                    html += `<p class="mb-0 desc-tour">`
-                                        html += `<i class="fa-solid fa-location-dot"></i> `
-                                        html += data[index].lokasi.slice(0, 10) + (data[index].lokasi.length > 10 ? "..." : "")
-                                    html += `</p>`
+                                    html += `<div class="mb-2">`
+                                        html += `${data[index].name.slice(0, 20) + (data[index].name.length > 20 ? "..." : "")}`
+                                    html += `</div>`
+                                    html += `<div class="rounded-2">`
+                                        html += `Location : ${data[index].lokasi.slice(0, 10) + (data[index].lokasi.length > 10 ? "..." : "")}<sup><i class="fa-solid fa-location-dot"></i></sup>`
+                                    html += `</div>`
+                                    html += `<div class="row mt-2 gap-4">`
+                                        html += `<div class="col-6 price pe-0 my-auto" style="background-color: #F8EDE3; !important">`
+                                            html += `<b style="font-weight: 600">${rupiah(data[index].price)}</b>/Day`
+                                        html += `</div>`
+                                        html += `<div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>`
+                                    html += `</div>`
                                 html += `</div>`
                             html += `</div>`
                         html += `</a>`

@@ -4,10 +4,10 @@
 //     columnWidth: 200
 // });
 
-document.addEventListener("DOMContentLoaded", function () {
-    var grid = document.querySelector('.test-row');
-    var masonry = new Masonry(grid, {
-        itemSelector: '.grid-item',
-        percentPosition: true
-    });
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//     var grid = document.querySelector('.test-row');
+//     var masonry = new Masonry(grid, {
+//         itemSelector: '.grid-item',
+//         percentPosition: true
+//     });
+// });

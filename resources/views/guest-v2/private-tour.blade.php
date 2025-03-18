@@ -9,10 +9,12 @@
 @section('msg-banner', $carousel->desc_banner)
 
 @section('css')
+    <link rel="stylesheet" href="{{ asset('/pages/guest/home/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('/pages/guest/private-tour/styles.css') }}">
 @endsection
 
 @section('js')
+    <script src="{{ asset('/plugins/format-rupiah.js') }}"></script>
     <script src="{{ asset('/pages/guest/private-tour/script.js') }}"></script>
 @endsection
 

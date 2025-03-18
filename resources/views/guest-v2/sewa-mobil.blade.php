@@ -10,10 +10,12 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('/pages/guest/sewa-mobil/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('/pages/guest/home/styles.css') }}">
 @endsection
 
 @section('js')
-<script src="{{ asset('/pages/guest/sewa-mobil/script.js') }}"></script>
+    <script src="{{ asset('/plugins/format-rupiah.js') }}"></script>
+    <script src="{{ asset('/pages/guest/sewa-mobil/script.js') }}"></script>
 @endsection
 
 @section('content')
