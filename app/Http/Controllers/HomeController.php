@@ -54,6 +54,6 @@ class HomeController extends Controller {
                             ->inRandomOrder()
                             ->get();
 
-        return view('guest-v2.index', compact('mobil', 'tour', 'carousel', 'tourPrivate', 'travelReguler'));
+        return view('guest-v2.index', compact('mobil', 'tour', 'carousel', 'tourPrivate', 'travelReguler', 'contact'));
     }
 }

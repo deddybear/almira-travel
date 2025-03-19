@@ -51,6 +51,8 @@
     <link rel="stylesheet" href="{{ asset('/fontawesome/all.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/nav-mobile.css')}}">
     <link rel="stylesheet" href="{{ asset('/plugins/sweetalert2/sweetalert2.css') }}">
+    <link rel="stylesheet" href="{{ asset('/pages/index/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('/styles.css') }}">
     @yield('css')
 
 </head>
@@ -84,25 +86,25 @@
                         <!-- Statistik -->
                         <div class="col-6 col-md-3 text-center">
                             <div>
-                                <div class="stat-number">5<span class="greenTea">+</span></div>
+                                <div class="stat-number">5<span class="blueSea">+</span></div>
                                 <div class="stat-label">Tahun Pelayanan</div>
                             </div>
                         </div>
                         <div class="col-6 col-md-3 text-center">
                             <div>
-                                <div class="stat-number">60<span class="greenTea">+</span></div>
+                                <div class="stat-number">60<span class="blueSea">+</span></div>
                                 <div class="stat-label">Armada Mobil</div>
                             </div>
                         </div>
                         <div class="col-6 col-md-3 text-center">
                             <div>
-                                <div class="stat-number">12<span class="greenTea">+</span></div>
+                                <div class="stat-number">12<span class="blueSea">+</span></div>
                                 <div class="stat-label">Driver Profesional</div>
                             </div>
                         </div>
                         <div class="col-6 col-md-3 text-center">
                             <div>
-                                <div class="stat-number">100<span class="greenTea">+</span></div>
+                                <div class="stat-number">100<span class="blueSea">+</span></div>
                                 <div class="stat-label">Customer</div>
                             </div>
                         </div>
@@ -116,13 +118,65 @@
         @yield('content')
     </section>
 
-    <footer class="footer background-footer">
-        <div class="col-12">
-            <h1 class="m-0">&nbsp;</h1>
-            <h1 class="m-0">&nbsp;</h1>
-            <h1 class="m-0">&nbsp;</h1>
-            <h1 class="m-0">&nbsp;</h1>
-            <h1 class="m-0">&nbsp;</h1>
+
+    <section id="section">
+        <a href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20tertarik%20untuk%20memesan%20jasa%20dari%20Almira-Travel." class="float-wa" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/almiratranstourtravel.id/" class="float-ig" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+    </section>
+
+    <footer class="py-5 bg-orange-gradient-rev col-12 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <img class="mb-3" src="/images/logo.png" width="150" height="70" alt="logo" srcset="/images/logo.png">
+                    <ul class="row list-unstyled">
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Beranda</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Paket Tour</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Sewa Mobil</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Gallery Foto</b></a></li>
+                        <li class="col-12 col-md-6 mb-2"><a class="text-dark text-decoration-none underlineIfHover" href=""><b>Kontak</b></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mx-auto">
+                    <h4>ABOUT US</h4>
+                    <p class="text-sm text-justify">
+                        Penyedia jasa bergerak dibidang travel dan transport, 
+                        telah berdiri sejak 2010 dan sudah melayani ribuan Client. 
+                        Almira Travel berkomitmen untuk terus memberikan pelayanan terbaik
+                    </p>
+                </div>
+                <div class="col-md-4 mx-auto">
+                    <h4>CONTACT US</h4>       
+                        <a class="text-dark mx-2 col-12 text-decoration-none row" href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20tertarik%20untuk%20memesan%20jasa%20dari%20Almira-Travel.">
+                           
+                            <div class="ml-2 mt-1"> 
+                                <i class="fa-brands fa-whatsapp"></i>
+                                @php
+                                    $number = str_replace('62', ' ', $contact->wa);
+                                @endphp
+
+                                +62 {{ trim(chunk_split($number, 4, ' ')) }}
+                            </div>
+                        </a>
+   
+                        <a class="text-dark mx-2 col-12 text-decoration-none row" href="https://www.instagram.com/almiratranstourtravel.id/">
+                           
+                            <div class="ml-2 mt-1">
+                                <i class="fa-brands fa-instagram"></i> almiratranstourtravel.id
+                            </div>
+                        </a>
+   
+                        <a class="text-dark mx-2 col-12 text-decoration-none row" href="mailto:{{ $contact->email }}">
+                            
+                            <div class="ml-2 mt-1"><i class="fa-regular fa-envelope"></i> {{ $contact->email }}</div>
+                        </a>
+   
+                </div>
+            </div>
         </div>
     </footer>
 </body>

@@ -61,7 +61,7 @@ function fetchData(action) {
                                         html += `Location : ${data[index].lokasi.slice(0, 10) + (data[index].lokasi.length > 10 ? "..." : "")}<sup><i class="fa-solid fa-location-dot"></i></sup>`
                                     html += `</div>`
                                     html += `<div class="row mt-2 gap-4">`
-                                        html += `<div class="col-6 price pe-0 my-auto" style="background-color: #F8EDE3; !important">`
+                                        html += `<div class="col-6 price pe-0 my-auto bg-blue-sea">`
                                             html += `<b style="font-weight: 600">${rupiah(data[index].price)}</b>/Day`
                                         html += `</div>`
                                         html += `<div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>`

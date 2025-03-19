@@ -59,7 +59,7 @@ function fetchData(action) {
                                         html += `Seat : ${data[index].kursi} <i class="fa-solid fa-users"></i>`
                                     html += `</div>`
                                     html += `<div class="row mt-2 gap-4">`
-                                        html += `<div class="col-6 price pe-0 my-auto" style=" background-color: #649173;">`
+                                        html += `<div class="col-6 price pe-0 my-auto bg-blue-sea">`
                                             html += `<b style="font-weight: 600">${rupiah(data[index].price)}</b>/Day`
                                         html += `</div>`
                                         html += `<div class="col-4 justify-content-end btn-grad-custome my-auto">Book Now</div>`
