@@ -26,10 +26,10 @@
                     </li>
                     @if (env('APP_ENV') == 'local')
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="{{ route('tour_private') }}">Tour Private</a>
+                        <a class="nav-link text-dark" href="{{ route('tour_private') }}">Open Trip</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link text-dark" href="{{ route('travel-reguler') }}">Travel Reguler</a>
+                        <a class="nav-link text-dark" href="{{ route('travel-reguler') }}">Door to Door</a>
                     </li>
                     @endif
                     <li class="nav-item mx-1">

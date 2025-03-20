@@ -77,18 +77,20 @@
                                         <p>Paket Tour</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
+                                @if (env('APP_ENV') == 'local')
+                                <li class="nav-item">
                                     <a href="/admin/dashboard/tour-private" class="nav-link">
                                         <i class="fa-solid fa-route nav-icon"></i>
-                                        <p>Tour Private</p>
+                                        <p>Open Trip</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/admin/dashboard/travel-reguler" class="nav-link">
                                         <i class="fa-solid fa-route nav-icon"></i>
-                                        <p>Travel Reguler</p>
+                                        <p>Door to Door</p>
                                     </a>
-                                </li> --}}
+                                </li>
+                                @endif
                                 <li class="nav-item">
                                     <a href="/admin/dashboard/gallery" class="nav-link">
                                         <i class="fa-solid fa-plane-departure nav-icon"></i>

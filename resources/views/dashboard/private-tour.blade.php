@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin - Tour Private')
-@section('title-header', 'Data Tour Private')
+@section('title', 'Panel Admin - Open Trip')
+@section('title-header', 'Data Open Trip')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/plugins/dataTables/datatables.css') }}">
@@ -108,7 +108,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Nama Tour Private</label>
+                                            <label>Nama Open Trip</label>
                                             <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket">
                                         </div>
                                         <div class="form-group">
@@ -120,31 +120,31 @@
                                             <input type="text" class="form-control price-tour" name="lokasi" placeholder="Lokasi">
                                         </div>
                                         <div class="form-group">
-                                            <label>Harga Tour Private</label>
+                                            <label>Harga Open Trip</label>
                                             <input type="text" class="form-control price-tour" name="price" placeholder="Harga">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
-                                        <label>Isi Konten Detail pada Tour Private</label>
+                                        <label>Isi Konten Detail pada Open Trip</label>
                                         <textarea class="form-control ckeditor" name="detail" id="detail" cols="30" rows="10"></textarea>
                                     </div>                                   
                                 </div>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>                                
                             </div>
                             <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
-                                <label>Konten Rencana Perjalanan pada Tour Private</label>
+                                <label>Konten Rencana Perjalanan pada Open Trip</label>
                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="plan" id="plan" cols="30" rows="10"></textarea>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="offer" role="tabpanel" aria-labelledby="offer-tab">
-                                <label>Konten Best Offer pada Tour Private</label>
+                                <label>Konten Best Offer pada Open Trip</label>
                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="offer" id="offer" cols="30" rows="10"></textarea>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>
                             </div>
                             <div class="tab-pane fade" id="prepare" role="tabpanel" aria-labelledby="prepare-tab">
-                                <label>Konten Persiapan pada Tour Private</label>
+                                <label>Konten Persiapan pada Open Trip</label>
                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                 <textarea class="form-control ckeditor" name="prepare" id="prepare" cols="30" rows="10"></textarea>
                                 <button class="btn btn-ok mt-3 next btn-outline-primary" type="button">Next</button>

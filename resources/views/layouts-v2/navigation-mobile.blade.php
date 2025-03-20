@@ -24,12 +24,12 @@
         @if (env('APP_ENV') == 'local')
         <li>
             <a class="navbar-brand" href="{{ route('tour_private')}}">
-                Tour Private
+                Open Trip
             </a>
         </li>
         <li>
             <a class="navbar-brand" href="{{ route('travel-reguler')}}">
-                Travel Reguler
+                Door to Door
             </a>
         </li>
         @endif

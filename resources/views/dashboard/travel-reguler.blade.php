@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
-@section('title', 'Panel Admin - Data Travel Reguler')
-@section('title-header', 'Data Travel Reguler')
+@section('title', 'Panel Admin - Data Door to Door')
+@section('title-header', 'Data Door to Door')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/plugins/dataTables/datatables.css') }}">
@@ -123,7 +123,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6">
-                                                <label>Konten Trip pada Travel Reguler</label>
+                                                <label>Konten Trip pada Door to Door</label>
                                                 <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                                 <textarea class="form-control ckeditor" name="trip" id="trip" cols="30" rows="10"></textarea>
                                             </div>
@@ -131,13 +131,13 @@
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>
                                     </div>
                                     <div class="tab-pane fade" id="trans" role="tabpanel" aria-labelledby="trans-tab">
-                                        <label>Konten Transportasi pada Travel Reguler</label>
+                                        <label>Konten Transportasi pada Door to Door</label>
                                         <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                         <textarea class="form-control ckeditor" name="trans" id="transport" cols="30" rows="10"></textarea>
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>
                                     </div>
                                     <div class="tab-pane fade" id="door" role="tabpanel" aria-labelledby="door-tab">
-                                        <label>Konten Door to Door pada Travel Reguler</label>
+                                        <label>Konten Door to Door pada Door to Door</label>
                                         <p class="text-sm">isi akan ditampilkan pada halaman web sesuai yang anda buat</p>
                                         <textarea class="form-control ckeditor" name="door" id="door" cols="30" rows="10"></textarea>
                                         <button class="btn btn-default btn-ok mt-3" type="button">Simpan</button>

@@ -162,12 +162,9 @@
                 </div>
             </div>
             <div class="col-12 col-md-3 mt-5">
-                <div class="card text-white bg-secondary mb-3">
-                    <a class="text-white no-decoration" href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20ingin%20memesan%20mobil%20{{ $data->name }}.">
-                        <div class="card-header text-center">
-                          <h3>Rp. {{ number_format($data->price, 0 ,',', '.') }},-</h3>
-                        </div>
-                        <div class="card-body text-center mx-auto">
+                <div class="card text-white bg-secondary btn-grad-custome mb-3">
+                    <a class="text-white no-decoration text-decoration-none" href="https://api.whatsapp.com/send?phone={{ $contact->wa }}&text=Hallo,%20saya%20ingin%20memesan%20mobil%20{{ $data->name }}.">
+                        <div class="card-body text-center mx-auto text-black">
                               <h3 class="m-0">Pesan Sekarang !</h3>
                         </div>
                     </a>
