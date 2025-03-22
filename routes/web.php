@@ -42,7 +42,7 @@ Route::prefix('paket-tour')->group(function () {
     Route::post('search-guest', [PaketTourController::class, 'searchGuest']);
 });
 
-if (env('APP_ENV') == 'local') {
+
     Route::prefix('travel-reguler')->group(function () {
         Route::get('/', [TravelRegulerController::class,'index'])->name('travel-reguler');
         Route::get('get-list', [TravelRegulerController::class, 'getListTravel']);
@@ -56,7 +56,7 @@ if (env('APP_ENV') == 'local') {
         Route::get('desc/{slug}', [PrivateTourController::class, 'desc'])->name('tour_private_desc');
         Route::post('search-guest', [PrivateTourController::class, 'searchGuest']);
     });    
-}
+
 
 
 
@@ -85,9 +85,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'pageView']);
             Route::get('/tour', [PaketTourController::class, 'pageView']);
-            if (env('APP_ENV') == 'local') {
+            
                 Route::get('/tour-private', [PrivateTourController::class, 'pageView']);
-            }
+            
             Route::get('/gallery', [GalleryPhotosController::class, 'pageView']);
             Route::get('/car', [SewaMobilController::class, 'pageView']);
             Route::get('/contact', [ContactController::class, 'pageView']);
@@ -108,7 +108,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::delete('/delete/{id}', [PaketTourController::class, 'delete']);
         });
     
-    if (env('APP_ENV') == 'local') {
+    
         Route::prefix('tour-private')->group(function () {
             Route::get('/list', [PrivateTourController::class, 'listData']);
             Route::get('/search', [PrivateTourController::class, 'search']);
@@ -117,7 +117,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::patch('/update/{id}', [PrivateTourController::class, 'update']);
             Route::delete('/delete/{id}', [PrivateTourController::class, 'delete']);
         });
-    }
+    
 
 
     Route::prefix('travel')->group(function () {

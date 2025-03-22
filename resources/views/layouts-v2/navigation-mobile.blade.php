@@ -21,7 +21,7 @@
                 Paket Tour
             </a>
         </li>
-        @if (env('APP_ENV') == 'local')
+        
         <li>
             <a class="navbar-brand" href="{{ route('tour_private')}}">
                 Open Trip
@@ -32,7 +32,7 @@
                 Door to Door
             </a>
         </li>
-        @endif
+        
         <li>
             <a class="navbar-brand" href="{{ route('sewa_mobil')}}">
                 Sewa Mobil

@@ -77,7 +77,7 @@
                                         <p>Paket Tour</p>
                                     </a>
                                 </li>
-                                @if (env('APP_ENV') == 'local')
+                                
                                 <li class="nav-item">
                                     <a href="/admin/dashboard/tour-private" class="nav-link">
                                         <i class="fa-solid fa-route nav-icon"></i>
@@ -90,7 +90,7 @@
                                         <p>Door to Door</p>
                                     </a>
                                 </li>
-                                @endif
+                                
                                 <li class="nav-item">
                                     <a href="/admin/dashboard/gallery" class="nav-link">
                                         <i class="fa-solid fa-plane-departure nav-icon"></i>

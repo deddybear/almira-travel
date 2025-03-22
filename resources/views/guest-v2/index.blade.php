@@ -188,7 +188,7 @@
     </div>
 
     {{-- ! In Development --}}
-    @if (env('APP_ENV') == 'local')
+    
         <div class="car-section mt-5 container p-0">
             <div class="title-car mb-5">
                 <div class="title-car-section">
@@ -318,7 +318,7 @@
                 @endif
             </div>
         </div>
-    @endif
+    
     {{-- ! In Development --}}
 
     <div class="service-section py-5">
