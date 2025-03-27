@@ -85,7 +85,7 @@
                                     @endif
                                     <div class="card-body body-tour">
                                         <div class="mb-2">
-                                            {{ str_limit(strip_tags($item->name), 20) }}
+                                            {{ str_limit(strip_tags($item->name), 25) }}
                                         </div>
                                         <div class="rounded-2">
                                             Seat : {{ $item->kursi }}
@@ -154,7 +154,7 @@
                                 @endif
                                 <div class="card-body body-tour">
                                     <div class="mb-2">
-                                        {{ str_limit(strip_tags($item->name), 20) }}
+                                        {{ str_limit(strip_tags($item->name), 25) }}
                                     </div>
                                     <div class="rounded-2">
                                         Location : {{ $item->Location }}<sup><i class="fa-solid fa-location-dot"></i></sup>
@@ -222,7 +222,7 @@
                                 @endif
                                 <div class="card-body body-tour">
                                     <div class="mb-2">
-                                        {{ str_limit(strip_tags($item->name), 20) }}
+                                        {{ str_limit(strip_tags($item->name), 25) }}
                                     </div>
                                     <div class="rounded-2">
                                         Location : {{ $item->Location }}<sup><i class="fa-solid fa-location-dot"></i></sup>
@@ -287,7 +287,7 @@
                                     @endif
                                     <div class="card-body body-tour">
                                         <div class="mb-2">
-                                            {{ str_limit(strip_tags($item->name), 20) }}
+                                            {{ str_limit(strip_tags($item->name), 25) }}
                                         </div>
                                         <div class="rounded-2">
                                             Location : {{ $item->lokasi }}<sup><i class="fa-solid fa-location-dot"></i></sup>

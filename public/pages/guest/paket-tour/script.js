@@ -55,7 +55,7 @@ function fetchData(action) {
 
                                 html += `<div class="card-body body-tour">`
                                     html += `<div class="mb-2">`
-                                        html += `${data[index].name.slice(0, 20) + (data[index].name.length > 20 ? "..." : "")}`
+                                        html += `${data[index].name.slice(0, 25) + (data[index].name.length > 25 ? "..." : "")}`
                                     html += `</div>`
                                     html += `<div class="rounded-2">`
                                         html += `Location : ${data[index].lokasi.slice(0, 10) + (data[index].lokasi.length > 10 ? "..." : "")}<sup><i class="fa-solid fa-location-dot"></i></sup>`
