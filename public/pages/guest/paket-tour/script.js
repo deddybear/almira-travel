@@ -62,7 +62,11 @@ function fetchData(action) {
                                     html += `</div>`
                                     html += `<div class="row mt-2 gap-4">`
                                         html += `<div class="col-6 price pe-0 my-auto bg-blue-sea">`
-                                        html += `<b style="font-weight: 600">${rupiah(data[index].price)}</b>/Day`
+                                            if (data[index].using_price == true) {
+                                                html += `<b style="font-weight: 600">${rupiah(data[index].price)}</b>/Day`
+                                            } else {
+                                                html += `<b style="font-weight: 600">${data[index].price_string}</b>/Day`
+                                            }
                                         html += `</div>`
                                         html += `<div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>`
                                     html += `</div>`

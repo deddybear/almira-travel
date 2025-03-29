@@ -34,7 +34,9 @@
                             <tr>
                                 <th>No. </th>
                                 <th>Nama</th>
-                                <th>Harga</th>
+                                <th>Harga Angka</th>
+                                <th>Harga Huruf</th>
+                                <th>Harga Pakai</th>
                                 <th>Tipe Mobil</th>
                                 <th>Kursi</th>
                                 <th>CC Mobil</th>
@@ -48,6 +50,8 @@
                         <tfoot>
                             <th></th>
                             <th class="search"></th>
+                            <th></th>
+                            <th></th>
                             <th></th>
                             <th class="search"></th>
                             <th class="search"></th>
@@ -69,7 +73,7 @@
             <div class="modal-header">
                 <h5 class="modal-title"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span>&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -78,23 +82,40 @@
                     <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                             <label>Nama Mobil</label>
-                            <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Paket">
+                            <input type="text" class="form-control name-tour" name="name" placeholder="Masukkan Nama Sewa Mobil" required>
                         </div>
                         <div class="form-group">
-                            <label>Harga Sewa Mobil</label>
-                            <input type="text" class="form-control" name="price" placeholder="Harga">
+                            <label>Pakai Harga</label>
+                            <div class="row px-2">
+                                <div class="col custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio" id="customRadio-1" name="using_price" value="1" required>
+                                    <label for="customRadio-1" class="custom-control-label">Angka</label>
+                                </div>
+                                <div class="col custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio" id="customRadio-0" name="using_price" value="0" required>
+                                    <label for="customRadio-0" class="custom-control-label">Huruf</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Harga Sewa Mobil (Angka)</label>
+                            <input id="price_nominal" type="text" class="form-control price price-1" name="price" placeholder="Harga Angka" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Harga Sewa Mobil (Huruf)</label>
+                            <input id="price_char" type="text" class="form-control price price-0" name="price_string" placeholder="Harga Huruf" required>
                         </div>
                         <div class="form-group">
                             <label>Tipe Mobil</label>
-                            <input type="text" class="form-control" name="tipe_mobil" placeholder="Tipe Harga">
+                            <input type="text" class="form-control" name="tipe_mobil" placeholder="Tipe Harga" required>
                         </div>
                         <div class="form-group">
                             <label>Banyak Kursi</label>
-                            <input type="text" class="form-control" name="kursi" placeholder="Banyak Kursi">
+                            <input type="text" class="form-control" name="kursi" placeholder="Banyak Kursi" required>
                         </div>
                         <div class="form-group">
                             <label>Besar CC</label>
-                            <input type="text" min="1" class="form-control" name="cc" placeholder="CC Mobil">
+                            <input type="text" min="1" class="form-control" name="cc" placeholder="CC Mobil" required>
                         </div>
                         <a href="javascript:;" id="adding_photo" class="btn btn-success col-12 mb-3">Tambah Foto <i class="ml-1 fa-solid fa-photo-film"></i></a>
                         <div class="col-12">

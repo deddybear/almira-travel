@@ -63,7 +63,7 @@ class PrivateTourController extends Controller
      */
     public function getListTour(ValidationSearchPrivateTour $req) : JsonResponse {
         
-        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'using_price', 'price_string', 'collection_photos_id')
                 ->with('photos:id,path')
                 ->where('type_tour', '=', 'private')
                 ->orderBy('created_at')
@@ -83,7 +83,7 @@ class PrivateTourController extends Controller
      */
     public function searchGuest(ValidationSearchPrivateTour $req)  {
 
-        $query = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+        $query = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'using_price', 'price_string', 'collection_photos_id')
                  ->with('photos:id,path')
                  ->where('type_tour', '=', 'private')
                  ->orderBy('created_at');

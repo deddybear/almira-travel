@@ -56,6 +56,20 @@ $(document).ready(function() {
     })
 
 
+    $('.custom-control-input').change(function (e){
+        // alert($(this).val())
+        if ($(this).val() == 1) { // pilih angka
+            console.log('ini 1');
+            
+            $('#price_nominal').prop('disabled', false)
+            $('#price_char').prop('disabled', true)
+        } else { // pilih huruf
+            console.log('ini 2');
+            $('#price_nominal').prop('disabled', true)
+            $('#price_char').prop('disabled', false)
+        }
+    });
+
 
     $('#adding_photo').click(function() {
         let countField = $("#field_photo").children().length;
@@ -145,7 +159,20 @@ $(document).ready(function() {
                 data: function (row) {
                     return idrFormatter.format(row.price)
                 }, 
-                name: "price"},
+                name: "price"
+            },
+            { 
+                data: function (row) {
+                    return row.price_string ?? "-"
+                }, 
+                name: "price_string"
+            },
+            { 
+                data: function (row) {
+                    return row.using_price == 1 ? 'Angka' : 'Huruf'
+                }, 
+                name: "using_price"
+            },
             { data: "tipe_mobil", name: "tipe_mobil"},
             { data: "kursi", name: "kursi"},
             { data: "cc", name: "cc"},
@@ -234,6 +261,8 @@ $(document).ready(function() {
         clearFieldUpload();
         indexTab = 0;
         $("#form")[0].reset();
+        $(`.custom-control-input`).attr('checked', false)
+        $(`.price`).attr('disabled', true)
         domModal('Menambahkan Post Sewa Mobil', 'Simpan & Tambah Post', 'Batalkan')
         method = "POST";
     });
@@ -245,6 +274,7 @@ $(document).ready(function() {
         clearFieldUpload();
         indexTab = 0;
         $("#form")[0].reset();
+        $(`.price`).attr('disabled', true)
         id = $(this).attr('data');
 
         $.ajax({
@@ -267,8 +297,9 @@ $(document).ready(function() {
                 if (key == 'detail' ) { // untuk textarea ckeditor
                     fieldeditor.setData(data[key])
 
-                    
-                    
+                } else if (key == 'using_price') {
+                    $(`#customRadio-${data[key]}`).attr('checked', true)
+                    $(`.price-${data[key]}`).attr('disabled', false)
                 } else {
                     $(`[name="${key}"]`).val(data[key])
                 }

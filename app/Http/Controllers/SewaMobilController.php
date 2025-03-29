@@ -67,7 +67,7 @@ class SewaMobilController extends Controller {
      */
     public function getListTour(ValidationSearchPaketTour $req) : JsonResponse {
         
-        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'using_price', 'price_string', 'collection_photos_id')
                 ->with('photos:id,path')
                 ->orderBy('created_at')
                 ->limit($req->limit)
@@ -86,7 +86,7 @@ class SewaMobilController extends Controller {
      */
     public function searchGuest(ValidationSearchPaketTour $req)  {
 
-        $query = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+        $query = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'using_price', 'price_string', 'collection_photos_id')
                  ->with('photos:id,path')
                  ->orderBy('created_at');
 
@@ -206,7 +206,9 @@ class SewaMobilController extends Controller {
                 'tipe_mobil' => $req->tipe_mobil,
                 'kursi' => str_replace(".","", $req->kursi) ,
                 'cc'    => str_replace(".","", $req->cc),
-                'price' => str_replace(".","", $req->price),
+                'price' => isset($req->price) ? str_replace(".","", $req->price) : 0,
+                'price_string' => $req->price_string,
+                'using_price' => $req->using_price,
                 'detail' => $req->content,
                 'slug'  => Str::slug($req->name, '-')
             );
@@ -251,6 +253,8 @@ class SewaMobilController extends Controller {
                 'kursi' => str_replace(".","", $req->kursi),
                 'cc'    => str_replace(".","", $req->cc) ,
                 'price' => str_replace(".","", $req->price),
+                'price_string' => $req->price_string,
+                'using_price' => $req->using_price,
                 'detail' => $req->content,
                 'slug'  => Str::slug($req->name, '-')
             );

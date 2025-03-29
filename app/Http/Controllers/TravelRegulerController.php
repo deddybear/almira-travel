@@ -61,7 +61,7 @@ class TravelRegulerController extends Controller {
      */
     public function getListTravel(ValidationSearchTravelRegular $req) : JsonResponse {
         
-        $tour = Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'slug', 'collection_photos_id')
+        $tour = Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'slug', 'using_price', 'price_string', 'collection_photos_id')
                 ->with('photos:id,path')
                 ->orderBy('created_at')
                 ->limit($req->limit)
@@ -79,7 +79,7 @@ class TravelRegulerController extends Controller {
      */
     public function searchGuest(ValidationSearchTravelRegular $req)  {
 
-        $query = Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'slug', 'collection_photos_id')
+        $query = Travel::select('name', 'price', 'lokasi', 'category', 'trip', 'slug', 'using_price', 'price_string', 'collection_photos_id')
                  ->with('photos:id,path')
                  ->orderBy('created_at');
 

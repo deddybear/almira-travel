@@ -29,26 +29,26 @@ class HomeController extends Controller {
                     ->where('carousel_images.jenis', '=', 'home')
                     ->first();
 
-        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'collection_photos_id')
+        $mobil = Mobil::select('detail', 'name', 'price', 'tipe_mobil', 'kursi', 'cc', 'slug', 'using_price', 'price_string', 'collection_photos_id')
                 ->with('photos:id,path')
                 ->limit(8)
                 ->inRandomOrder()
                 ->get();
 
-        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+        $tour = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'using_price', 'price_string', 'collection_photos_id')
                 ->with('photos:id,path')
                 ->limit(8)
                 ->inRandomOrder()
                 ->get();
 
-        $tourPrivate = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'collection_photos_id')
+        $tourPrivate = Tour::select('detail', 'name', 'price', 'slug', 'lokasi', 'category', 'using_price', 'price_string', 'collection_photos_id')
                         ->with('photos:id,path')
                         ->where('type_tour', '=', 'private')
                         ->limit(4)
                         ->inRandomOrder()
                         ->get();
 
-        $travelReguler = Travel::select('collection_photos_id', 'name', 'category', 'lokasi', 'price', 'slug')
+        $travelReguler = Travel::select('collection_photos_id', 'name', 'category', 'lokasi', 'price', 'using_price', 'price_string', 'slug')
                             ->with('photos:id,path')
                             ->limit(4)
                             ->inRandomOrder()

@@ -93,7 +93,11 @@
                                         </div>
                                         <div class="row mt-2 gap-4">
                                             <div class="col-6 price pe-0 my-auto bg-blue-sea">
-                                                Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                                @if ($item->using_price == true)
+                                                    Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                                @else
+                                                    <b style="font-weight: 600">{{ $item->price_string }}</b>
+                                                @endif
                                             </div>
                                             <div class="col-4 justify-content-end btn-grad-custome my-auto">Book Now</div>
                                         </div>
@@ -157,11 +161,15 @@
                                         {{ str_limit(strip_tags($item->name), 25) }}
                                     </div>
                                     <div class="rounded-2">
-                                        Location : {{ $item->Location }}<sup><i class="fa-solid fa-location-dot"></i></sup>
+                                        Location : {{ $item->lokasi }}<sup><i class="fa-solid fa-location-dot"></i></sup>
                                     </div>
                                     <div class="row mt-2 gap-4">
                                         <div class="col-6 price pe-0 my-auto bg-blue-sea">
-                                            Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                            @if ($item->using_price == true)
+                                                Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                            @else
+                                                <b style="font-weight: 600">{{ $item->price_string }}</b>
+                                            @endif
                                         </div>
                                         <div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>
                                     </div>
@@ -225,11 +233,15 @@
                                         {{ str_limit(strip_tags($item->name), 25) }}
                                     </div>
                                     <div class="rounded-2">
-                                        Location : {{ $item->Location }}<sup><i class="fa-solid fa-location-dot"></i></sup>
+                                        Location : {{ $item->lokasi }}<sup><i class="fa-solid fa-location-dot"></i></sup>
                                     </div>
                                     <div class="row mt-2 gap-4">
                                         <div class="col-6 price pe-0 my-auto bg-blue-sea">
-                                            Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                            @if ($item->using_price == true)
+                                                Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                            @else
+                                                <b style="font-weight: 600">{{ $item->price_string }}</b>
+                                            @endif
                                         </div>
                                         <div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>
                                     </div>
@@ -294,7 +306,11 @@
                                         </div>
                                         <div class="row mt-2 gap-4">
                                             <div class="col-6 price pe-0 my-auto bg-blue-sea">
-                                                Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                                @if ($item->using_price == true)
+                                                    Rp. <b style="font-weight: 600">{{ number_format($item->price, 0 ,',', '.') }}</b>/Day
+                                                @else
+                                                    <b style="font-weight: 600">{{ $item->price_string }}</b>
+                                                @endif
                                             </div>
                                             <div class="col-4 btn-grad-custome my-auto" style="margin: 3px !important">Book Now</div>
                                         </div>
