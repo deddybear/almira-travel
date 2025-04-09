@@ -155,6 +155,46 @@ $(document).ready(function() {
         $("#form")[0].reset();
         id = $(this).attr('data');
 
+        $.ajax({
+            url: `/caraousel/get-data/${id}`,
+            method: "GET",
+            dataType: "JSON",
+            processData: false,
+            contentType: false,
+            beforeSend : function () {
+                $('#loader-wrapper').show();
+            },
+            complete: function() {
+                $('#loader-wrapper').hide();
+            },
+            success: function (data) {
+
+                console.log(data);
+                
+               for (const key in data) {
+
+                $(`[name="${key}"]`).val(data[key])
+
+               }
+               
+               
+            },
+            error: function (res) {
+
+                let text = ''; 
+
+                for (const key in res.responseJSON.errors) {
+                    text += message(res.responseJSON.errors[key]); 
+                }
+
+                Swal.fire(
+                    'Whoops ada Kesalahan',
+                    `Error : <br> ${text}`,
+                    'error'
+                )
+            },
+        })
+
         domModal('Edit Gambar Caraousel', 'Simpan & Edit Post', 'Batalkan');
         $('#modal_form').modal('show')
     });

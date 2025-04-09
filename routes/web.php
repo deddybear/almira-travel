@@ -86,7 +86,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/', [DashboardController::class, 'pageView']);
             Route::get('/tour', [PaketTourController::class, 'pageView']);
             
-                Route::get('/tour-private', [PrivateTourController::class, 'pageView']);
+            Route::get('/tour-private', [PrivateTourController::class, 'pageView']);
             
             Route::get('/gallery', [GalleryPhotosController::class, 'pageView']);
             Route::get('/car', [SewaMobilController::class, 'pageView']);
@@ -150,6 +150,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/list', [CarouselListController::class, 'listData']);
         Route::get('/search', [CarouselListController::class, 'search']);
         Route::post('/create', [CarouselListController::class, 'create']);
+        Route::get('/get-data/{id}', [CarouselListController::class,'getData']);
         Route::patch('/update/{id}', [CarouselListController::class, 'update']);
         Route::delete('/delete/{id}', [CarouselListController::class, 'delete']);
     });

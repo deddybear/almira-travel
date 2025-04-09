@@ -60,6 +60,10 @@ class CarouselListController extends Controller {
 
         return $results;
     }
+    
+    public function getData($id) {
+        return Caraousel::select('id', 'jenis', 'judul_banner', 'desc_banner')->where("id", $id)->first();
+    }
 
     public function create(Request $req) {
         date_default_timezone_set('Asia/Jakarta');
