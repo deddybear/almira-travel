@@ -22,17 +22,17 @@
     <div class="welcome-desc px-2 mb-5 d-flex justify-content-center">
         <p class="text-center">Welcome to Almira Travel,
             <span class="font-200 opacity-50">
-                your trusted patner in exploring Indonesia’s breathaking landscapes and rich cultural
-                heritage. Whetever you’re seeking relaxtion on pristine beaches or thrilling adventures in the mountains, we
-                offer a wide variety of tour packages to suit your prefences.
+                Selamat datang di Almira Travel, mitra terpercaya Anda dalam menjelajahi Indonesia yang menakjubkan dan warisan budaya yang kaya.
+                Baik Anda mencari relaksasi di pantai yang masih alami atau petualangan yang mendebarkan di pegunungan,
+                kami menawarkan berbagai macam paket wisata yang sesuai dengan preferensi Anda.
             </span>
         </p>
     </div>
     <div class="service-desc px-2 mt-3 text-center">
         <p class="font-800 m-0">
-            What Services we provide to our customers.
+            Layanan apa yang kami berikan kepada pelanggan kami.
         </p>
-        <p class="opacity-50">Find trips that fit a flexible lifestyle.</p>
+        <p class="opacity-50">Temukan perjalanan yang sesuai dengan gaya hidup yang fleksibel.</p>
     </div>
     <div class="service-img container py-3 mt-5">
         <div class="row gap-5">
@@ -58,7 +58,7 @@
             <div class="title-car-section">
                 <h1>Ready exclusive vehicle</h1>
             </div>
-            <p>Our service rent car ready to you !</p>
+            <p>Layanan sewa mobil kami siap untuk Anda!</p>
             <div class="float-end border rounded-pill button-see-all px-1">
                 <span class="m-2 fw-bold">
                     <a class="text-black text-decoration-none" href="{{ route('sewa_mobil') }}">
@@ -130,7 +130,7 @@
             <div class="title-car-section">
                 <h1>Discover your destination</h1>
             </div>
-            <p>Our Service tour package, make your journey unforgettable !</p>
+            <p>Paket wisata Layanan kami, membuat perjalanan Anda tak terlupakan!</p>
             <div class="float-end border rounded-pill button-see-all px-1">
                 <span class="m-2 fw-bold">
                     <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
@@ -202,7 +202,7 @@
                 <div class="title-car-section">
                     <h1>Ready tour private</h1>
                 </div>
-                <p>Our Service private tour, make your journey unforgettable !</p>
+                <p>Layanan tur pribadi kami, buat perjalanan Anda tak terlupakan!</p>
                 <div class="float-end border rounded-pill button-see-all px-1">
                     <span class="m-2 fw-bold">
                         <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
@@ -271,7 +271,7 @@
                 <div class="title-car-section">
                     <h1>Ready package travel</h1>
                 </div>
-                <p>Our Travel Service, make your journey unforgettable !</p>
+                <p>Layanan Perjalanan kami, membuat perjalanan Anda tak terlupakan!</p>
                 <div class="float-end border rounded-pill button-see-all px-1">
                     <span class="m-2 fw-bold">
                         <a class="text-black text-decoration-none" href="{{ route('paket_tour') }}">
