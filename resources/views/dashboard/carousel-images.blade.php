@@ -86,7 +86,7 @@
                             <label for="photo_1" class="col-12">File input</label>                
                                 <div class="input-group col-10">
                                     <div class="custom-file">
-                                        <input required type="file" class="custom-file-input form-control" id="photo_1" name="photo" onchange="changeNameFile(1)">
+                                        <input type="file" class="custom-file-input form-control" id="photo_1" name="photo" onchange="changeNameFile(1)">
                                         <label class="custom-file-label" id="labelFile_1" for="photo_1">Choose file</label>
                                     </div>
                                  </div>

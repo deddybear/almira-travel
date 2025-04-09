@@ -145,6 +145,7 @@ $(document).ready(function() {
     //DOM Modal add data func
     $('#add').click(function() {
         $("#form")[0].reset();
+        $('#photo_1').attr('required', true)
         domModal('Menambahkan Gambar Caraousel', 'Simpan & Tambah Post', 'Batalkan')
         method = "POST";
     });
@@ -153,6 +154,8 @@ $(document).ready(function() {
     $('tbody').on('click', '.edit', function() {
         method = "PATCH";
         $("#form")[0].reset();
+        
+        $('#photo_1').attr('required', false)
         id = $(this).attr('data');
 
         $.ajax({
